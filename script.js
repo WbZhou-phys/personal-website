@@ -73,10 +73,6 @@ const translations = {
     "education.visitPlace": "Universitat de València · Department of Theoretical Physics",
     "education.visitBody":
       "Short-term international visit focused on metric-affine gravity and current problems in modified gravity.",
-    "education.researchTitle": "Academic survey",
-    "education.researchPlace": "SPS Physics Society · Sun Yat-sen University",
-    "education.researchBody":
-      "Completed an academic survey of the Altland–Zirnbauer tenfold classification of symmetry-protected topological phases, earning first prize in the university research competition.",
     "honors.eyebrow": "Recognition",
     "honors.title": "Milestones worth <em>pausing on.</em>",
     "honors.intro":
@@ -84,7 +80,8 @@ const translations = {
     "honors.scholarshipTitle": "First-Class Scholarship",
     "honors.scholarshipBody": "Sun Yat-sen University",
     "honors.researchTitle": "First Prize, SPS Academic Survey Competition",
-    "honors.researchBody": "Symmetry-protected topological phases and the tenfold classification",
+    "honors.researchBody":
+      "Academic survey of the Altland–Zirnbauer tenfold classification of symmetry-protected topological phases",
     "honors.modelingTitle": "Merit Award, Mathematical Modeling",
     "honors.modelingBody": "Guangdong Provincial Undergraduate Competition",
     "honors.olympiadTitle": "First Prize, 39th Chinese Physics Olympiad",
@@ -196,17 +193,13 @@ const translations = {
     "education.visitTitle": "短期访问研究者",
     "education.visitPlace": "瓦伦西亚大学 · 理论物理系",
     "education.visitBody": "围绕 Metric-affine 引力和修正引力中的前沿问题开展短期国际学术访问。",
-    "education.researchTitle": "学术调研",
-    "education.researchPlace": "SPS 物理学社 · 中山大学物理学院",
-    "education.researchBody":
-      "围绕对称保护拓扑相的 Altland–Zirnbauer 十重分类开展学术调研，并获校级学术调研一等奖。",
     "honors.eyebrow": "阶段成果",
     "honors.title": "一些值得<em>停下来回望</em>的里程碑。",
     "honors.intro": "这些荣誉记录着持续的好奇心、自主学习，以及攻克难题带来的乐趣。",
     "honors.scholarshipTitle": "中山大学一等奖学金",
     "honors.scholarshipBody": "中山大学 · 2025",
     "honors.researchTitle": "SPS 学术调研校级一等奖",
-    "honors.researchBody": "对称保护拓扑相与十重分类",
+    "honors.researchBody": "围绕对称保护拓扑相的 Altland–Zirnbauer 十重分类开展学术调研",
     "honors.modelingTitle": "数学建模竞赛优秀奖",
     "honors.modelingBody": "广东省大学生数学建模竞赛",
     "honors.olympiadTitle": "第39届全国中学生物理竞赛复赛一等奖",

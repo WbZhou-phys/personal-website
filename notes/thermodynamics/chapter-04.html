@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="site-version" content="__BUILD_VERSION__">
+  <meta name="description" content="汪志诚《热力学·统计物理》第六版第4章学习笔记：第四章 多元系的复相平衡和化学平衡 热力学第三定律">
+  <title>第四章 多元系的复相平衡和化学平衡 热力学第三定律 | 热力学与统计物理笔记</title>
+  <link rel="stylesheet" href="../../styles.css?v=__BUILD_VERSION__">
+  <link rel="stylesheet" href="../notes.css?v=__BUILD_VERSION__">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="notes-page">
+  <a class="skip-link" href="#note-main">跳到正文</a>
+  <header class="notes-header">
+    <div class="notes-header-inner">
+      <a class="notes-brand" href="../../index.html#notes"><span>WZ</span><strong>Wenbin Zhou</strong></a>
+      <nav aria-label="笔记导航">
+        <a href="index.html">课程目录</a>
+        <a href="../../index.html#notes">返回网站</a>
+      </nav>
+    </div>
+  </header>
+  <main class="notes-shell" id="note-main">
+    <a class="notes-back" href="index.html">← 热力学与统计物理笔记</a>
+    <p class="notes-kicker">Thermodynamics &amp; Statistical Physics · Chapter 04</p>
+    <article class="note-content">
+<h1 id="_1">第四章　多元系的复相平衡和化学平衡　热力学第三定律</h1>
+<blockquote>
+<p><strong>教材</strong>：汪志诚《热力学·统计物理》（第六版）
+<strong>范围</strong>：§4.1–§4.8（教材 pp. 90–109；其中 §4.4 为带星号的补充材料）</p>
+</blockquote>
+<h2 id="_2">本章地图</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>节</th>
+<th>标题</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§4.1</td>
+<td>多元系的热力学函数和热力学方程</td>
+<td>广延量的一次齐次性 → 偏摩尔量与化学势；$\mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_i\mu_i\mathrm{d}n_i$</td>
+</tr>
+<tr>
+<td>§4.2</td>
+<td>多元系的复相平衡条件</td>
+<td>每个组元的化学势在共存各相中分别相等；半透膜与膜平衡</td>
+</tr>
+<tr>
+<td>§4.3</td>
+<td>吉布斯相律</td>
+<td>$f=k+2-\varphi$</td>
+</tr>
+<tr>
+<td>*§4.4</td>
+<td>二元系相图举例（补充材料）</td>
+<td>无限固溶体、共晶相图与杠杆定则；$^3$He-$^4$He 相图</td>
+</tr>
+<tr>
+<td>§4.5</td>
+<td>化学平衡条件</td>
+<td>$\sum_i\nu_i\mu_i=0$；反应度 $\varepsilon$</td>
+</tr>
+<tr>
+<td>§4.6</td>
+<td>混合理想气体的性质</td>
+<td>道尔顿定律；$\mu_i=RT(\varphi_i+\ln x_ip)$；混合熵与吉布斯佯谬</td>
+</tr>
+<tr>
+<td>§4.7</td>
+<td>理想气体的化学平衡</td>
+<td>质量作用律 $\prod_i p_i^{\nu_i}=K_p(T)$；分解度与萨哈公式</td>
+</tr>
+<tr>
+<td>§4.8</td>
+<td>热力学第三定律</td>
+<td>$\lim_{T\to0}(\Delta S)_T=0$；$C\to0$、$\alpha\to0$；绝对熵</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>主线</strong>：§4.1 把基本方程推广到组分可变 → §4.2–§4.3 得到复相平衡条件与相律 → *§4.4 把相律用到二元相图 → §4.5 把"相变"换成"化学反应"得到化学平衡条件 → §4.6–§4.7 用理想气体模型把化学平衡算出来 → §4.8 讨论低温极限下的第三定律。</p>
+<hr />
+<h2 id="41">§4.1　多元系的热力学函数和热力学方程</h2>
+<h3 id="411">4.1.1 多元系与状态参量</h3>
+<p><strong>多元系</strong>是含有两种或两种以上化学组分的系统。例如，含有氧气、一氧化碳和二氧化碳的混合气体是一个三元系；盐的水溶液，金和银的合金都是二元系。多元系可以是均匀系，也可以是复相系：含有氧气、一氧化碳和二氧化碳的混合气体是均匀系，盐的水溶液和水蒸气共存是二元二相系。在多元系中既可以发生相变，也可以发生化学变化。本章讨论多元系的复相平衡和化学平衡问题。</p>
+<p>先考虑均匀系，即整个系统是单相的或者是复相系中的一个相。设均匀系含有 $k$ 个组元。由于可能发生相变或化学变化，均匀系中各组分物质的量可能发生变化，需要引进各组分物质的量作为描述平衡态的状态参量，即引进<strong>化学参量</strong>。以后会看到，整个系统处在平衡态时，必须满足相变平衡条件或化学平衡条件，因此这 $k$ 个化学参量并不是可以随意改变的。但在以后的讨论中，<strong>把全部组元的物质的量 $n_1,\cdots,n_k$ 作为独立参量来处理，而把相变平衡条件和化学平衡条件作为外加约束条件引入</strong>。</p>
+<p>选 $T$、$p$、$n_1,\cdots,n_k$ 为状态参量，系统的三个基本热力学函数体积、内能和熵分别为</p>
+<p>$$\begin{cases} V = V(T,p,n_1,\cdots,n_k) \\ U = U(T,p,n_1,\cdots,n_k) \\ S = S(T,p,n_1,\cdots,n_k) \end{cases} \tag{4.1.1}$$</p>
+<h3 id="412">4.1.2 广延量的一次齐次性与欧拉定理</h3>
+<p>体积、内能和熵都是<strong>广延量</strong>。如果保持系统的温度和压强不变而令系统中各组元的物质的量都增为 $\lambda$ 倍，系统的体积、内能和熵也将增为 $\lambda$ 倍：</p>
+<p>$$\begin{cases} V(T,p,\lambda n_1,\cdots,\lambda n_k) = \lambda V(T,p,n_1,\cdots,n_k) \\ U(T,p,\lambda n_1,\cdots,\lambda n_k) = \lambda U(T,p,n_1,\cdots,n_k) \\ S(T,p,\lambda n_1,\cdots,\lambda n_k) = \lambda S(T,p,n_1,\cdots,n_k) \end{cases} \tag{4.1.2}$$</p>
+<p>这就是说，<strong>体积、内能和熵都是各组元物质的量的一次齐函数</strong>。</p>
+<p>根据齐函数的<strong>欧拉（Euler）定理</strong>，可以讨论广延量的一般性质。如果函数 $f(x_1,\cdots,x_k)$ 满足</p>
+<p>$$f(\lambda x_1,\cdots,\lambda x_k) = \lambda^m f(x_1,\cdots,x_k) \tag{4.1.3}$$</p>
+<p>则称这个函数为 $x_1,\cdots,x_k$ 的 <strong>$m$ 次齐函数</strong>。将式 (4.1.3) 对 $\lambda$ 求导后再令 $\lambda=1$，可得</p>
+<p>$$\sum_i x_i\frac{\partial f}{\partial x_i} = mf \tag{4.1.4}$$</p>
+<p>式 (4.1.4) 就是<strong>欧拉定理</strong>。</p>
+<h3 id="413">4.1.3 偏摩尔量与化学势</h3>
+<p>既然体积、内能和熵都是各组元物质的量的一次齐函数，由欧拉定理可知：</p>
+<p>$$\begin{cases} V = \displaystyle\sum_i n_i\left(\frac{\partial V}{\partial n_i}\right)_{T,p,n_j} \\[2mm] U = \displaystyle\sum_i n_i\left(\frac{\partial U}{\partial n_i}\right)_{T,p,n_j} \\[2mm] S = \displaystyle\sum_i n_i\left(\frac{\partial S}{\partial n_i}\right)_{T,p,n_j} \end{cases} \tag{4.1.5}$$</p>
+<p>式中偏导数的下标 $n_j$ 指除 $i$ 组元外的其他全部组元。定义</p>
+<p>$$v_i = \left(\frac{\partial V}{\partial n_i}\right)_{T,p,n_j}, \qquad u_i = \left(\frac{\partial U}{\partial n_i}\right)_{T,p,n_j}, \qquad s_i = \left(\frac{\partial S}{\partial n_i}\right)_{T,p,n_j} \tag{4.1.6}$$</p>
+<p>$v_i$、$u_i$、$s_i$ 分别称为 $i$ 组元的<strong>偏摩尔体积</strong>、<strong>偏摩尔内能</strong>和<strong>偏摩尔熵</strong>。它们的物理意义是：<strong>在保持温度、压强和其他组元物质的量不变的条件下，增加 1 mol 的 $i$ 组元物质时，系统体积（内能、熵）的增量。</strong> 利用式 (4.1.6) 可以将式 (4.1.5) 表示为</p>
+<p>$$\begin{cases} V = \displaystyle\sum_i n_iv_i \\ U = \displaystyle\sum_i n_iu_i \\ S = \displaystyle\sum_i n_is_i \end{cases} \tag{4.1.7}$$</p>
+<p>显然，<strong>任何广延量都是各组元物质的量的一次齐函数</strong>。例如，对于吉布斯函数 $G$，与式 (4.1.6) 和式 (4.1.7) 两式相当的方程是</p>
+<p>$$G = \sum_i n_i\left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_j} = \sum_i n_i\mu_i \tag{4.1.8}$$</p>
+<p>其中 $\mu_i$ 是 $i$ 组元的偏摩尔吉布斯函数：</p>
+<p>$$\mu_i = \left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_j} \tag{4.1.9}$$</p>
+<p>$\mu_i$ 也称为 $i$ 组元的<strong>化学势</strong>。<strong>它是在保持温度、压强和其他组元物质的量不变的条件下，当增加 1 mol 的 $i$ 组元物质时系统吉布斯函数的增量。</strong> $\mu_i$ 是<strong>强度量</strong>（习题 4.2），与温度、压强及各组元的相对比例有关。</p>
+<p>一个系统的热力学函数与状态参量 $T,p,n_1,\cdots,n_k$ 的具体函数关系需要利用有关的实验数据来确定。本章不准备作一般性的讨论，仅在 §4.6 中讨论混合理想气体的热力学函数。不过在后面会看到，<strong>即使不知道系统热力学函数的具体表达式，只要知道存在这些函数，就可以得到许多有用的结论</strong>。</p>
+<h3 id="414">4.1.4 多元系的热力学基本方程</h3>
+<p>现在讨论多元系的热力学基本方程。由于各组元的物质的量可以改变，必须将热力学基本方程式 (1.14.6) 和式 (3.2.7) 加以推广。</p>
+<p>先考虑吉布斯函数。求吉布斯函数 $G=G(T,p,n_1,\cdots,n_k)$ 的全微分，得</p>
+<p>$$\mathrm{d}G = \left(\frac{\partial G}{\partial T}\right)_{p,n_i}\mathrm{d}T + \left(\frac{\partial G}{\partial p}\right)_{T,n_i}\mathrm{d}p + \sum_i\left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_j}\mathrm{d}n_i$$</p>
+<p>式中偏导数的下标 $n_i$ 指全部 $k$ 个组元，$n_j$ 指除 $i$ 组元外的其他全部组元。在所有组元的物质的量都不发生变化的条件下，已知</p>
+<p>$$\left(\frac{\partial G}{\partial T}\right)_{p,n_i} = -S, \qquad \left(\frac{\partial G}{\partial p}\right)_{T,n_i} = V \tag{4.1.10}$$</p>
+<p>所以吉布斯函数的全微分可写为</p>
+<p>$$\mathrm{d}G = -S\,\mathrm{d}T + V\,\mathrm{d}p + \sum_i\mu_i\,\mathrm{d}n_i \tag{4.1.11}$$</p>
+<p>由式 (4.1.11) 可知，<strong>吉布斯函数 $G$ 是以 $T$、$p$、$n_1,\cdots,n_k$ 为变量的特性函数</strong>。</p>
+<p>因为 $U=G+TS-pV$，求微分并将式 (4.1.11) 代入，可得</p>
+<p>$$\mathrm{d}U = T\,\mathrm{d}S - p\,\mathrm{d}V + \sum_i\mu_i\,\mathrm{d}n_i \tag{4.1.12}$$</p>
+<p><strong>式 (4.1.12) 是多元系的热力学基本方程。</strong> 类似地，可以求得 $F$ 和 $H$ 的全微分表达式。根据式 (4.1.12)，以及 $F$ 和 $H$ 的全微分表达式，可以知道，<strong>化学势 $\mu_i$ 也可表示为</strong></p>
+<p>$$\mu_i = \left(\frac{\partial U}{\partial n_i}\right)_{S,V,n_j} = \left(\frac{\partial H}{\partial n_i}\right)_{S,p,n_j} = \left(\frac{\partial F}{\partial n_i}\right)_{T,V,n_j} \tag{4.1.13}$$</p>
+<h3 id="415">4.1.5 吉布斯关系</h3>
+<p>对式 (4.1.8) 求微分，有</p>
+<p>$$\mathrm{d}G = \sum_i n_i\,\mathrm{d}\mu_i + \sum_i\mu_i\,\mathrm{d}n_i$$</p>
+<p>将上式与式 (4.1.11) 比较，得</p>
+<p>$$S\,\mathrm{d}T - V\,\mathrm{d}p + \sum_i n_i\,\mathrm{d}\mu_i = 0 \tag{4.1.14}$$</p>
+<p>式 (4.1.14) 称为<strong>吉布斯关系</strong>。<strong>它指出，在 $k+2$ 个强度量变量 $T$、$p$、$\mu_i\ (i=1,2,\cdots,k)$ 中，只有 $k+1$ 个是独立的。</strong></p>
+<h3 id="416">4.1.6 多元复相系的热力学函数</h3>
+<p>对于多元复相系，每一个相各有其热力学函数和热力学基本方程。例如，$\alpha$ 相的基本方程为</p>
+<p>$$\mathrm{d}U^\alpha = T^\alpha\,\mathrm{d}S^\alpha - p^\alpha\,\mathrm{d}V^\alpha + \sum_i\mu_i^\alpha\,\mathrm{d}n_i^\alpha \tag{4.1.15}$$</p>
+<p>其中 $T^\alpha$、$p^\alpha$、$U^\alpha$、$S^\alpha$、$V^\alpha$ 和 $n_i^\alpha$、$\mu_i^\alpha$ 分别是 $\alpha$ 相的温度、压强、内能、熵、体积和 $\alpha$ 相中 $i$ 组元的物质的量和化学势。$\alpha$ 相的焓 $H^\alpha=U^\alpha+p^\alpha V^\alpha$，自由能 $F^\alpha=U^\alpha-T^\alpha S^\alpha$，吉布斯函数 $G^\alpha=U^\alpha-T^\alpha S^\alpha+p^\alpha V^\alpha$。根据体积、内能、熵和物质的量的广延性质，整个复相系的体积、内能、熵和 $i$ 组元的物质的量为</p>
+<p>$$\begin{cases} V = \displaystyle\sum_\alpha V^\alpha \\ U = \displaystyle\sum_\alpha U^\alpha \\ S = \displaystyle\sum_\alpha S^\alpha \\ n_i = \displaystyle\sum_\alpha n_i^\alpha \end{cases} \tag{4.1.16}$$</p>
+<p><strong>在一般情形下，整个复相系不存在总的焓、自由能和吉布斯函数。</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>总的函数</th>
+<th>存在的条件</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>焓 $H$</td>
+<td>各相的压强相同</td>
+<td>$H=\sum_\alpha H^\alpha$</td>
+</tr>
+<tr>
+<td>自由能 $F$</td>
+<td>各相的温度相同</td>
+<td>$F=\sum_\alpha F^\alpha$</td>
+</tr>
+<tr>
+<td>吉布斯函数 $G$</td>
+<td>各相的温度和压强都相同</td>
+<td>$G=\sum_\alpha G^\alpha$</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="42">§4.2　多元系的复相平衡条件</h2>
+<h3 id="421">4.2.1 相变平衡条件</h3>
+<p>本节应用吉布斯函数判据讨论多元系的相变平衡条件。设两相 $\alpha$ 和 $\beta$ 都含有 $k$ 个组元，这些组元之间不发生化学反应，并设热平衡条件和力学平衡条件已经满足，即两相具有相同的温度和压强，且温度和压强保持不变。</p>
+<p>设想系统发生一个虚变动，在这个虚变动中两相各组元的物质的量发生改变。以 $\delta n_i^\alpha$ 和 $\delta n_i^\beta\ (i=1,\cdots,k)$ 分别表示在 $\alpha$ 相和 $\beta$ 相中 $i$ 组元物质的量的改变，<strong>在不发生化学反应的情形下</strong>应有</p>
+<p>$$\delta n_i^\alpha + \delta n_i^\beta = 0 \qquad (i=1,2,\cdots,k) \tag{4.2.1}$$</p>
+<p>根据式 (4.1.11)，温度和压强保持不变时两相的吉布斯函数在虚变动中的变化分别为</p>
+<p>$$\begin{cases} \delta G^\alpha = \displaystyle\sum_i\mu_i^\alpha\,\delta n_i^\alpha \\[2mm] \delta G^\beta = \displaystyle\sum_i\mu_i^\beta\,\delta n_i^\beta \end{cases} \tag{4.2.2}$$</p>
+<p>总吉布斯函数的变化为</p>
+<p>$$\delta G = \delta G^\alpha + \delta G^\beta$$</p>
+<p>将式 (4.2.2) 代入上式，并考虑到式 (4.2.1)，得</p>
+<p>$$\delta G = \sum_i\left(\mu_i^\alpha - \mu_i^\beta\right)\delta n_i^\alpha \tag{4.2.3}$$</p>
+<p>平衡态的吉布斯函数最小，必有 $\delta G=0$。由于在虚变动中各 $\delta n_i^\alpha$ 的改变是任意的，故有</p>
+<p>$$\mu_i^\alpha = \mu_i^\beta \qquad (i=1,2,\cdots,k) \tag{4.2.4}$$</p>
+<p>式 (4.2.4) 就是<strong>多元系的相变平衡条件</strong>。它指出，<strong>整个系统达到平衡时，两相中各组元的化学势必须分别相等。</strong></p>
+<p>如果平衡条件 (4.2.4) 不满足，系统将发生相变。相变朝着使 $\left(\mu_i^\alpha-\mu_i^\beta\right)\delta n_i^\alpha<0$ 的方向进行。例如，如果 $\mu_i^\alpha>\mu_i^\beta$，变化将朝着 $\delta n_i^\alpha<0$ 的方向进行。这就是说，<strong>$i$ 组元物质将由该组元化学势高的相转变到化学势低的相。</strong></p>
+<h3 id="422">4.2.2 半透膜与膜平衡</h3>
+<p>自然界有些物质可造成<strong>半透膜</strong>，例如铂可让氢通过而不让氮通过，生物细胞的膜可让水分子通过而不让糖分子通过，等等。当两相用固定的半透膜隔开，半透膜只让 $i$ 组元通过而不让任何其他组元通过时，不难知道，达到平衡时两相的温度必须相等，$i$ 组元在两相中的化学势必须相等：</p>
+<p>$$\mu_i^\alpha = \mu_i^\beta \tag{4.2.5}$$</p>
+<p>由于半透膜可以承受两边的压强差，<strong>平衡时两相的压强不必相等</strong>。其他组元既然不能通过半透膜，平衡时它们在两相的化学势也不必相等。<strong>这种平衡称为膜平衡。</strong></p>
+<hr />
+<h2 id="43">§4.3　吉布斯相律</h2>
+<h3 id="431">4.3.1 强度量参量与摩尔分数</h3>
+<p>在讨论单元系的复相平衡时，曾得到以下结论：平衡状态下单相系的温度和压强在一定的范围内可以独立改变；两相系要达到平衡，压强和温度必须满足一定的关系，只有一个参量可以独立改变；三相系则只能在确定的温度和压强下平衡共存。现在根据多元系的复相平衡条件讨论多元复相系达到平衡时的独立参量数。</p>
+<p>设多元复相系有 $\varphi$ 个相，每相有 $k$ 个组元，它们之间不起化学反应。可以用温度 $T^\alpha$、压强 $p^\alpha$ 和各组元的物质的量 $n_1^\alpha,\cdots,n_k^\alpha$ 为状态参量来描述 $\alpha$ 相的平衡状态。不过由热平衡条件、力学平衡条件和相变平衡条件 (4.2.4) 可以知道，<strong>系统是否达到热动平衡是由强度量决定的</strong>。如果把一相或数相的总质量加以改变而不改变其温度、压强或每一相中各组元的相对比例，系统的平衡是不会受到破坏的。因此，为了确定 $\alpha$ 相的强度量性质，除温度 $T$ 和压强 $p$ 外，应该用描述各组元相对比例的强度量变量 $x_i^\alpha$ 代替广延量变量 $n_i^\alpha$ 作为状态参量。$x_i^\alpha$ 的定义是</p>
+<p>$$x_i^\alpha = \frac{n_i^\alpha}{n^\alpha} \tag{4.3.1}$$</p>
+<p>式中 $n^\alpha=\sum_{i=1}^{k}n_i^\alpha$ 是 $\alpha$ 相中总的物质的量。$x_i^\alpha$ 称为 $\alpha$ 相中 $i$ 组元的<strong>摩尔分数</strong>，满足以下关系：</p>
+<p>$$\sum_{i=1}^{k}x_i^\alpha = 1 \tag{4.3.2}$$</p>
+<p>由式 (4.3.2) 可知，<strong>$k$ 个 $x_i^\alpha$ 中只有 $k-1$ 个是独立的，加上温度 $T$ 和压强 $p$，描述 $\alpha$ 相共需 $k+1$ 个强度量变量。</strong> 这一点跟吉布斯关系式 (4.1.14) 是一致的。当然，如果要确定 $\alpha$ 相的广延量的数值，仅确定 $k+1$ 个强度量变量是不够的，还要增加一个变量，例如该相的总物质的量 $n^\alpha$，共 $k+2$ 个变量。</p>
+<h3 id="432">4.3.2 相律的推导</h3>
+<p>假定每一相都有 $k$ 个组元，即每一相都有 $k+1$ 个强度量变量。整个系统有 $\varphi$ 个相，共有 $(k+1)\varphi$ 个强度量变量。这些变量必须满足热平衡条件、力学平衡条件和相变平衡条件。</p>
+<p>热平衡条件是各相的温度相等：</p>
+<p>$$T^1 = T^2 = \cdots = T^\varphi \tag{4.3.3}$$</p>
+<p>力学平衡条件是各相的压强相等：</p>
+<p>$$p^1 = p^2 = \cdots = p^\varphi \tag{4.3.4}$$</p>
+<p>相变平衡条件是每一组元在各相的化学势都相等：</p>
+<p>$$\mu_i^1 = \mu_i^2 = \cdots = \mu_i^\varphi \qquad (i=1,2,\cdots,k) \tag{4.3.5}$$</p>
+<p>这三个平衡条件共有 $(k+2)(\varphi-1)$ 个方程。设总数为 $(k+1)\varphi$ 个的强度量变量中可以独立改变的只有 $f$ 个，则</p>
+<p>$$f = (k+1)\varphi - (k+2)(\varphi-1)$$</p>
+<p>即</p>
+<p>$$f = k + 2 - \varphi \tag{4.3.6}$$</p>
+<p>式 (4.3.6) 称为<strong>吉布斯相律</strong>。<strong>$f$ 称为多元复相系的自由度，是多元复相系可以独立改变的强度量变量的数目。</strong></p>
+<p>在以上的证明中，假设每一个相都有 $k$ 个组元。如果某一相的组元少了一个，系统的强度量变量将减少一个，但相变平衡条件式 (4.3.5) 也必然减少一个，总的自由度仍然是式 (4.3.6) 所给出的 $f$。不过这时 $k$ 的意义改变了，<strong>它不是每一个相的组元数而是复相系中总的组元数</strong>。</p>
+<h3 id="433">4.3.3 二元系的应用：盐的水溶液</h3>
+<p>现在以盐的水溶液为例讨论二元系的自由度。对于二元系，$k=2$，所以</p>
+<p>$$f = 4 - \varphi \tag{4.3.7}$$</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>相数 $\varphi$</th>
+<th>共存的相</th>
+<th>自由度 $f$</th>
+<th>独立参量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>溶液</td>
+<td>3</td>
+<td>$T$、$p$、浓度 $x$</td>
+<td>三者在一定范围内可独立改变</td>
+</tr>
+<tr>
+<td>2</td>
+<td>溶液 + 水蒸气</td>
+<td>2</td>
+<td>$T$、$x$</td>
+<td>饱和蒸气压随 $T$ 和 $x$ 而变</td>
+</tr>
+<tr>
+<td>3</td>
+<td>溶液 + 水蒸气 + 冰</td>
+<td>1</td>
+<td>$x$</td>
+<td>冰点与饱和蒸气压都由 $x$ 决定</td>
+</tr>
+<tr>
+<td>4</td>
+<td>溶液 + 水蒸气 + 冰 + 盐</td>
+<td>0</td>
+<td>—</td>
+<td><strong>四相点</strong>：温度、压强、浓度全部确定</td>
+</tr>
+</tbody>
+</table></div>
+<p>具体地：</p>
+<ul>
+<li>$\varphi=1$ 时 $f=3$，溶液的温度 $T$、压强 $p$ 和盐的浓度 $x$ 在一定的范围内都可以独立地改变。</li>
+<li>当溶液与水蒸气平衡时 $\varphi=2$、$f=2$。水蒸气的饱和蒸气压随温度和溶液中盐的浓度而变，说明只有温度 $T$ 和浓度 $x$ 两个独立参量。</li>
+<li>具有某一浓度的溶液被冷却到一定的温度时，冰开始从溶液中结晶而析出，此时溶液、水蒸气和冰三相平衡共存，$\varphi=3$、$f=1$。溶液的冰点和水蒸气的饱和蒸气压都取决于盐的浓度 $x$；当冰从溶液中析出后，溶液中盐的浓度升高，溶液的冰点和饱和蒸气压也相应下降。因此三相平衡时只有浓度 $x$ 是独立参量。</li>
+<li>当溶液中盐的浓度升高到一定的数值时，溶液达到饱和，盐开始从溶液中结晶而析出，此时溶液、水蒸气、冰和盐四相共存，$\varphi=4$、$f=0$。在盐结晶析出的同时，冰也继续结晶而析出，溶液中盐的浓度始终为饱和浓度。<strong>因此四相平衡共存时具有确定的浓度、温度和饱和蒸气压，称为四相点。</strong></li>
+</ul>
+<hr />
+<h2 id="44">*§4.4　二元系相图举例　补充材料</h2>
+<blockquote>
+<p>带星号的补充材料。</p>
+</blockquote>
+<h3 id="441">4.4.1 二元系的描述</h3>
+<p>本节通过三个例子介绍二元系相图。从原则上说，如果知道各组元的化学势，根据式 (4.3.5) 就可以确定相图。由于缺乏化学势的全部知识，相图实际上是由实验直接测定的。<strong>相律为相图提供了理论基础，我们可以根据相律来理解相图。</strong></p>
+<p>二元系有两个组元，每一个相都需要三个强度量来描述它的状态。通常这三个量是温度 $T$、压强 $p$ 和一个组元（例如 B 组元）的摩尔分数或质量百分比，即</p>
+<p>$$x = x_2 = \frac{n_2}{n_1+n_2} \tag{4.4.1}$$</p>
+<p>或</p>
+<p>$$x = x_2 = \frac{m_2}{m_1+m_2}\times100\% \tag{4.4.2}$$</p>
+<p>另一组元（A 组元）的摩尔分数或质量百分比为 $x_1 = 1-x$。</p>
+<p>取 $T$、$p$、$x$ 为三维空间的直角坐标，可以画出二元系的相图。$T$ 和 $p$ 的数值恒大于零，$x$ 的数值则在 0 与 1 之间。因为在平面上不易画出三维空间的图形，通常在固定的压强下以 $T$（或者 $t$）和 $x$ 为变量，或者在固定的温度下以 $p$ 和 $x$ 为变量，在平面上画出二元系的相图。</p>
+<h3 id="442-">4.4.2 无限固溶体：金-银合金与杠杆定则</h3>
+<p>如果两种金属在固相可以任意的比例互相溶解，这种合金称为<strong>无限固溶体</strong>。银和金非常接近于无限固溶体。图 4.4.1 是在固定的压强下，以 $t$ 和 $x$ 为变量画出的金-银合金相图。</p>
+<p>考虑合金从液相凝固为固相的冷却过程。二元合金以液相单相存在时，由相律可知，它的自由度为 3，$p$、$T$、$x$ 在一定的范围内是独立的变量，所代表点处在图中以 $\alpha$ 表示的液相区。设合金的初态由 $P$ 点代表，冷却时所代表点沿着直线下降，到达 $Q$ 点时合金开始凝固。温度由 $Q$ 经 $O$ 降到 $R$，液固两相共存，到 $R$ 点后完全变为固相。液固的两相共存区在图中以 $\alpha+\beta$ 表示。由此可知，与单元系在给定压强下具有确定的凝固点不同，这里凝固过程是在由 $Q$ 至 $R$ 的一个温度范围内完成的。该温度范围与合金的成分（$P$ 点的横坐标）有关。根据相律，二元系两相共存时自由度为 2，因此在给定的 $p$、$T$ 下，液相和固相的成分是确定的。例如，当温度由 $Q$ 点经 $O$ 降到 $R$ 点时，液相的成分沿液相线的 $Q$ 点经 $M$ 点到 $R'$ 点、固相的成分沿固相线由 $Q'$ 点经 $N$ 点到 $R$ 点连续地改变。值得注意的是，在一定温度下，共存的两相成分是不同的。在 $R$ 点以下的温度，合金处在单一的固相，自由度为 3，所代表点处在以 $\beta$ 表示的固相区。</p>
+<p>应当强调，上面所说由相图描述的过程是<strong>平衡相变</strong>过程，相图中每一点所代表的状态都是平衡状态。例如在 $Q$ 点合金开始凝固时，其成分由 $Q'$ 点给出；当温度降到 $O$ 点时，固相的成分由 $N$ 点给出。这里说的成分是整个固相的<strong>均匀成分</strong>。这意味着通过原子在固体中的扩散，在降温过程中固相各部分的成分能够不断得到调整，始终保持整个固相具有均匀的成分。当然，这是一种理想的极限情况，实际情况可以与此有很大差别。</p>
+<p>由相图不仅可以看出在给定的压强和温度下系统存在什么相和各相的成分，而且可以求出系统中各相的质量比。例如，当合金处在 $O$ 点所代表的状态时，合金中液固两相平衡共存。$O$ 点的横坐标 $x$ 给出整个合金中 B 组元的成分，液相中 B 组元的成分由 $M$ 点的横坐标 $x^\alpha$ 给出，固相中 B 组元的成分由 $N$ 点的横坐标 $x^\beta$ 给出。以 $m^\alpha$ 表示液相的质量、$m^\beta$ 表示固相的质量，可以证明：</p>
+<p>$$\frac{m^\alpha}{m^\beta} = \frac{|ON|}{|MO|} \tag{4.4.3}$$</p>
+<p><strong>式 (4.4.3) 称为杠杆定则。</strong> 证明如下：</p>
+<p>合金的总质量是 $m^\alpha+m^\beta$。从整体看，B 的成分是 $x$，所以合金中 B 的质量为 $(m^\alpha+m^\beta)x$。液相的质量为 $m^\alpha$，在液相中 B 的成分是 $x^\alpha$；固相的质量为 $m^\beta$，在固相中 B 的成分是 $x^\beta$。所以合金中 B 的质量也可表示为 $m^\alpha x^\alpha+m^\beta x^\beta$。两个表达式应该相等，故有</p>
+<p>$$\left(m^\alpha+m^\beta\right)x = m^\alpha x^\alpha + m^\beta x^\beta$$</p>
+<p>即</p>
+<p>$$m^\alpha\left(x-x^\alpha\right) = m^\beta\left(x^\beta-x\right)$$</p>
+<p>因此</p>
+<p>$$\frac{m^\alpha}{m^\beta} = \frac{x^\beta-x}{x-x^\alpha} = \frac{|ON|}{|MO|} \tag{4.4.4}$$</p>
+<h3 id="443-">4.4.3 共晶系：镉-铋合金</h3>
+<p>图 4.4.2 的镉-铋合金相图是另一种类型的相图。<strong>这类相图的特点是，在液相 $\alpha$ 中两组元 A 和 B 可以具有任意的比例，但在固相中 A 和 B 完全不相互溶解。</strong> 这就是说，固相可以是 A 相或 B 相。如果在固相中 A 和 B 共存，则形成 A 晶粒和 B 晶粒的机械混合物。</p>
+<p>设合金从 $P$ 点所代表的状态冷却到 $Q$ 点，开始有纯 A 的固相出现。由 $Q$ 经 $O$ 到 $R$，液相与纯 A 两相共存。液相中 B 组元的成分沿液相线 $QC$ 连续地改变。液相和固相的质量比由杠杆定则给出。例如，在 $O$ 点的温度下，液相中 B 的成分由 $N$ 点的横坐标给出。液相的质量 $m^\alpha$ 与纯 A 的质量 $m^A$ 之比为</p>
+<p>$$\frac{m^\alpha}{m^A} = \frac{|MO|}{|ON|} \tag{4.4.5}$$</p>
+<p>当冷却到 $R$ 点的温度时，液相中 B 组元的成分由 $C$ 点的横坐标 $x^C$ 给出。如果继续散热，除先期析出的 A 晶粒外，A 晶粒和 B 晶粒还以 $x^C$ 的比例同时结晶出来而形成 A 相、B 相和成分为 $x^C$ 的液相三相共存。<strong>$C$ 点称为低共熔点。按 $x^C$ 的比例同时结晶出来的 A 晶粒和 B 晶粒的机械混合物称为共晶体。</strong></p>
+<p>由上述讨论可知，当液体冷却而凝固时，A 相是在由 $Q$ 至 $R$ 的一个温度范围内凝固的，B 相则在共熔点 $C$ 的确定温度下与 A 相同时凝固出来。当温度低于共熔点的温度时，将是固相 A 和固相 B 共存。如果原来液相的 $x$ 大于 $x^C$，则将先析出固相 B 而形成液相与固相 B 共存。情况是相似的，就不再重复讨论了。</p>
+<h3 id="444-3he-4he">4.4.4 ³He-⁴He 相图（教材补充材料）</h3>
+<blockquote>
+<p>本小节为教材 p.97 的方括号 <strong>[补充材料]</strong>，属选读性质。</p>
+</blockquote>
+<p>金-银合金和镉-铋合金都有单一的液相，有的物质不能形成单一的液相，例如水和水银混合时仍然是水和水银两相共存。液 $^3$He-$^4$He 混合是另一种情形。图 4.4.3 画出 1 atm 下液 $^3$He-$^4$He 的相图。纵坐标为温度 $T$，横坐标为 $^3$He 的摩尔分数（摩尔浓度）$x=\dfrac{n_3}{n_3+n_4}$，其中 $n_3$ 和 $n_4$ 分别是 $^3$He 和 $^4$He 的原子数。</p>
+<p>在图中左方的区域，液 $^3$He-$^4$He 形成<strong>超流相</strong>，右上方的区域形成<strong>正常相</strong>。两相分界线称为 <strong>$\lambda$ 线</strong>。在 $\lambda$ 线上两相之间的转变是<strong>第二类相变</strong>。$\lambda$ 线与 $T$ 轴交于 2.18 K，是纯液 $^4$He 的超流相与正常相的转变温度。转变温度随 $x$ 的增加而降低，终止于<strong>三临界点</strong>。在三临界点以下的温度范围，超流相与正常相的转变是<strong>第一类相变</strong>。三临界点是二类相变线与一类相变线的交点。</p>
+<p>在一类相变的两相共存区，共存两相中 $^3$He 的摩尔浓度 $x$ 与温度 $T$ 的关系由图中的<strong>共存线</strong>表示。例如温度为 $T'$ 时超流相与正常相中 $^3$He 的摩尔浓度分别由 $C$ 和 $C'$ 的 $x$ 代表。由共存线的形状可知，超流相的 $x$ 随温度的降低而降低，而正常相的 $x$ 则随温度的降低而升高。<strong>在 100 mK 以下，正常相的浓度趋于 1，超流相的浓度趋于 0.064</strong>，由于富含 $^3$He 的正常相密度较低，两相共存时正常相浮在超流相上面。</p>
+<hr />
+<h2 id="45">§4.5　化学平衡条件</h2>
+<h3 id="451">4.5.1 化学反应方程</h3>
+<p>本节讨论多元系中各组元可以发生化学反应时系统达到平衡所要满足的条件，称为<strong>化学平衡条件</strong>。为简单起见，只讨论系统是单相的情形，这种化学反应称为<strong>单相化学反应</strong>。</p>
+<p>先说明如何表达一个化学反应。例如，在高温下，氢气、氧气和水可以发生合成或分解的过程：</p>
+<p>$$2\mathrm{H_2}+\mathrm{O_2} \rightleftharpoons 2\mathrm{H_2O}$$</p>
+<p>这个反应在热力学中通常写作</p>
+<p>$$2\mathrm{H_2O}-2\mathrm{H_2}-\mathrm{O_2}=0 \tag{4.5.1}$$</p>
+<p>又如反应</p>
+<p>$$3\mathrm{H_2}+\mathrm{SO_2} \rightleftharpoons \mathrm{H_2S}+2\mathrm{H_2O}$$</p>
+<p>可以写作</p>
+<p>$$\mathrm{H_2S}+2\mathrm{H_2O}-3\mathrm{H_2}-\mathrm{SO_2}=0 \tag{4.5.2}$$</p>
+<p>方程中带有正系数的组元，例如式 (4.5.1) 中的 $\mathrm{H_2O}$ 和式 (4.5.2) 中的 $\mathrm{H_2S}$、$\mathrm{H_2O}$，称为<strong>生成物</strong>；带有负系数的组元，例如式 (4.5.1) 中的 $\mathrm{H_2}$、$\mathrm{O_2}$ 和式 (4.5.2) 中的 $\mathrm{H_2}$ 和 $\mathrm{SO_2}$，称为<strong>反应物</strong>。当然，实际上化学反应的方向与反应条件有关，因此反应方向和反应物、生成物的规定是带有任意性的。单相化学反应方程的一般形式为</p>
+<p>$$\sum_i\nu_iA_i = 0 \tag{4.5.3}$$</p>
+<p>式中 $A_i$ 是 $i$ 组元的分子式，$\nu_i$ 是在反应方程中 $i$ 组元的系数。</p>
+<h3 id="452">4.5.2 反应热与赫斯定律</h3>
+<p>当发生化学反应时，各组元物质的量的改变必与各组元在反应方程中的系数成正比。例如，在发生式 (4.5.1) 的化学反应时，$\mathrm{H_2O}$、$\mathrm{H_2}$ 和 $\mathrm{O_2}$ 的物质的量的改变必满足以下关系：</p>
+<p>$$\mathrm{d}n_{\mathrm{H_2O}}:\mathrm{d}n_{\mathrm{H_2}}:\mathrm{d}n_{\mathrm{O_2}} = 2:-2:-1$$</p>
+<p>令 $\mathrm{d}n$ 表示共同的比例因子，必有</p>
+<p>$$\mathrm{d}n_{\mathrm{H_2O}} = 2\,\mathrm{d}n, \qquad \mathrm{d}n_{\mathrm{H_2}} = -2\,\mathrm{d}n, \qquad \mathrm{d}n_{\mathrm{O_2}} = -\mathrm{d}n$$</p>
+<p>$\mathrm{d}n>0$ 时，反应正向进行；$\mathrm{d}n<0$ 时，反应逆向进行。一般地说，对于式 (4.5.3) 的单相化学反应，各组元物质的量的改变 $\mathrm{d}n_i$ 必满足</p>
+<p>$$\mathrm{d}n_i = \nu_i\,\mathrm{d}n \qquad (i=1,2,\cdots,k)$$</p>
+<p>以 $h_i$ 表示 $i$ 组元的偏摩尔焓，则在等温等压条件下发生式 (4.5.3) 的化学反应后，系统焓的改变为</p>
+<p>$$\Delta H = \left(\sum_i\nu_ih_i\right)\mathrm{d}n \tag{4.5.4}$$</p>
+<p>我们知道，在等压过程中，焓的增加等于系统在过程中从外界吸收的热量。以 $Q_p$ 表示在等压条件下发生式 (4.5.3) 的化学反应时系统从外界吸收的热量，即有</p>
+<p>$$Q_p = \Delta H$$</p>
+<p>$Q_p$ 称为式 (4.5.3) 的化学反应的<strong>定压反应热</strong>。</p>
+<p>由于焓是态函数，在初态和终态给定后，系统焓的变化 $\Delta H$ 就具有确定值，与系统由初态到达终态的过程无关。由此可知，<strong>如果一个反应可以通过不同的两组中间过程达到，两组过程的反应热应当相等。这个结论称为赫斯定律</strong>，是赫斯（Hess）在 1840 年发现的。赫斯定律的实际重要性在于可用来计算实验上不能直接测得的反应热。习题 4.7 是一个例子。</p>
+<h3 id="453">4.5.3 化学平衡条件</h3>
+<p>现在讨论单相反应的平衡条件。假设反应是在等温等压条件下进行的。设想系统在等温等压条件下发生一个虚变动，在虚变动中 $i$ 组元物质的量的改变 $\delta n_i$ 为</p>
+<p>$$\delta n_i = \nu_i\,\delta n \qquad (i=1,2,\cdots,k)$$</p>
+<p>由式 (4.1.11) 知，该虚变动所引起的系统的吉布斯函数改变为</p>
+<p>$$\delta G = \sum_i\mu_i\,\delta n_i = \delta n\sum_i\nu_i\mu_i$$</p>
+<p>在等温等压条件下，平衡态的吉布斯函数最小，必有 $\delta G=0$。由此可得</p>
+<p>$$\sum_i\nu_i\mu_i = 0 \tag{4.5.5}$$</p>
+<p><strong>式 (4.5.5) 就是式 (4.5.3) 的单相化学反应的化学平衡条件。</strong></p>
+<p>如果平衡条件式 (4.5.5) 未能满足，反应就要进行。反应进行的方向必使吉布斯函数减少，即</p>
+<p>$$\delta n\sum_i\nu_i\mu_i < 0 \tag{4.5.6}$$</p>
+<p>由此可知，<strong>如果 $\sum_i\nu_i\mu_i<0$，反应将正向进行（$\delta n>0$）；如果 $\sum_i\nu_i\mu_i>0$，反应将逆向进行（$\delta n<0$）。</strong></p>
+<h3 id="454">4.5.4 反应度</h3>
+<p>如果给定初态下各组元的物质的量 $n_1^0,\cdots,n_k^0$，终态各组元的物质的量将为</p>
+<p>$$n_i = n_i^0 + \nu_i\Delta n \qquad (i=1,2,\cdots,k) \tag{4.5.7}$$</p>
+<p>只要定出参量 $\Delta n$，就可由上式确定终态各组元的物质的量。</p>
+<p>各组元的化学势是温度、压强和各组元摩尔分数的函数。如果已知各组元的化学势的表达式，由式 (4.5.5) 可以推出处于化学平衡下的 $\Delta n$。不过要注意，$\Delta n$ 的可能值受下述条件的限制：式 (4.5.7) 中任何 $n_i$ 都不应为负值。以 $\Delta n_a$ 表示任何 $n_i$ 均非负值时 $\Delta n$ 的最大值，$\Delta n_a$ 相应于反应正向进行的最大限度。以 $\Delta n_b$ 表示任何 $n_i$ 均非负值时 $\Delta n$ 的最小值（代数值最小），$\Delta n_b$ 相应于反应逆向进行的最大限度。$\Delta n$ 的可能值应在这两者之间，即 $\Delta n_b\leqslant\Delta n\leqslant\Delta n_a$。</p>
+<p>定义<strong>反应度</strong></p>
+<p>$$\varepsilon = \frac{\Delta n - \Delta n_b}{\Delta n_a - \Delta n_b} \tag{4.5.8}$$</p>
+<p>当反应正向进行达到最大限度时，$\varepsilon=1$；当反应逆向进行达到最大限度时，$\varepsilon=0$。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>情形</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\Delta n_b\leqslant\Delta n\leqslant\Delta n_a$</td>
+<td>由化学平衡条件求得的解落在允许范围内，反应达到平衡</td>
+</tr>
+<tr>
+<td>$\Delta n>\Delta n_a$ 或 $\Delta n<\Delta n_b$</td>
+<td>某组元先被耗尽，反应停止；系统并不满足化学平衡条件，$\varepsilon=1$ 或 $0$</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果由化学平衡条件式 (4.5.5) 求得的 $\Delta n$ 满足 $\Delta n_b\leqslant\Delta n\leqslant\Delta n_a$，反应就达到平衡。终态各组元的物质的量可根据式 (4.5.7) 由 $\Delta n$ 算出。如果由化学平衡条件求得的 $\Delta n$ 大于 $\Delta n_a$ 或小于 $\Delta n_b$，化学反应将由于某组元物质的耗尽而停止，这时系统并不满足化学平衡条件式 (4.5.5) 而化学反应已经完成，反应度为 1 或 0。</p>
+<hr />
+<h2 id="46">§4.6　混合理想气体的性质</h2>
+<h3 id="461">4.6.1 道尔顿分压定律</h3>
+<p>由上节的讨论可知，由平衡条件确定化学反应的反应度，必须知道多元系中各组元的化学势。本节讨论混合理想气体的热力学函数，在下节中将根据所得的化学势分析理想气体化学反应的平衡问题。</p>
+<p>设混合气体含有 $k$ 个组元，各组元的物质的量分别为 $n_1,\cdots,n_k$。混合气体的温度为 $T$，体积为 $V$。实验指出，<strong>混合气体的压强等于各组元的分压之和</strong>：</p>
+<p>$$p = \sum_ip_i \tag{4.6.1}$$</p>
+<p>式中 $p_i$ 是 $i$ 组元的<strong>分压</strong>，它是物质的量为 $n_i$ 的 $i$ 组元单独存在且与混合气体具有相同温度和体积时的压强。式 (4.6.1) 称为<strong>道尔顿（Dalton）分压定律</strong>。该定律对实际气体并不完全正确，只是低压下的极限性质，<strong>因而只适用于混合理想气体</strong>。</p>
+<p>由理想气体的物态方程，有</p>
+<p>$$p_i = n_i\frac{RT}{V} \tag{4.6.2}$$</p>
+<p>代入式 (4.6.1) 得</p>
+<p>$$pV = \left(n_1+n_2+\cdots+n_k\right)RT \tag{4.6.3}$$</p>
+<p>式 (4.6.3) 就是混合理想气体的物态方程。</p>
+<p>将式 (4.6.2) 与式 (4.6.3) 加以比较，可以得到 $i$ 组元的分压 $p_i$ 与混合气体的总压强 $p$ 的关系：</p>
+<p>$$\frac{p_i}{p} = \frac{n_i}{n_1+\cdots+n_k} = x_i \tag{4.6.4}$$</p>
+<p>式中 $x_i$ 是 $i$ 组元的摩尔分数。</p>
+<h3 id="462">4.6.2 化学势</h3>
+<p>实验指出，一个能够通过半透膜的组元，它在膜两边的分压在平衡时相等。现在根据这个实验事实推求混合气体的内能和熵。假设半透膜的一边是混合气体，另一边是纯 $i$ 组元气体。在 §4.2 中说过，如果 $i$ 组元可以通过半透膜，则达到平衡时，两边的温度必须相等，$i$ 组元在两边的化学势也必须相等，加上组元 $i$ 在两边的分压也相等，即有</p>
+<p>$$\mu_i = \mu'(T,p_i) \tag{4.6.5}$$</p>
+<p>式中 $\mu_i$ 是 $i$ 组元在混合理想气体中的化学势，$\mu'$ 是纯 $i$ 组元理想气体的化学势。式 (2.4.15) 和式 (2.4.16) 给出了纯理想气体的化学势，因此根据式 (4.6.5) 可以求得</p>
+<p>$$\mu_i = RT\left(\varphi_i + \ln p_i\right) = RT\left[\varphi_i + \ln\left(x_ip\right)\right] \tag{4.6.6}$$</p>
+<p>其中</p>
+<p>$$\varphi_i = \frac{h_{i0}}{RT} - \int\frac{\mathrm{d}T}{RT^2}\int c_{pi}\,\mathrm{d}T - \frac{s_{i0}}{R} \tag{4.6.7}$$</p>
+<p>$c_{pi}$ 是 $i$ 组元理想气体的定压摩尔热容，$h_{i0}$ 和 $s_{i0}$ 是 $i$ 组元理想气体的摩尔焓常量和摩尔熵常量。如果理想气体的热容可以看作常量，则由式 (2.4.16′) 可得</p>
+<p>$$\varphi_i = \frac{h_{i0}}{RT} - \frac{c_{pi}}{R}\ln T + \frac{c_{pi}-s_{i0}}{R} \tag{4.6.8}$$</p>
+<h3 id="463">4.6.3 吉布斯函数与其他热力学函数</h3>
+<p>根据式 (4.1.8)，混合理想气体的吉布斯函数为</p>
+<p>$$G = \sum_in_i\mu_i = \sum_in_iRT\left[\varphi_i + \ln\left(x_ip\right)\right] \tag{4.6.9}$$</p>
+<p>式 (4.6.9) 是混合理想气体的特性函数 $G(T,p,n_1,\cdots,n_k)$。由</p>
+<p>$$\mathrm{d}G = -S\,\mathrm{d}T + V\,\mathrm{d}p + \sum_i\mu_i\,\mathrm{d}n_i$$</p>
+<p>得</p>
+<p>$$V = \frac{\partial G}{\partial p} = \frac{\sum_in_iRT}{p} \tag{4.6.10}$$</p>
+<p>这正是式 (4.6.3)，即混合理想气体的物态方程。由</p>
+<p>$$S = -\frac{\partial G}{\partial T}$$</p>
+<p>得</p>
+<p>$$S = \sum_in_i\left[\int c_{pi}\frac{\mathrm{d}T}{T} - R\ln\left(x_ip\right) + s_{i0}\right] \tag{4.6.11}$$</p>
+<p>式 (4.6.11) 给出了混合理想气体的熵。它表明，<strong>混合理想气体的熵等于各组元的分熵之和</strong>。$i$ 组元的分熵是物质的量为 $n_i$ 的 $i$ 组元单独存在且与混合理想气体有相同温度和体积时的熵。</p>
+<p>由 $H = G - T\dfrac{\partial G}{\partial T}$，得</p>
+<p>$$H = \sum_in_i\left(\int c_{pi}\,\mathrm{d}T + h_{i0}\right) \tag{4.6.12}$$</p>
+<p>式 (4.6.12) 给出了混合理想气体的焓。它说明，<strong>混合理想气体的焓是各组元的分焓之和</strong>。在 §1.7 中说过，理想气体的焓只是温度的函数。各组元无论是具有混合理想气体的温度和体积（因而其压强为分压），还是具有混合理想气体的温度和压强（因而其体积为分体积，各组元的分体积之和等于混合理想气体的体积），其焓值都是相同的。如果各组元混合前具有混合理想气体的温度和压强，气体的混合过程就是一个等温等压扩散过程。我们知道，系统在等压过程中吸收的热量等于系统的焓的增量。根据式 (4.6.12)，理想气体在混合前后的焓值相等，<strong>所以理想气体在等温等压混合过程中与外界没有热量交换，是一个绝热过程</strong>。</p>
+<p>由 $U = G - T\dfrac{\partial G}{\partial T} - p\dfrac{\partial G}{\partial p}$，可以求得混合理想气体的内能为</p>
+<p>$$U = \sum_in_i\left(\int c_{Vi}\,\mathrm{d}T + u_{i0}\right) \tag{4.6.13}$$</p>
+<p>式 (4.6.13) 表明，<strong>混合理想气体的内能等于分内能之和</strong>。</p>
+<p>从微观角度看，混合理想气体的压强（内能、焓）等于其分压（分内能、分焓）之和的原因是，<strong>在理想气体中分子之间没有相互作用</strong>。</p>
+<h3 id="464">4.6.4 混合熵与吉布斯佯谬</h3>
+<p>现在对混合理想气体的熵作进一步的讨论。将式 (4.6.11) 改写成</p>
+<p>$$S = \sum_in_i\left(\int c_{pi}\frac{\mathrm{d}T}{T} - R\ln p + s_{i0}\right) + C \tag{4.6.14}$$</p>
+<p>其中</p>
+<p>$$C = -R\sum_in_i\ln x_i \tag{4.6.15}$$</p>
+<p>因为 $x_i<1$，式 (4.6.15) 中的 $C$ 必大于零。式 (4.6.14) 右方的第一项是各组元气体单独存在且具有混合理想气体的温度和压强时的熵之和，因此右方第二项 $C$ 是<strong>各组元气体在等温等压混合后的熵增</strong>。这就是说，<strong>理想气体的等温等压混合是一个不可逆过程</strong>。</p>
+<p>假设有两种气体，物质的量都为 $n$，令它们在等温等压下混合。由式 (4.6.15) 可知，混合后的熵增为</p>
+<p>$$C = 2nR\ln 2 \tag{4.6.16}$$</p>
+<p>该结果与气体的具体性质无关。不过应当强调，由于在导出式 (4.6.9) 时用了膜平衡条件，式中的 $\sum_i$ 是对不同的气体求和，因而式 (4.6.15) 和式 (4.6.16) 仅适用于不同气体。对于同种气体，由熵的广延性可知，“混合”后气体的熵应等于“混合”前两种气体的熵之和。因此，由性质任意接近的两种气体过渡到同种气体，熵增由 $2nR\ln 2$ 突变为零。<strong>这称为吉布斯（Gibbs）佯谬。</strong></p>
+<p>吉布斯佯谬是经典统计物理所不能解释的，在量子统计物理中才能得到透彻的解释。统计物理认为同种气体由全同粒子组成。根据经典力学，全同粒子是可以分辨的，因此在经典统计看来，不论是同种气体还是不同气体，气体的混合都是扩散过程，熵增均为式 (4.6.16) 给出的值。而根据量子力学，全同粒子是不可分辨的，同种气体“混合”前后的状态是完全相同而无法区分的，同种气体的“混合”不构成扩散过程。<strong>正是粒子从不同到全同的突变导致上述熵的突变。</strong> 从这里可以看出，微观粒子的全同性和不可分辨性对熵的数值有决定性的影响。在统计物理部分我们会详细讨论这个问题。</p>
+<blockquote>
+<p><strong>脚注</strong>（教材 p.101）：用满足广延性要求的熵的表达式 (1.15.4) 和式 (1.15.5) 计算同种气体等温等压混合的熵变，也得到 $C=0$。如果将式 (1.15.4) 中的 $S_0$ 误认为是与 $n$ 成正比的量，将得到 $C=2nR\ln2$ 的错误结论。</p>
+</blockquote>
+<h3 id="465-461">4.6.5 例 4.6.1：亨利定律与理想溶液</h3>
+<p><strong>例 4.6.1</strong>　实验发现，稀溶液中某溶质蒸气的分压与该溶质在溶液中的摩尔分数成正比。这个结果称为<strong>亨利（Henry）定律</strong>。如果在任何浓度下亨利定律均成立，则这种溶液称为<strong>理想溶液</strong>。求理想溶液各组元的化学势。</p>
+<p><strong>解</strong>　将稀溶液的饱和蒸气看作混合理想气体。根据式 (4.6.6)，蒸气中 $i$ 组元的化学势为</p>
+<p>$$\mu_i = RT\left[\varphi_i(T) + \ln p_i\right]$$</p>
+<p>以 $x_i$ 表示溶液中 $i$ 溶质的摩尔分数，有</p>
+<p>$$\left(\frac{\partial\mu_i}{\partial x_i}\right)_{T,p} = \left(\frac{\partial\mu_i}{\partial p_i}\right)_{T,p}\left(\frac{\partial p_i}{\partial x_i}\right)_{T,p} = \frac{RT}{p_i}\left(\frac{\partial p_i}{\partial x_i}\right)_{T,p} = RT\frac{\partial}{\partial x_i}\ln p_i = \frac{RT}{x_i}$$</p>
+<p>最后一步用到了亨利定律。积分得</p>
+<p>$$\mu_i(T,p) = g_i(T,p) + RT\ln x_i \tag{4.6.17}$$</p>
+<p>其中 $g_i(T,p)$ 是待定函数。上式给出了溶质 $i$ 蒸气的化学势。平衡时组元 $i$ 在两相中的化学势相等，所以上式也是稀溶液中溶质的化学势。<strong>对于理想溶液，上式适用于包括溶剂在内的任何组元。</strong> 令 $x_i\to1$，可知 $g_i(T,p)$ 是纯 $i$ 组元的化学势。</p>
+<p>理想溶液和稀溶液的性质可以参阅习题 4.3 至 4.6。</p>
+<hr />
+<h2 id="47">§4.7　理想气体的化学平衡</h2>
+<h3 id="471">4.7.1 质量作用律</h3>
+<p>在研究气体的化学反应时，可以用理想气体的理论作为第一级近似。由 §4.5 我们知道，化学反应</p>
+<p>$$\sum_i\nu_iA_i = 0 \tag{4.7.1}$$</p>
+<p>的平衡条件为</p>
+<p>$$\sum_i\nu_i\mu_i = 0 \tag{4.7.2}$$</p>
+<p>将式 (4.6.6) 给出的混合理想气体各组元的化学势 $\mu_i$ 代入式 (4.7.2)，可得</p>
+<p>$$RT\sum_i\nu_i\left[\varphi_i(T)+\ln p_i\right] = 0 \tag{4.7.2'}$$</p>
+<p>定义</p>
+<p>$$\ln K_p = -\sum_i\nu_i\varphi_i(T) \tag{4.7.3}$$</p>
+<p>$K_p$ 称为式 (4.7.1) 的化学反应的<strong>定压平衡常量</strong>，简称<strong>平衡常量</strong>。<strong>它是温度的函数。</strong> 利用 $K_p$ 可以将平衡条件表示为</p>
+<p>$$\prod_ip_i^{\nu_i} = K_p(T) \tag{4.7.4}$$</p>
+<p>式 (4.7.4) 给出了气体反应达到平衡时各组元分压之间的关系，称为<strong>质量作用律</strong>。</p>
+<p>将 $p_i = x_ip$ 代入式 (4.7.4)，得</p>
+<p>$$\prod_ix_i^{\nu_i} = K(T,p) \tag{4.7.5}$$</p>
+<p>式中的 $K(T,p)$ 与 $K_p$ 的关系为</p>
+<p>$$K(T,p) = p^{-\nu}K_p, \qquad \nu = \sum_i\nu_i \tag{4.7.6}$$</p>
+<p>$K(T,p)$ 是温度和压强的函数，也称为平衡常量。<strong>对于 $\nu=0$ 的气体反应，$K(T,p)=K_p$，这时 $K(T,p)$ 只是温度的函数。</strong> 式 (4.7.5) 给出达到平衡时各组元的摩尔分数之间的关系，是质量作用律的另一表达式。</p>
+<blockquote>
+<p><strong>注意</strong>：根据式 (4.7.4) 和式 (4.7.5)，达到平衡后，混合理想气体中各组元的分压（摩尔分数）的连乘积与各组元的初始分压（摩尔分数）无关。</p>
+</blockquote>
+<p>顺便提及，比较式 (4.6.6) 和式 (4.6.17) 可知，理想溶液的化学平衡条件也具有质量作用律式 (4.7.5) 的形式。</p>
+<p>假如平衡条件式 (4.7.4) 未被满足，式 (4.7.1) 的反应就要进行。根据式 (4.5.6)，反应正向进行的条件是</p>
+<p>$$\sum_i\nu_i\mu_i < 0$$</p>
+<p>即</p>
+<p>$$\sum_i\nu_i\left(\varphi_i+\ln p_i\right) < 0$$</p>
+<p>或</p>
+<p>$$\prod_ip_i^{\nu_i} < K_p \tag{4.7.7}$$</p>
+<h3 id="472">4.7.2 一个具体例子</h3>
+<p>如果已知某一化学反应的平衡常量，在给定初态各组元的物质的量时，由质量作用律式 (4.7.5) 可以求得反应达到平衡时终态各组元的物质的量。以式 (4.5.2) 的反应为例，设将 $\dfrac{1}{2}$ mol 的 $\mathrm{H_2S}$、$\dfrac{3}{4}$ mol 的 $\mathrm{H_2O}$、2 mol 的 $\mathrm{H_2}$、1 mol 的 $\mathrm{SO_2}$ 引入容器，式 (4.5.2) 的化学反应</p>
+<p>$$\mathrm{H_2S}+2\mathrm{H_2O}-3\mathrm{H_2}-\mathrm{SO_2}=0$$</p>
+<p>的平衡条件为</p>
+<p>$$\mu_{\mathrm{H_2S}}+2\mu_{\mathrm{H_2O}}-3\mu_{\mathrm{H_2}}-\mu_{\mathrm{SO_2}}=0$$</p>
+<p>对于所给定的初态，由式 (4.5.7) 得，终态各组元的物质的量为</p>
+<p>$$\begin{aligned} n_{\mathrm{H_2S}} &= \frac{1}{2}\ \mathrm{mol}+\Delta n \\ n_{\mathrm{H_2O}} &= \frac{3}{4}\ \mathrm{mol}+2\Delta n \\ n_{\mathrm{H_2}} &= 2\ \mathrm{mol}-3\Delta n \\ n_{\mathrm{SO_2}} &= 1\ \mathrm{mol}-\Delta n \end{aligned}$$</p>
+<p>四式相加得终态的物质的量为</p>
+<p>$$n = \sum_in_i = 4.25\ \mathrm{mol}-\Delta n \tag{4.7.8}$$</p>
+<p>由式 (4.7.8) 及式 (4.6.4) 可以算得各组元的摩尔分数。例如 $x_{\mathrm{H_2S}}$ 为</p>
+<p>$$x_{\mathrm{H_2S}} = \frac{0.5\ \mathrm{mol}+\Delta n}{4.25\ \mathrm{mol}-\Delta n} \tag{4.7.9}$$</p>
+<p>对其他组元也可求得相应的公式。代入式 (4.7.5) 得</p>
+<p>$$\frac{\left(0.5\ \mathrm{mol}+\Delta n\right)\left(0.75\ \mathrm{mol}+2\Delta n\right)^2\left(4.25\ \mathrm{mol}-\Delta n\right)}{\left(2\ \mathrm{mol}-3\Delta n\right)^3\left(1\ \mathrm{mol}-\Delta n\right)} = pK_p(T) \tag{4.7.10}$$</p>
+<p>如果已知平衡常量，由式 (4.7.10) 可以求得 $\Delta n$，代入式 (4.7.9) 及其他相应的公式即可求得达到平衡时各组元的摩尔分数。</p>
+<h3 id="473">4.7.3 平衡常量的热力学公式</h3>
+<p>根据式 (4.7.3) 和式 (4.6.7) 可以求得平衡常量的热力学公式：</p>
+<p>$$\ln K_p = -\frac{\sum_i\nu_ih_{i0}}{RT} + \frac{1}{R}\sum_i\nu_i\int\frac{\mathrm{d}T}{T^2}\int c_{pi}\,\mathrm{d}T + \frac{\sum_i\nu_is_{i0}}{R} \tag{4.7.11}$$</p>
+<p>如果温度变化的范围不大，气体的比热容可以看作常量，则根据式 (4.6.8) 可将式 (4.7.11) 简化为</p>
+<p>$$\ln K_p = -\frac{A}{T} + C\ln T + B \tag{4.7.12}$$</p>
+<p>其中</p>
+<p>$$A = \frac{\sum_i\nu_ih_{i0}}{R}, \qquad B = \sum_i\frac{\nu_i\left(s_{i0}-c_{pi}\right)}{R}, \qquad C = \sum_i\frac{\nu_ic_{pi}}{R}$$</p>
+<p>平衡常量也可以直接由实验测定。仍以水的化合和分解为例，假设在某一高温下，反应</p>
+<p>$$2\mathrm{H_2}+\mathrm{O_2} \rightleftharpoons 2\mathrm{H_2O(g)}$$</p>
+<p>的正过程与逆过程达到平衡，形成 $\mathrm{H_2O(g)}$、$\mathrm{O_2}$ 和 $\mathrm{H_2}$ 的混合气体。将混合气体迅速冷却，气体的成分不会发生改变。通过测量气体中各组元的浓度，就可以确定原来高温下的平衡常量。</p>
+<h3 id="474">4.7.4 四氧化二氮的分解</h3>
+<p>现在讨论四氧化二氮的分解：</p>
+<p>$$2\mathrm{NO_2}-\mathrm{N_2O_4}=0 \tag{4.7.13}$$</p>
+<p>该反应的平衡条件是</p>
+<p>$$K_p(T) = \frac{p_{\mathrm{NO_2}}^2}{p_{\mathrm{N_2O_4}}} = \frac{x_{\mathrm{NO_2}}^2}{x_{\mathrm{N_2O_4}}}p \tag{4.7.14}$$</p>
+<p>设在初态，有物质的量为 $n_0$ 的 $\mathrm{N_2O_4}$，达到平衡后，已经分解的 $\mathrm{N_2O_4}$ 的物质的量为 $n_0\varepsilon$，没有分解的 $\mathrm{N_2O_4}$ 的物质的量为 $n_0(1-\varepsilon)$。由于 1 mol 的 $\mathrm{N_2O_4}$ 分解为 2 mol 的 $\mathrm{NO_2}$，平衡后的总的物质的量为 $n_0(1+\varepsilon)$。$\varepsilon$ 就是式 (4.5.8) 所定义的<strong>反应度</strong>（注意 $\Delta n_a=n_0$，$\Delta n_b=0$），现在称它为<strong>分解度</strong>。因此</p>
+<p>$$x_{\mathrm{NO_2}} = \frac{2\varepsilon}{1+\varepsilon}, \qquad x_{\mathrm{N_2O_4}} = \frac{1-\varepsilon}{1+\varepsilon}$$</p>
+<p>代入式 (4.7.14) 得</p>
+<p>$$K_p(T) = \frac{4\varepsilon^2}{1-\varepsilon^2}p \tag{4.7.15}$$</p>
+<p>如果已知平衡常量 $K_p$，由式 (4.7.15) 可以求得分解度与温度、压强的关系。可以看出，<strong>在一定温度下，当总压强减小时，分解度将增大，减压有利于分解的进行</strong>。反之，如果测得分解度，也可以由式 (4.7.15) 求得平衡常量。在 $\mathrm{N_2O_4}$ 分解的问题中，分解度可以由气体的密度定出。容易证明：</p>
+<p>$$\varepsilon = \frac{\rho_0}{\rho_e} - 1 \tag{4.7.16}$$</p>
+<p>其中 $\rho_0$ 和 $\rho_e$ 分别是初态和终态时气体的密度。</p>
+<h3 id="475">4.7.5 原子的电离与萨哈公式</h3>
+<p>在很高的温度下，原子可以电离为正离子和电子，正离子和电子也可以复合为原子。以 A 表示原子、$\mathrm{A^+}$ 表示离子、$\mathrm{e}$ 表示电子，将反应方程写作：</p>
+<p>$$\mathrm{A^+}+\mathrm{e}-\mathrm{A}=0 \tag{4.7.17}$$</p>
+<p>电离和复合的过程达到平衡时，将形成原子、离子和电子的混合气体。以 $\varepsilon$ 表示电离度，设初态有物质的量为 $n_0$ 的原子 A，达到平衡后，原子的物质的量为 $n_0(1-\varepsilon)$，离子和电子的物质的量均为 $n_0\varepsilon$，三者的摩尔分数分别为</p>
+<p>$$x_{\mathrm{A}} = \frac{1-\varepsilon}{1+\varepsilon}, \qquad x_{\mathrm{A^+}} = \frac{\varepsilon}{1+\varepsilon}, \qquad x_{\mathrm{e}} = \frac{\varepsilon}{1+\varepsilon}$$</p>
+<p>代入质量作用律式 (4.7.5) 可得</p>
+<p>$$\frac{x_{\mathrm{A^+}}\cdot x_{\mathrm{e}}}{x_{\mathrm{A}}} = \frac{\varepsilon^2}{1-\varepsilon^2} = p^{-1}K_p(T) \tag{4.7.18}$$</p>
+<p>或</p>
+<p>$$\varepsilon = \frac{1}{\sqrt{1+\dfrac{p}{K_p(T)}}} \tag{4.7.19}$$</p>
+<p>如果将原子、离子和电子看作单原子理想气体，其定压摩尔热容均为 $\dfrac{5}{2}R$，则由式 (4.7.12) 可得</p>
+<p>$$\ln K_p = -\frac{\Delta H_0}{RT} + \frac{5}{2}\ln T + \text{常量} \tag{4.7.20}$$</p>
+<p>代入式 (4.7.19) 得</p>
+<p>$$\varepsilon = \frac{1}{\sqrt{1 + bpT^{-\frac{5}{2}}e^{\frac{\Delta H_0}{RT}}}} \tag{4.7.21}$$</p>
+<p>式中 $\Delta H_0$ 是摩尔电离能，$b$ 是常量。<strong>式 (4.7.21) 给出了电离度与电离能、温度、压强的关系，称为萨哈（Saha）方程或萨哈公式。</strong> 由此可知，<strong>当热运动能量小于电离能（$RT<\Delta H_0$）时，电离度 $\varepsilon$ 很小。电离度随温度的升高和压强的减小而增大。</strong> 萨哈方程在恒星大气物理学中有重要的应用。</p>
+<hr />
+<h2 id="48">§4.8　热力学第三定律</h2>
+<h3 id="481">4.8.1 能斯特定理与绝对零度不能达到原理</h3>
+<p>热力学第三定律是在低温现象的研究中总结出来的一个普遍规律。1906 年，能斯特（Nernst）在研究各种化学反应在低温下的性质时引出一个结论，称为<strong>能斯特定理</strong>。它的内容如下：</p>
+<blockquote>
+<p><strong>凝聚系的熵在等温过程中的改变随热力学温度趋于零</strong>，即</p>
+</blockquote>
+<p>$$\lim_{T\to0}\left(\Delta S\right)_T = 0 \tag{4.8.1}$$</p>
+<p>其中 $(\Delta S)_T$ 指在等温过程中熵的改变。</p>
+<p>1912 年，能斯特根据他的定理推出一个原理，名为<strong>绝对零度不能达到原理</strong>。这个原理如下：</p>
+<blockquote>
+<p><strong>不可能通过有限的步骤使一个物体冷却到热力学温度的零度。</strong></p>
+</blockquote>
+<p>通常认为，<strong>能斯特定理和绝对零度不能达到原理是热力学第三定律的两种表述</strong>。</p>
+<h3 id="482">4.8.2 能斯特定理是怎样引出来的</h3>
+<p>§1.18 中曾经证明，在等温等压过程中，系统的变化总是朝着吉布斯函数减少的方向进行的，因此可以用吉布斯函数的减少作为等温等压过程趋向的标志。对于一个化学反应，吉布斯函数的减少量就相当于这个反应的<strong>亲和势</strong>。定义在等温等压过程中一个化学反应的亲和势 $A$ 为</p>
+<p>$$A = -\Delta G \tag{4.8.2}$$</p>
+<p>对于等温等容条件下的化学反应，化学亲和势是自由能的减少量。为明确起见，先考虑等温等压过程。</p>
+<p>在很长一段时期内，人们曾经根据<strong>汤姆孙（Thomson）-贝特洛（Berthelot）原理</strong>来判定化学反应的方向。该原理是一个经验规律，它认为，<strong>化学反应是朝着放热即 $\Delta H<0$ 的方向进行的</strong>。在低温下（有些反应甚至在室温附近），由 $\Delta G<0$ 和 $\Delta H<0$ 两个不同的判据往往得到相似的结论。能斯特就是在企图探索这两个判据的联系时发现能斯特定理的。</p>
+<p>在等温过程中</p>
+<p>$$\Delta G = \Delta H - T\Delta S \tag{4.8.3}$$</p>
+<p>由于 $\Delta S$ 有界，在 $T\to0$ 时显然有 $\Delta G=\Delta H$。这当然不足以说明在一个温度范围内 $\Delta G$ 和 $\Delta H$ 近似相等。将式 (4.8.3) 除以 $T$，得</p>
+<p>$$\frac{\Delta H-\Delta G}{T} = \Delta S \tag{4.8.4}$$</p>
+<p>在 $T\to0$ 时上式左方是不定式 $\dfrac{0}{0}$，应用洛必达法则，得</p>
+<p>$$\left(\frac{\partial\Delta H}{\partial T}\right)_0 - \left(\frac{\partial\Delta G}{\partial T}\right)_0 = \lim_{T\to0}\Delta S \tag{4.8.5}$$</p>
+<p>如果假设</p>
+<p>$$\lim_{T\to0}\left(\Delta S\right)_T = 0 \tag{4.8.6}$$</p>
+<p>则 $\Delta H$ 和 $\Delta G$ 在 $T\to0$ 处不但相等，而且有相同的偏导数。再根据 $S=-\dfrac{\partial G}{\partial T}$ 和式 (4.8.6) 可知</p>
+<p>$$\left(\frac{\partial\Delta G}{\partial T}\right)_0 = -\lim_{T\to0}\left(\Delta S\right)_T = 0 \tag{4.8.7}$$</p>
+<p>因此，由式 (4.8.5) 得</p>
+<p>$$\left(\frac{\partial\Delta H}{\partial T}\right)_0 = \left(\frac{\partial\Delta G}{\partial T}\right)_0 = 0 \tag{4.8.8}$$</p>
+<p>这就是说，<strong>$\Delta G$ 和 $\Delta H$ 随 $T$ 变化的曲线，在 $T\to0$ 处不但相等相切，而且公切线与 $T$ 轴平行</strong>，如图 4.8.1 所示。因此，在式 (4.8.6) 的假设下，在低温范围内 $\Delta H$ 和 $\Delta G$ 是近似相等的。这就说明了为什么由 $\Delta G<0$ 和 $\Delta H<0$ 两个不同的判据在低温下往往得到相似的结论。</p>
+<p>式 (4.8.6) 假设在等温等压和 $T\to0$ 的条件下，系统在化学反应前后的熵变为零。如果反应是在等温等容条件下进行的，只要将 $\Delta H$ 换为 $\Delta U$，将 $\Delta G$ 换为 $\Delta F$，上述分析完全适用。不过这时式 (4.8.6) 中的 $(\Delta S)_T$ 应理解为在等温等容和 $T\to0$ 的条件下，化学反应前后熵的改变。</p>
+<p>如果将式 (4.8.6) 的假设进一步推广到任意的等温过程，就得到能斯特定理式 (4.8.1)。能斯特定理提出后，经过 30 年的实验和理论研究，从它引出的大量推论都被实验所证实，它的正确性才得到肯定。现在人们公认，<strong>能斯特定理是独立于热力学第一定律和第二定律的另一规律，即热力学第三定律。</strong></p>
+<h3 id="483">4.8.3 能斯特定理的推论</h3>
+<p>以 $T$、$y$ 表示状态参量，式 (4.8.1) 也可表示为</p>
+<p>$$S(0,y_B) = S(0,y_A) \tag{4.8.9}$$</p>
+<p>式 (4.8.9) 的含义是，<strong>当 $T\to0$ 时，物质系统熵的数值与状态参量 $y$ 的数值无关</strong>。应当强调，参量 $y$ 的含义应当作广义的理解：$y$ 的改变不但包括例如体积 $V$ 或压强 $p$ 的数值的改变，也包括系统处在不同的相或化学反应前后的反应物和生成物。</p>
+<p><strong>推论一：热容趋于零。</strong></p>
+<p>能斯特定理的一个重要推论是，$T\to0$ 时物质系统的热容趋于零。以 $T$、$y$ 为状态参量，参照式 (2.2.5) 或式 (2.2.8)，状态参量 $y$ 不变时的热容可以表示为</p>
+<p>$$C_y = T\left(\frac{\partial S}{\partial T}\right)_y = \left(\frac{\partial S}{\partial\ln T}\right)_y \tag{4.8.10}$$</p>
+<p>$T\to0$ 时，$\ln T\to-\infty$，而 $S$ 是有限的（否则能斯特定理就没有意义了），由此可知 $T\to0$ 时</p>
+<p>$$\lim_{T\to0}C_y = 0 \tag{4.8.11}$$</p>
+<p>这一结论被迄今对已知物质的实验测量和理论分析所支持。</p>
+<p><strong>推论二：体胀系数与压强系数趋于零。</strong></p>
+<p>根据能斯特定理，$T\to0$ 时物质系统的熵与体积和压强无关，即</p>
+<p>$$\lim_{T\to0}\left(\frac{\partial S}{\partial p}\right)_T = 0, \qquad \lim_{T\to0}\left(\frac{\partial S}{\partial V}\right)_T = 0$$</p>
+<p>麦克斯韦关系给出</p>
+<p>$$\left(\frac{\partial V}{\partial T}\right)_p = -\left(\frac{\partial S}{\partial p}\right)_T, \qquad \left(\frac{\partial p}{\partial T}\right)_V = \left(\frac{\partial S}{\partial V}\right)_T$$</p>
+<p>由此可知</p>
+<p>$$\lim_{T\to0}\left(\frac{\partial V}{\partial T}\right)_p = 0, \qquad \lim_{T\to0}\left(\frac{\partial p}{\partial T}\right)_V = 0 \tag{4.8.12}$$</p>
+<p>上式意味着，<strong>热力学温度趋于零时，物质的体胀系数 $\alpha=\dfrac{1}{V}\left(\dfrac{\partial V}{\partial T}\right)_p$ 和压强系数 $\beta=\dfrac{1}{p}\left(\dfrac{\partial p}{\partial T}\right)_V$ 趋于零</strong>。这一结果在铜、铝、银和其他一些固体中得到实验的证实。</p>
+<p><strong>推论三：一级相变平衡曲线在 $T\to0$ 时斜率为零。</strong></p>
+<p>将式 (4.8.9) 中不同的 $y$ 理解为物质不同的相，意味着 $T\to0$ 时两相的熵相等。因为对于一级相变，两相体积有突变，由克拉珀龙方程</p>
+<p>$$\frac{\mathrm{d}p}{\mathrm{d}T} = \frac{S_2-S_1}{V_2-V_1} \tag{4.8.13}$$</p>
+<p>可知，<strong>$T\to0$ 时一级相变的相平衡曲线斜率为零</strong>。这一结论得到实验的证实。$T\to0$ 时液 $^4$He 和液 $^3$He 与其固相的相平衡曲线在 $T\to0$ 时均具有零斜率（参阅图 9.8.1 和图 9.8.8）。</p>
+<p><strong>推论四：化学反应前后在 $T\to0$ 时熵相等。</strong></p>
+<p>将式 (4.8.9) 中不同的 $y$ 理解为物质在化学反应前后的反应物和生成物。例如，对于化学反应</p>
+<p>$$\mathrm{Pb}+\mathrm{S}\longrightarrow\mathrm{PbS}$$</p>
+<p>式 (4.8.9) 意味着</p>
+<p>$$S_{\mathrm{Pb}}(0)+S_{\mathrm{S}}(0) = S_{\mathrm{PbS}}(0) \tag{4.8.14}$$</p>
+<h3 id="484">4.8.4 绝对熵</h3>
+<p>上面的讨论告诉我们，<strong>热力学温度趋于零时，同一物质处在热力学平衡的一切形态具有相同的熵，是一个绝对常量，可以把该绝对常量取作零</strong>。以 $S_0$ 表示该绝对常量，即有</p>
+<p>$$\lim_{T\to0}S_0 = 0 \tag{4.8.15}$$</p>
+<p><strong>这是热力学第三定律的又一表述形式。</strong></p>
+<p>在热力学第二定律的基础上引进熵函数时，熵函数可以含一个任意的相加常量（§1.14）。有了热力学第三定律后，由于 $\lim_{T\to0}C_y=0$，可以将熵函数积分表达式的下限取为绝对零度而将熵函数表达为</p>
+<p>$$S(T,y) = S(0,y) + \int_0^T\frac{C_y(T)}{T}\,\mathrm{d}T \tag{4.8.16}$$</p>
+<p>又因为 $S(0,y)$ 与 $y$ 无关，把该常量取作零后，式 (4.8.16) 就可简化为</p>
+<p>$$S(T,y) = \int_0^T\frac{C_y(T)}{T}\,\mathrm{d}T \tag{4.8.17}$$</p>
+<p><strong>上式不含任意常量，称为绝对熵。</strong></p>
+<p>当参量 $y$ 是压强 $p$ 时，熵函数可以表示为</p>
+<p>$$S(T,p) = \int_0^T\frac{C_p(T)}{T}\,\mathrm{d}T \tag{4.8.18}$$</p>
+<p>积分中压强 $p$ 保持不变。一般来说，上式适用于固相，这是因为液相和气相一般只存在于较高的温度范围。为了求得液相和气相的绝对熵，可以将由上式得到的固相的熵加上由固相转变为液相或气相时熵的增值（习题 4.12）。</p>
+<blockquote>
+<p><strong>脚注</strong>（教材 p.108）：绝对熵的概念是普朗克（Planck）在 1911 年首先提出的。</p>
+<p>又：$T\to0$ 时，气态的简并性气体满足式 (4.8.15) 和能斯特定理式 (4.8.1)，参阅 §8.3、§8.4 和习题 8.21。</p>
+</blockquote>
+<h3 id="485">4.8.5 亚稳态与冻结的非平衡态</h3>
+<p>能斯特定理不仅适用于稳定的平衡状态，也适用于<strong>亚稳</strong>的平衡状态。以硫为例加以说明：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>两种晶态</td>
+<td>单斜晶（上标 m）与正交晶（上标 r）</td>
+</tr>
+<tr>
+<td>常压相变温度</td>
+<td>$T_0 = 367\ \mathrm{K}$</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>$T_0$ 以上单斜晶稳定，$T_0$ 以下正交晶稳定</td>
+</tr>
+<tr>
+<td>亚稳态的形成</td>
+<td>在 $T_0$ 以上将单斜晶硫迅速冷却至 $T_0$ 以下，样品被冻结在单斜晶而处在亚稳态</td>
+</tr>
+</tbody>
+</table></div>
+<p>处在亚稳态的系统在发生较大涨落时会过渡到稳定的平衡状态。低温下发生较大涨落的可能性很小，因此样品可以长时间处在单斜晶态。温度为 $T_0$ 的单斜晶硫的熵 $S^{\mathrm{m}}(T_0)$ 可以通过下面两个表达式计算：</p>
+<p>$$S^{\mathrm{m}}(T_0) = S^{\mathrm{m}}(0) + \int_0^{T_0}\frac{C_p^{\mathrm{m}}}{T}\,\mathrm{d}T \tag{4.8.19}$$</p>
+<p>$$S^{\mathrm{m}}(T_0) = S^{\mathrm{r}}(0) + \int_0^{T_0}\frac{C_p^{\mathrm{r}}}{T}\,\mathrm{d}T + \frac{L}{T_0} \tag{4.8.19'}$$</p>
+<p>式中上标 m 指单斜晶，r 指正交晶，$L$ 表示两晶态的相变潜热。由实测的热容和潜热数据算得</p>
+<p>$$S^{\mathrm{m}}(T_0) - S^{\mathrm{m}}(0) = (37.82\pm0.40)\ \mathrm{J\cdot K^{-1}\cdot mol^{-1}}$$</p>
+<p>$$S^{\mathrm{m}}(T_0) - S^{\mathrm{r}}(0) = (37.95\pm0.20)\ \mathrm{J\cdot K^{-1}\cdot mol^{-1}}$$</p>
+<blockquote>
+<p><strong>⚠ 教材笔误提示</strong>：教材 p.109 把这两处的单位印作 $\mathrm{kJ\cdot K^{-1}\cdot mol^{-1}}$。硫在 367 K 的摩尔熵量级约为 $40\ \mathrm{J\cdot K^{-1}\cdot mol^{-1}}$，故单位应为 $\mathrm{J\cdot K^{-1}\cdot mol^{-1}}$（数值 37.82、37.95 本身无误）；若按 kJ 理解，熵值将比合理值大约三个数量级。</p>
+</blockquote>
+<p>二者在实验误差范围内相等，表明 $S^{\mathrm{m}}(0)=S^{\mathrm{r}}(0)$，<strong>即能斯特定理对亚稳态的单斜晶硫也是适用的</strong>。其他一些晶体也有类似的结果。</p>
+<p><strong>但能斯特定理并不适用于冻结的非平衡态。</strong> 在很低的温度下，有的物质处在冻结的非平衡态，其熵值不满足式 (4.8.15)。CO 晶体是一个例子。在 CO 晶体中，分子形成规则的点阵结构，图 4.8.2 用箭头表示 CO 分子，箭头两端分别表示 C 原子和 O 原子。图 4.8.2(a) 对应于分子取向有序的构型，图 4.8.2(b) 对应于取向无序的构型。</p>
+<ul>
+<li>在较高温度下，无序构型是平衡态；$T\to0$ 时有序构型是平衡态。</li>
+<li>当把晶体从高温冷却到某温度 $T_f$（称为<strong>冻结温度</strong>）时，由于动力学的原因，无序构型被冻结，使晶体在 $T_f$ 以下处于冻结的非平衡态，构型的无序使 CO 晶体在 $T\to0$ 时熵值不为零，不满足式 (4.8.15)。</li>
+<li>对于 $T\to0$ 且不改变 CO 晶体无序构型的等温过程（例如等温压缩过程），能斯特定理式 (4.8.1) 仍得到满足；但如果在 $T\to0$ 的等温过程中无序构型发生改变，且最终达到热力学平衡状态［例如经历化学反应 $2\mathrm{CO}(\text{晶})+\mathrm{O_2}(\text{晶})\longrightarrow2\mathrm{CO_2}(\text{晶})$］，无序构型的熵将被释放出来而有 $(\Delta S)_T<0$。</li>
+</ul>
+<p>某些液体被迅速冷却会转变为<strong>玻璃态</strong>。玻璃态黏度很高，弛豫时间很长而处在非平衡态，<strong>也不满足式 (4.8.15)</strong>。</p>
+<blockquote>
+<p><strong>脚注</strong>（教材 p.109）：参阅唐有祺. 统计力学及其在物理化学中的应用[M]. 北京：科学出版社，1964:318.</p>
+</blockquote>
+<hr />
+<h2 id="_3">本章小结</h2>
+<h3 id="_4">一、公式速查</h3>
+<p><strong>多元系的热力学函数与基本方程</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广延量的一次齐次性</td>
+<td>$V(T,p,\lambda n_i)=\lambda V(T,p,n_i)$ (4.1.2)</td>
+</tr>
+<tr>
+<td>欧拉定理</td>
+<td>$\sum_i x_i\dfrac{\partial f}{\partial x_i}=mf$ (4.1.4)</td>
+</tr>
+<tr>
+<td>偏摩尔量</td>
+<td>$v_i=\left(\dfrac{\partial V}{\partial n_i}\right)_{T,p,n_j}$，$u_i$、$s_i$ 同理 (4.1.6)；$V=\sum n_iv_i$ (4.1.7)</td>
+</tr>
+<tr>
+<td>吉布斯函数与化学势</td>
+<td>$G=\sum_i n_i\mu_i$ (4.1.8)；$\mu_i=\left(\dfrac{\partial G}{\partial n_i}\right)_{T,p,n_j}$ (4.1.9)</td>
+</tr>
+<tr>
+<td>多元系基本方程</td>
+<td>$\mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_i\mu_i\mathrm{d}n_i$ (4.1.12)；$\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p+\sum_i\mu_i\mathrm{d}n_i$ (4.1.11)</td>
+</tr>
+<tr>
+<td>化学势的等价定义</td>
+<td>$\mu_i=\left(\dfrac{\partial U}{\partial n_i}\right)_{S,V,n_j}=\left(\dfrac{\partial H}{\partial n_i}\right)_{S,p,n_j}=\left(\dfrac{\partial F}{\partial n_i}\right)_{T,V,n_j}$ (4.1.13)</td>
+</tr>
+<tr>
+<td>吉布斯关系</td>
+<td>$S\mathrm{d}T-V\mathrm{d}p+\sum_i n_i\mathrm{d}\mu_i=0$ (4.1.14)；$k+2$ 个强度量中只有 $k+1$ 个独立</td>
+</tr>
+<tr>
+<td>复相系的广延量</td>
+<td>$V=\sum_\alpha V^\alpha$，$U$、$S$、$n_i$ 同理 (4.1.16)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>多元复相平衡与相律</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多元系相变平衡条件</td>
+<td>$\mu_i^\alpha=\mu_i^\beta\ (i=1,\cdots,k)$ (4.2.4)</td>
+</tr>
+<tr>
+<td>膜平衡</td>
+<td>只能透过 $i$ 组元时 $\mu_i^\alpha=\mu_i^\beta$ (4.2.5)，两相压强可不等</td>
+</tr>
+<tr>
+<td>摩尔分数</td>
+<td>$x_i^\alpha=\dfrac{n_i^\alpha}{n^\alpha}$ (4.3.1)，$\sum_i x_i^\alpha=1$ (4.3.2)</td>
+</tr>
+<tr>
+<td>平衡条件组数</td>
+<td>$(k+2)(\varphi-1)$</td>
+</tr>
+<tr>
+<td>吉布斯相律</td>
+<td>$f=k+2-\varphi$ (4.3.6)；二元系 $f=4-\varphi$ (4.3.7)</td>
+</tr>
+</tbody>
+</table></div>
+<p>*<em>二元系相图与杠杆定则（<em>§4.4）</em></em></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>摩尔分数 / 质量百分比</td>
+<td>$x=\dfrac{n_2}{n_1+n_2}$ (4.4.1)；$x=\dfrac{m_2}{m_1+m_2}\times100\%$ (4.4.2)</td>
+</tr>
+<tr>
+<td>杠杆定则（两相区）</td>
+<td>$\dfrac{m^\alpha}{m^\beta}=\dfrac{x^\beta-x}{x-x^\alpha}=\dfrac{|ON|}{|MO|}$ (4.4.3)(4.4.4)</td>
+</tr>
+<tr>
+<td>共晶系中液相与纯固相</td>
+<td>$\dfrac{m^\alpha}{m^A}=\dfrac{|MO|}{|ON|}$ (4.4.5)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>化学平衡</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>反应方程</td>
+<td>$\sum_i\nu_iA_i=0$ (4.5.3)；生成物 $\nu_i>0$，反应物 $\nu_i<0$</td>
+</tr>
+<tr>
+<td>物质的量改变</td>
+<td>$\mathrm{d}n_i=\nu_i\mathrm{d}n$</td>
+</tr>
+<tr>
+<td>定压反应热</td>
+<td>$Q_p=\Delta H=\left(\sum_i\nu_ih_i\right)\mathrm{d}n$ (4.5.4)</td>
+</tr>
+<tr>
+<td>化学平衡条件</td>
+<td>$\sum_i\nu_i\mu_i=0$ (4.5.5)</td>
+</tr>
+<tr>
+<td>反应方向</td>
+<td>$\delta n\sum_i\nu_i\mu_i<0$ (4.5.6)；$\sum_i\nu_i\mu_i<0$ 时正向进行</td>
+</tr>
+<tr>
+<td>终态物质的量</td>
+<td>$n_i=n_i^0+\nu_i\Delta n$ (4.5.7)</td>
+</tr>
+<tr>
+<td>反应度</td>
+<td>$\varepsilon=\dfrac{\Delta n-\Delta n_b}{\Delta n_a-\Delta n_b}$ (4.5.8)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>混合理想气体</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>道尔顿分压定律</td>
+<td>$p=\sum_i p_i$ (4.6.1)；$p_i=n_i\dfrac{RT}{V}$ (4.6.2)</td>
+</tr>
+<tr>
+<td>物态方程</td>
+<td>$pV=\left(\sum_i n_i\right)RT$ (4.6.3)</td>
+</tr>
+<tr>
+<td>分压与摩尔分数</td>
+<td>$\dfrac{p_i}{p}=x_i$ (4.6.4)</td>
+</tr>
+<tr>
+<td>化学势</td>
+<td>$\mu_i=\mu'(T,p_i)=RT\left[\varphi_i+\ln(x_ip)\right]$ (4.6.5)(4.6.6)</td>
+</tr>
+<tr>
+<td>$\varphi_i$</td>
+<td>$\varphi_i=\dfrac{h_{i0}}{RT}-\displaystyle\int\dfrac{\mathrm{d}T}{RT^2}\int c_{pi}\mathrm{d}T-\dfrac{s_{i0}}{R}$ (4.6.7)；$c_{pi}$ 为常量时见 (4.6.8)</td>
+</tr>
+<tr>
+<td>吉布斯函数</td>
+<td>$G=\sum_i n_iRT\left[\varphi_i+\ln(x_ip)\right]$ (4.6.9)</td>
+</tr>
+<tr>
+<td>其他函数</td>
+<td>$V=\dfrac{\sum_i n_iRT}{p}$ (4.6.10)；$S$ (4.6.11)；$H$ (4.6.12)；$U$ (4.6.13)</td>
+</tr>
+<tr>
+<td>混合熵</td>
+<td>$S=\sum_i n_i\left[\displaystyle\int c_{pi}\dfrac{\mathrm{d}T}{T}-R\ln p+s_{i0}\right]+C$ (4.6.14)；$C=-R\sum_i n_i\ln x_i$ (4.6.15)；两种气体各 $n$ 时 $C=2nR\ln2$ (4.6.16)</td>
+</tr>
+<tr>
+<td>亨利定律 / 理想溶液</td>
+<td>$\mu_i(T,p)=g_i(T,p)+RT\ln x_i$ (4.6.17)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>理想气体的化学平衡</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平衡条件</td>
+<td>$\sum_i\nu_i\mu_i=0$ (4.7.2)；$RT\sum_i\nu_i\left[\varphi_i+\ln p_i\right]=0$ (4.7.2′)</td>
+</tr>
+<tr>
+<td>平衡常量</td>
+<td>$\ln K_p=-\sum_i\nu_i\varphi_i(T)$ (4.7.3)</td>
+</tr>
+<tr>
+<td>质量作用律</td>
+<td>$\prod_i p_i^{\nu_i}=K_p(T)$ (4.7.4)；$\prod_i x_i^{\nu_i}=K(T,p)$ (4.7.5)；$K(T,p)=p^{-\nu}K_p$ (4.7.6)</td>
+</tr>
+<tr>
+<td>正向进行条件</td>
+<td>$\prod_i p_i^{\nu_i}<K_p$ (4.7.7)</td>
+</tr>
+<tr>
+<td>平衡常量的热力学公式</td>
+<td>$\ln K_p=-\dfrac{\sum_i\nu_ih_{i0}}{RT}+\dfrac{1}{R}\sum_i\nu_i\displaystyle\int\dfrac{\mathrm{d}T}{T^2}\int c_{pi}\mathrm{d}T+\dfrac{\sum_i\nu_is_{i0}}{R}$ (4.7.11)；$c_p$ 为常量时 $\ln K_p=-\dfrac{A}{T}+C\ln T+B$ (4.7.12)</td>
+</tr>
+<tr>
+<td>$\mathrm{N_2O_4}$ 分解</td>
+<td>$K_p=\dfrac{4\varepsilon^2}{1-\varepsilon^2}p$ (4.7.15)；$\varepsilon=\dfrac{\rho_0}{\rho_e}-1$ (4.7.16)</td>
+</tr>
+<tr>
+<td>电离与萨哈公式</td>
+<td>$\dfrac{\varepsilon^2}{1-\varepsilon^2}=p^{-1}K_p$ (4.7.18)；$\varepsilon=\left[1+\dfrac{p}{K_p}\right]^{-1/2}$ (4.7.19)；$\varepsilon=\left[1+bpT^{-5/2}e^{\Delta H_0/(RT)}\right]^{-1/2}$ (4.7.21)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>热力学第三定律</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能斯特定理</td>
+<td>$\lim_{T\to0}\left(\Delta S\right)_T=0$ (4.8.1)</td>
+</tr>
+<tr>
+<td>亲和势</td>
+<td>$A=-\Delta G$ (4.8.2)</td>
+</tr>
+<tr>
+<td>低温下 $\Delta G\approx\Delta H$</td>
+<td>$\Delta G=\Delta H-T\Delta S$ (4.8.3)；$\left(\partial\Delta H/\partial T\right)_0=\left(\partial\Delta G/\partial T\right)_0=0$ (4.8.8)</td>
+</tr>
+<tr>
+<td>熵与状态参量无关</td>
+<td>$S(0,y_B)=S(0,y_A)$ (4.8.9)</td>
+</tr>
+<tr>
+<td>热容趋于零</td>
+<td>$C_y=\left(\dfrac{\partial S}{\partial\ln T}\right)_y$ (4.8.10)；$\lim_{T\to0}C_y=0$ (4.8.11)</td>
+</tr>
+<tr>
+<td>体胀系数与压强系数趋于零</td>
+<td>$\lim_{T\to0}\left(\dfrac{\partial V}{\partial T}\right)_p=0$，$\lim_{T\to0}\left(\dfrac{\partial p}{\partial T}\right)_V=0$ (4.8.12)</td>
+</tr>
+<tr>
+<td>一级相变斜率趋于零</td>
+<td>$\dfrac{\mathrm{d}p}{\mathrm{d}T}=\dfrac{S_2-S_1}{V_2-V_1}$ (4.8.13)；$T\to0$ 时斜率为零</td>
+</tr>
+<tr>
+<td>绝对熵</td>
+<td>$S(T,y)=\displaystyle\int_0^T\dfrac{C_y(T)}{T}\mathrm{d}T$ (4.8.17)；$S(T,p)=\displaystyle\int_0^T\dfrac{C_p(T)}{T}\mathrm{d}T$ (4.8.18)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_5">二、概念脉络</h3>
+<pre><code>§1.14 热力学基本方程 dU = T dS - p dV
+§3.2  开系基本方程（单元系）dU = T dS - p dV + μ dn
+        │
+        ▼
+§4.1 多元系：加入 k 个组元 n_i
+     广延量 → 一次齐函数 → 欧拉定理
+        ├──► 偏摩尔量 v_i、u_i、s_i
+        ├──► 化学势 μ_i = G 对 n_i 的偏导 = 偏摩尔吉布斯函数
+        └──► dU = T dS − p dV + Σ μ_i dn_i
+             吉布斯关系 S dT − V dp + Σ n_i dμ_i = 0
+        │
+        ▼
+§4.2 多元系复相平衡：每个组元分别满足 μ_i^α = μ_i^β
+        ├──► 半透膜 → 膜平衡（只对可透组元，两相 p 可不等）
+        ▼
+§4.3 吉布斯相律 f = k + 2 − φ
+        │
+        ▼
+*§4.4 二元系相图（固定 p：T–x 图）
+        ├──► 无限固溶体（金-银）：液相线 / 固相线 / 杠杆定则
+        ├──► 共晶系（镉-铋）：低共熔点 C、共晶体
+        └──► ³He-⁴He：λ 线、三临界点、共存线
+        │
+        ▼
+§4.5 化学平衡：把&quot;相变&quot;换成&quot;反应&quot;
+     dn_i = ν_i dn → δG = δn Σ ν_i μ_i = 0
+        ├──► Σ ν_i μ_i = 0（平衡条件）
+        ├──► Σ ν_i h_i dn = ΔH = Q_p（反应热，赫斯定律）
+        └──► 反应度 ε
+        │
+        ▼
+§4.6 混合理想气体：道尔顿定律 + 半透膜膜平衡
+     μ_i = RT[φ_i + ln(x_i p)]
+        ├──► G、S、H、U 都是各组分之和
+        └──► 混合熵 C = −R Σ n_i ln x_i；吉布斯佯谬
+        │
+        ▼
+§4.7 理想气体化学平衡：质量作用律
+     ∏ p_i^ν_i = K_p(T)，K(T,p) = p^(−ν) K_p
+        ├──► N₂O₄ 分解：ε 与 T、p 的关系（减压有利于分解）
+        └──► 原子电离：萨哈公式（升温、减压有利于电离）
+        │
+        ▼
+§4.8 热力学第三定律
+     lim_{T→0} (ΔS)_T = 0 ⟺ 绝对零度不能达到
+        ├──► C_y → 0
+        ├──► α → 0，β → 0
+        ├──► 一级相变平衡曲线斜率 → 0
+        └──► 绝对熵 S = ∫₀^T (C/T) dT
+             例外：玻璃态、CO 晶体等冻结的非平衡态
+</code></pre>
+<h3 id="_6">三、易错点</h3>
+<ol>
+<li><strong>"组元"与"相"不是一回事</strong>：组元是化学组分，相是均匀部分。$k$ 个组元可以有 $\varphi$ 个相，相律把二者用 $f=k+2-\varphi$ 联系起来。</li>
+<li><strong>偏摩尔量不是"摩尔量"</strong>：$v_i=\left(\partial V/\partial n_i\right)_{T,p,n_j}$ 是保持 $T$、$p$ 和其他组元不变时对 $n_i$ 的偏导；只有广延量才能写成 $\sum_i n_i(\text{偏摩尔量})$。</li>
+<li><strong>化学势的四个定义式下标各不相同</strong>：$\mu_i=\left(\partial U/\partial n_i\right)_{S,V,n_j}=\left(\partial H/\partial n_i\right)_{S,p,n_j}=\left(\partial F/\partial n_i\right)_{T,V,n_j}=\left(\partial G/\partial n_i\right)_{T,p,n_j}$；不能一律用 $T$、$p$ 作下标。</li>
+<li><strong>吉布斯关系不是基本方程</strong>：$S\mathrm{d}T-V\mathrm{d}p+\sum_i n_i\mathrm{d}\mu_i=0$ 是强度量之间的关系，它说明 $k+2$ 个强度量只有 $k+1$ 个独立，不能与 $\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p+\sum\mu_i\mathrm{d}n_i$ 混为一谈。</li>
+<li><strong>复相系一般没有总的 $H$、$F$、$G$</strong>：只有各相 $p$ 相同才有 $H=\sum_\alpha H^\alpha$，各相 $T$ 相同才有 $F=\sum_\alpha F^\alpha$，各相 $T$、$p$ 都相同才有 $G=\sum_\alpha G^\alpha$。</li>
+<li><strong>相平衡条件是"逐个组元"相等</strong>：$\mu_i^\alpha=\mu_i^\beta$ 对每个 $i$ 都要成立，不是总化学势相等；有半透膜时只对能透过的组元成立，此时两相压强可以不等。</li>
+<li><strong>相律中的 $k$ 是复相系的总组元数</strong>，不是每一相的组元数。若某相少一个组元，强度量少一个，平衡条件也少一个，$f$ 不变。</li>
+<li><strong>相律中的 "2" 来自 $T$、$p$</strong>；若还存在磁场、电场等外场，独立强度量要相应增加，相律形式需修改。</li>
+<li><strong>二元系相图的自由度</strong>：单相区 $f=3$（$T$、$p$、$x$ 独立）；两相区 $f=2$（给定 $T$、$p$ 后两相成分由相界线定出）；三相共存 $f=1$；固定 $p$ 后再减 1。</li>
+<li><strong>杠杆定则的"力臂"与相的质量成反比</strong>：$\dfrac{m^\alpha}{m^\beta}=\dfrac{|ON|}{|MO|}$，即某相的质量正比于"另一相"到系统点的距离。记成"同侧相乘"最容易出错。</li>
+<li><strong>共晶系与无限固溶体的区别</strong>：前者的固相是纯组元（或有限固溶），两相区是"液相 + 纯固相"，共晶点是三相共存；后者固相是可连续变成分的固溶体。</li>
+<li><strong>化学平衡条件中的 $\nu_i$ 带符号</strong>：生成物为正、反应物为负；方向判据是 $\delta n\sum_i\nu_i\mu_i<0$，丢符号就会把正、逆方向判反。</li>
+<li><strong>$K_p$ 只是温度的函数，$K(T,p)$ 才依赖压强</strong>：$\prod_i p_i^{\nu_i}=K_p(T)$ 与 $\prod_i x_i^{\nu_i}=K(T,p)=p^{-\nu}K_p$ 是两种写法，$\nu=\sum_i\nu_i=0$ 时二者相同。</li>
+<li><strong>质量作用律的指数就是反应方程的系数</strong>（带符号）；换成摩尔分数形式时多出 $p^{\nu}$ 因子，这正是"减压有利于气体分子数增加的反应"的来源。</li>
+<li><strong>混合熵 $C=-R\sum_i n_i\ln x_i>0$</strong> 说明等温等压混合是不可逆的；但它只适用于<strong>不同</strong>气体。同种气体"混合"时 $C=0$，这就是吉布斯佯谬，其根源是全同粒子的不可分辨性，而不是公式本身错了。</li>
+<li><strong>能斯特定理是对"等温过程"的熵变而言</strong>：$\lim_{T\to0}(\Delta S)_T=0$ 推出 $C_y\to0$、$\alpha\to0$、$\beta\to0$，以及一级相变平衡曲线在 $T\to0$ 时斜率为零；不要把它误当成"$T\to0$ 时熵本身为零"（后者是取绝对常量后的约定，见 (4.8.15)）。</li>
+<li><strong>绝对熵公式 $S=\int_0^T(C/T)\mathrm{d}T$ 只对固相直接成立</strong>；液、气相要按"固相绝对熵 + 各段升温熵 + 相变熵"逐段累加。</li>
+<li><strong>能斯特定理只适用于热力学平衡态（含亚稳态）</strong>；玻璃态、CO 晶体等冻结的非平衡态不满足 $S(0)=0$，但它们在不改变构型的等温过程中仍满足 $(\Delta S)_T=0$。</li>
+</ol>
+<h3 id="_7">四、名词中英对照</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>中文</th>
+<th>英文</th>
+<th>中文</th>
+<th>英文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多元系</td>
+<td>multicomponent system</td>
+<td>组元</td>
+<td>component</td>
+</tr>
+<tr>
+<td>偏摩尔量</td>
+<td>partial molar quantity</td>
+<td>偏摩尔体积</td>
+<td>partial molar volume</td>
+</tr>
+<tr>
+<td>偏摩尔内能</td>
+<td>partial molar internal energy</td>
+<td>偏摩尔熵</td>
+<td>partial molar entropy</td>
+</tr>
+<tr>
+<td>化学势</td>
+<td>chemical potential</td>
+<td>摩尔分数</td>
+<td>mole fraction</td>
+</tr>
+<tr>
+<td>齐函数</td>
+<td>homogeneous function</td>
+<td>欧拉定理</td>
+<td>Euler's theorem</td>
+</tr>
+<tr>
+<td>广延量 / 强度量</td>
+<td>extensive / intensive quantity</td>
+<td>吉布斯关系</td>
+<td>Gibbs-Duhem relation</td>
+</tr>
+<tr>
+<td>复相系</td>
+<td>multiphase system</td>
+<td>膜平衡</td>
+<td>membrane equilibrium</td>
+</tr>
+<tr>
+<td>半透膜</td>
+<td>semipermeable membrane</td>
+<td>自由度</td>
+<td>degree of freedom</td>
+</tr>
+<tr>
+<td>吉布斯相律</td>
+<td>Gibbs phase rule</td>
+<td>相图</td>
+<td>phase diagram</td>
+</tr>
+<tr>
+<td>液相线</td>
+<td>liquidus</td>
+<td>固相线</td>
+<td>solidus</td>
+</tr>
+<tr>
+<td>无限固溶体</td>
+<td>continuous solid solution</td>
+<td>共晶系</td>
+<td>eutectic system</td>
+</tr>
+<tr>
+<td>低共熔点</td>
+<td>eutectic point</td>
+<td>共晶体</td>
+<td>eutectic mixture</td>
+</tr>
+<tr>
+<td>杠杆定则</td>
+<td>lever rule</td>
+<td>三临界点</td>
+<td>tricritical point</td>
+</tr>
+<tr>
+<td>超流相 / 正常相</td>
+<td>superfluid / normal phase</td>
+<td>共存线</td>
+<td>coexistence curve</td>
+</tr>
+<tr>
+<td>化学平衡</td>
+<td>chemical equilibrium</td>
+<td>反应度</td>
+<td>extent of reaction</td>
+</tr>
+<tr>
+<td>生成物 / 反应物</td>
+<td>product / reactant</td>
+<td>定压反应热</td>
+<td>heat of reaction at constant pressure</td>
+</tr>
+<tr>
+<td>赫斯定律</td>
+<td>Hess's law</td>
+<td>亲和势</td>
+<td>affinity</td>
+</tr>
+<tr>
+<td>道尔顿分压定律</td>
+<td>Dalton's law of partial pressures</td>
+<td>分压</td>
+<td>partial pressure</td>
+</tr>
+<tr>
+<td>混合熵</td>
+<td>entropy of mixing</td>
+<td>吉布斯佯谬</td>
+<td>Gibbs paradox</td>
+</tr>
+<tr>
+<td>亨利定律</td>
+<td>Henry's law</td>
+<td>理想溶液</td>
+<td>ideal solution</td>
+</tr>
+<tr>
+<td>平衡常量</td>
+<td>equilibrium constant</td>
+<td>质量作用律</td>
+<td>law of mass action</td>
+</tr>
+<tr>
+<td>分解度 / 电离度</td>
+<td>degree of dissociation / ionization</td>
+<td>萨哈公式</td>
+<td>Saha equation</td>
+</tr>
+<tr>
+<td>能斯特定理</td>
+<td>Nernst heat theorem</td>
+<td>绝对零度不能达到原理</td>
+<td>unattainability of absolute zero</td>
+</tr>
+<tr>
+<td>绝对熵</td>
+<td>absolute entropy</td>
+<td>冻结的非平衡态</td>
+<td>frozen non-equilibrium state</td>
+</tr>
+<tr>
+<td>玻璃态</td>
+<td>glassy state</td>
+<td>亚稳态</td>
+<td>metastable state</td>
+</tr>
+</tbody>
+</table></div>
+    </article>
+    <nav class="chapter-pagination" aria-label="章节导航">
+      <a href="chapter-03.html"><span>上一章</span><strong>第三章 单元系的相变</strong></a>
+      <a class="next" href="chapter-05.html"><span>下一章</span><strong>第五章 不可逆过程热力学简介</strong></a>
+    </nav>
+  </main>
+  <footer class="notes-footer">
+    <span>汪志诚《热力学·统计物理》第六版学习笔记</span>
+    <a href="../../index.html#notes">Wenbin Zhou</a>
+  </footer>
+</body>
+</html>

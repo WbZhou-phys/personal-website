@@ -1596,6 +1596,128 @@ button {
   color: var(--ink);
 }
 
+.notes-module {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(49, 95, 189, 0.07), transparent 24rem),
+    var(--paper-light);
+}
+
+.notes-module-grid {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.72fr) minmax(28rem, 1.28fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.notes-course-intro {
+  position: sticky;
+  top: 7rem;
+}
+
+.notes-course-label {
+  margin: 0 0 1.2rem;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.notes-course-intro h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.notes-course-intro > p:not(.notes-course-label, .notes-language-note) {
+  max-width: 440px;
+  margin: 1.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.notes-index-link {
+  display: inline-flex;
+  margin-top: 2rem;
+  padding-bottom: 0.3rem;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.76rem;
+  font-weight: 600;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.notes-index-link:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.notes-language-note {
+  margin: 3rem 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.03em;
+}
+
+.notes-module-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.notes-module-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.notes-module-list a {
+  display: grid;
+  padding: 1rem 0.4rem;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 0.7rem;
+  transition:
+    background-color 180ms ease,
+    padding-left 180ms var(--ease);
+}
+
+.notes-module-list a:hover {
+  padding-left: 0.75rem;
+  background: rgba(49, 95, 189, 0.045);
+}
+
+.notes-module-list a > span {
+  grid-row: 1 / span 2;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+}
+
+.notes-module-list strong {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.notes-module-list small {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+html[lang="zh-CN"] .notes-module-list small {
+  display: none;
+}
+
 .toolkit {
   background: var(--paper);
 }
@@ -2042,8 +2164,13 @@ html[lang="zh-CN"] .visit-card h3 {
   .toolkit-header,
   .honors-heading,
   .beyond-grid,
-  .coursework-heading {
+  .coursework-heading,
+  .notes-module-grid {
     grid-template-columns: 1fr;
+  }
+
+  .notes-course-intro {
+    position: static;
   }
 
   .coursework-heading {

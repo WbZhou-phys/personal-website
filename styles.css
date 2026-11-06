@@ -133,6 +133,43 @@ button {
   backdrop-filter: blur(18px);
 }
 
+.site-header.on-dark {
+  border-bottom-color: var(--line-light);
+  background: rgba(19, 34, 38, 0.92);
+  color: var(--paper-light);
+  backdrop-filter: blur(18px);
+}
+
+.site-header.on-dark .brand-mark,
+.site-header.on-dark .nav-toggle {
+  border-color: rgba(250, 248, 242, 0.45);
+  color: var(--paper-light);
+}
+
+.site-header.on-dark .brand-copy strong,
+.site-header.on-dark .language-button.is-active {
+  color: var(--paper-light);
+}
+
+.site-header.on-dark .brand-copy span,
+.site-header.on-dark .primary-nav a,
+.site-header.on-dark .language-switch,
+.site-header.on-dark .language-button {
+  color: rgba(250, 248, 242, 0.62);
+}
+
+.site-header.on-dark .primary-nav a::after {
+  background: var(--paper-light);
+}
+
+.site-header.on-dark .primary-nav a.is-active {
+  color: var(--paper-light);
+}
+
+.site-header.on-dark .nav-toggle span {
+  background: var(--paper-light);
+}
+
 .nav-shell {
   display: flex;
   align-items: center;
@@ -210,9 +247,22 @@ button {
 }
 
 .primary-nav a:hover::after,
-.primary-nav a:focus-visible::after {
+.primary-nav a:focus-visible::after,
+.primary-nav a.is-active::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.primary-nav a.is-active {
+  color: var(--ink);
+}
+
+[data-module-view][hidden] {
+  display: none !important;
+}
+
+[data-module-view].is-module-active {
+  animation: module-enter 420ms var(--ease) both;
 }
 
 .nav-actions {
@@ -1628,7 +1678,7 @@ button {
 }
 
 .contact {
-  padding-top: 2rem;
+  padding-top: clamp(8rem, 12vw, 11rem);
   background: var(--paper);
 }
 
@@ -1637,7 +1687,7 @@ button {
   display: grid;
   min-height: 31rem;
   padding: clamp(2rem, 5vw, 4.5rem);
-  grid-template-columns: 8rem minmax(0, 1fr) 13rem;
+  grid-template-columns: 8rem minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
   align-items: end;
   background:
@@ -1789,6 +1839,18 @@ html[lang="zh-CN"] .visit-card h3 {
   line-height: 1.18;
 }
 
+@keyframes module-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1050px) {
   .primary-nav {
     gap: 1.35rem;
@@ -1867,6 +1929,11 @@ html[lang="zh-CN"] .visit-card h3 {
     max-height: 24rem;
     border-bottom-color: var(--line);
     visibility: visible;
+  }
+
+  .site-header.on-dark .primary-nav {
+    border-bottom-color: var(--line-light);
+    background: rgba(19, 34, 38, 0.98);
   }
 
   .site-header.nav-open .nav-toggle span:first-child {
@@ -2149,7 +2216,7 @@ html[lang="zh-CN"] .visit-card h3 {
   }
 
   .contact {
-    padding-top: 0.5rem;
+    padding-top: 6.5rem;
   }
 
   .contact-card {

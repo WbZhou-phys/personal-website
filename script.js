@@ -17,7 +17,6 @@ const translations = {
     "hero.lead":
       "I am Wenbin Zhou, a physics undergraduate at Sun Yat-sen University. I’m studying modified gravity and cosmology.",
     "hero.primary": "Explore my research",
-    "hero.contact": "Get in touch",
     "hero.factFocusLabel": "Focus",
     "hero.factFocus": "Gravity & field theory",
     "hero.factGpaLabel": "GPA",
@@ -35,7 +34,6 @@ const translations = {
       "I am drawn to the places where geometry becomes physics: how spacetime responds to matter, how symmetry constrains what can exist, and how elegant mathematical structures leave traces in the observable universe.",
     "about.body":
       "As a physics undergraduate at Sun Yat-sen University, I have built a foundation in general relativity, quantum mechanics, field theory, differential geometry, and so on. My current research explores modified gravity; I am also fascinated by cosmology and topological phases of matter.",
-    "about.link": "Let’s start a conversation",
     "about.interestsLabel": "Research compass",
     "about.interest1": "Modified gravity",
     "about.interest2": "Cosmology",
@@ -164,8 +162,6 @@ const translations = {
     "contact.title": "A good question is the beginning of a <em>conversation.</em>",
     "contact.body":
       "If you are working on gravity, topology, or simply want to exchange ideas, I would be glad to hear from you.",
-    "contact.email": "Send an email",
-    "contact.university": "Sun Yat-sen University",
     "footer.note": "Physics, geometry, and everything between.",
     "footer.back": "Back to top ↑",
   },
@@ -187,7 +183,6 @@ const translations = {
     "hero.lead":
       "我是周文斌，中山大学物理学院本科生。目前主要学习和研究修正引力与宇宙学。",
     "hero.primary": "了解我的研究",
-    "hero.contact": "联系我",
     "hero.factFocusLabel": "研究焦点",
     "hero.factFocus": "引力与场论",
     "hero.factGpaLabel": "GPA",
@@ -205,7 +200,6 @@ const translations = {
       "我被几何转化为物理的地方所吸引：时空如何响应物质，对称性如何约束万物的可能形态，以及优雅的数学结构如何在可观测宇宙中留下痕迹。",
     "about.body":
       "作为中山大学物理学院本科生，我已在广义相对论、量子力学、场论、微分几何等方面打下基础。目前的科研训练聚焦修正引力，同时关注宇宙学与物质拓扑相。",
-    "about.link": "和我聊聊",
     "about.interestsLabel": "研究罗盘",
     "about.interest1": "修正引力",
     "about.interest2": "宇宙学",
@@ -326,8 +320,6 @@ const translations = {
     "contact.eyebrow": "保持联系",
     "contact.title": "一个好问题，往往是一段<em>对话</em>的开始。",
     "contact.body": "如果你也在研究引力、拓扑，或者只是想交换想法，欢迎来信。",
-    "contact.email": "发送邮件",
-    "contact.university": "中山大学",
     "footer.note": "物理、几何，以及二者之间的一切。",
     "footer.back": "回到顶部 ↑",
   },
@@ -348,12 +340,23 @@ const pageMeta = {
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".primary-nav a");
+const moduleViews = document.querySelectorAll("[data-module-view]");
+const moduleLinks = document.querySelectorAll("[data-module-link]");
+const backToTop = document.querySelector("#back-to-top");
 const languageButtons = document.querySelectorAll(".language-button");
 const metaDescription = document.querySelector('meta[name="description"]');
+const moduleIds = new Set(["about", "research", "education", "skills", "contact"]);
 
 function getLanguageFromUrl() {
   const language = new URLSearchParams(window.location.search).get("lang");
   return language === "zh" ? "zh" : "en";
+}
+
+function getModuleFromLocation() {
+  const hash = window.location.hash.replace(/^#/, "");
+  if (hash === "top") return "about";
+  if (hash === "honors" || hash.startsWith("coursework")) return "education";
+  return moduleIds.has(hash) ? hash : "about";
 }
 
 function setNavigationState(isOpen) {
@@ -415,6 +418,33 @@ function applyLanguage(language, updateUrl = true) {
   setNavigationState(false);
 }
 
+function showModule(moduleId) {
+  const activeModule = moduleIds.has(moduleId) ? moduleId : "about";
+
+  moduleViews.forEach((view) => {
+    const isActive = view.dataset.moduleView.split(/\s+/).includes(activeModule);
+    view.hidden = !isActive;
+    view.classList.remove("is-module-active");
+    if (isActive) {
+      requestAnimationFrame(() => view.classList.add("is-module-active"));
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const isActive = link.dataset.moduleLink === activeModule;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  header.classList.toggle("on-dark", activeModule === "research");
+  setNavigationState(false);
+  window.scrollTo(0, 0);
+}
+
 window.addEventListener("scroll", () => {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
 }, { passive: true });
@@ -423,15 +453,33 @@ navToggle.addEventListener("click", () => {
   setNavigationState(!header.classList.contains("nav-open"));
 });
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => setNavigationState(false));
+moduleLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const moduleId = link.dataset.moduleLink;
+    if (window.location.hash !== `#${moduleId}`) {
+      window.history.pushState({ moduleId }, "", `#${moduleId}`);
+    }
+    showModule(moduleId);
+  });
 });
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.language));
 });
 
-window.addEventListener("popstate", () => applyLanguage(getLanguageFromUrl(), false));
+window.addEventListener("hashchange", () => showModule(getModuleFromLocation()));
+
+window.addEventListener("popstate", () => {
+  applyLanguage(getLanguageFromUrl(), false);
+  showModule(getModuleFromLocation());
+});
+
+backToTop?.addEventListener("click", (event) => {
+  event.preventDefault();
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setNavigationState(false);
@@ -439,3 +487,4 @@ document.addEventListener("keydown", (event) => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 applyLanguage(getLanguageFromUrl(), false);
+showModule(getModuleFromLocation());

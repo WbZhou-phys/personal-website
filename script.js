@@ -345,7 +345,16 @@ const moduleLinks = document.querySelectorAll("[data-module-link]");
 const backToTop = document.querySelector("#back-to-top");
 const languageButtons = document.querySelectorAll(".language-button");
 const metaDescription = document.querySelector('meta[name="description"]');
+const siteVersion = document.querySelector('meta[name="site-version"]')?.content;
 const moduleIds = new Set(["about", "research", "education", "skills", "contact"]);
+
+if (siteVersion && !siteVersion.includes("__")) {
+  document.querySelectorAll('a[href^="assets/coursework/"]').forEach((link) => {
+    const assetUrl = new URL(link.getAttribute("href"), window.location.href);
+    assetUrl.searchParams.set("v", siteVersion);
+    link.href = assetUrl.href;
+  });
+}
 
 function getLanguageFromUrl() {
   const language = new URLSearchParams(window.location.search).get("lang");

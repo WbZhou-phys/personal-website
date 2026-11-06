@@ -1593,6 +1593,12 @@ button {
   align-items: start;
 }
 
+.notes-module-secondary {
+  margin-top: clamp(4rem, 7vw, 6rem);
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+
 .notes-course-intro {
   position: sticky;
   top: 7rem;
@@ -1694,7 +1700,7 @@ button {
   grid-column: 3;
   align-self: center;
   color: var(--blue);
-  content: "MD ↗";
+  content: attr(data-file-type) " ↗";
   font-family: var(--mono);
   font-size: 0.54rem;
   letter-spacing: 0.04em;

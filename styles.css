@@ -688,15 +688,7 @@ button {
 .section-heading {
   display: grid;
   margin-bottom: clamp(3rem, 6vw, 5.5rem);
-  grid-template-columns: 4rem minmax(0, 1fr);
-  gap: 1.25rem;
-}
-
-.section-index {
-  margin: 0.2rem 0 0;
-  color: var(--blue);
-  font-family: var(--mono);
-  font-size: 0.68rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .section h2 {
@@ -835,10 +827,6 @@ button {
 
 .section-heading-light .eyebrow {
   color: var(--blue-bright);
-}
-
-.section-heading-light .section-index {
-  color: rgba(250, 248, 242, 0.45);
 }
 
 .section-heading-light h2 em {
@@ -1420,10 +1408,6 @@ button {
   align-self: start;
 }
 
-.section-heading-stacked .section-index {
-  margin-bottom: 1.8rem;
-}
-
 .section-heading-stacked h2 {
   font-size: clamp(2.7rem, 4.3vw, 4.1rem);
 }
@@ -1614,6 +1598,25 @@ button {
   top: 7rem;
 }
 
+.notes-course-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.notes-course-number {
+  display: grid;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  padding: 0.45rem;
+  place-items: center;
+  border: 1px solid rgba(49, 95, 189, 0.5);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+}
+
 .notes-course-intro h3 {
   margin: 0;
   font-family: var(--serif);
@@ -1722,10 +1725,6 @@ html[lang="zh-CN"] .notes-module-list small {
   grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
   gap: 5rem;
   align-items: end;
-}
-
-.toolkit-header .section-index {
-  margin-bottom: 1.7rem;
 }
 
 .toolkit-header h2 {
@@ -2134,8 +2133,7 @@ html[lang="zh-CN"] .visit-card h3 {
   }
 
   .section-heading {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.7rem;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .section {

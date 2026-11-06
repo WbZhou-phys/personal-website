@@ -56,6 +56,10 @@ const translations = {
     "research.exchangeTitle": "Universitat de València",
     "research.exchangeBody":
       "An invited short-term visit to the Department of Theoretical Physics, exchanging ideas on metric-affine gravity with the group of Prof. Gonzalo J. Olmo.",
+    "research.exchangeFollowup":
+      "I later consolidated part of what I learned into a team-seminar report on the microscopic structure of spacetime and modified gravity.",
+    "research.exchangeSlides": "Team-seminar report",
+    "research.exchangeSlidesMeta": "45 slides",
     "research.exchangeAdvisor": "Host: Prof. Gonzalo J. Olmo",
     "coursework.eyebrow": "Coursework",
     "coursework.title": "Courses and laboratory reports.",
@@ -223,6 +227,10 @@ const translations = {
     "research.exchangeTitle": "瓦伦西亚大学",
     "research.exchangeBody":
       "受邀赴瓦伦西亚大学理论物理系进行短期学术访问，与 Gonzalo J. Olmo 教授团队交流 Metric-affine 引力相关前沿课题。",
+    "research.exchangeFollowup":
+      "随后，我将交流中学习到的部分内容整理成课题组报告，讨论时空微观结构与修正引力。",
+    "research.exchangeSlides": "课题组报告",
+    "research.exchangeSlidesMeta": "45 页",
     "research.exchangeAdvisor": "接待导师：Gonzalo J. Olmo 教授",
     "coursework.eyebrow": "课程作业",
     "coursework.title": "课程与实验报告。",

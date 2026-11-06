@@ -130,6 +130,7 @@ const translations = {
       "Academic survey of the Altland–Zirnbauer tenfold classification of symmetry-protected topological phases",
     "honors.modelingTitle": "Merit Award, Mathematical Modeling",
     "honors.modelingBody": "Guangdong Provincial Undergraduate Competition",
+    "honors.modelingAttachment": "View modeling paper",
     "honors.olympiadTitle": "First Prize, 39th Chinese Physics Olympiad",
     "honors.olympiadBody": "National Physics Competition for Secondary School Students · Semifinal",
     "toolkit.eyebrow": "Ways of working",
@@ -290,6 +291,7 @@ const translations = {
     "honors.researchBody": "围绕对称保护拓扑相的 Altland–Zirnbauer 十重分类开展学术调研",
     "honors.modelingTitle": "数学建模竞赛优秀奖",
     "honors.modelingBody": "广东省大学生数学建模竞赛",
+    "honors.modelingAttachment": "查看数模论文",
     "honors.olympiadTitle": "第39届全国中学生物理竞赛复赛一等奖",
     "honors.olympiadBody": "2022 · 全国中学生物理竞赛",
     "toolkit.eyebrow": "工作方式",
@@ -349,7 +351,7 @@ const siteVersion = document.querySelector('meta[name="site-version"]')?.content
 const moduleIds = new Set(["about", "research", "education", "skills", "contact"]);
 
 if (siteVersion && !siteVersion.includes("__")) {
-  document.querySelectorAll('a[href^="assets/coursework/"]').forEach((link) => {
+  document.querySelectorAll('a[href^="assets/coursework/"], a[data-versioned-asset]').forEach((link) => {
     const assetUrl = new URL(link.getAttribute("href"), window.location.href);
     assetUrl.searchParams.set("v", siteVersion);
     link.href = assetUrl.href;

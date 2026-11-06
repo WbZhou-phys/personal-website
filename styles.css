@@ -1539,6 +1539,29 @@ button {
   line-height: 1.55;
 }
 
+.award-attachment {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 0.9rem;
+  padding-bottom: 0.22rem;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid var(--ink);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.03em;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.award-attachment:hover {
+  border-color: var(--blue);
+  color: var(--ink);
+}
+
 .toolkit {
   background: var(--paper);
 }

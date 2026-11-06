@@ -102,13 +102,6 @@ const translations = {
     "coursework.earthCourse": "Earth Evolution History",
     "coursework.earthMeta": "May 2026",
     "coursework.earthTitle": "From Assembly to Breakup: A Geological Study of Pangaea's Evolution",
-    "coursework.designCourse": "Creative Academic Picture Design",
-    "coursework.visualType": "Visual assignment",
-    "coursework.posterFormat": "Academic poster",
-    "coursework.designTitle":
-      "Altland–Zirnbauer Tenfold Classification of Symmetry-Protected Topological Phases",
-    "coursework.designCredit":
-      "Group poster with ZC. Zhang, HR. Huang, and AY. Chen · Supervisor: JY. Wan",
     "education.eyebrow": "Foundations",
     "education.title": "Learning how to ask <em>better questions.</em>",
     "education.intro":
@@ -272,12 +265,6 @@ const translations = {
     "coursework.earthCourse": "《地球演化历史》",
     "coursework.earthMeta": "2026年5月",
     "coursework.earthTitle": "从聚合到裂解：联合古陆变化过程的地质学考察",
-    "coursework.designCourse": "《专业学术制图技术》",
-    "coursework.visualType": "制图作业",
-    "coursework.posterFormat": "学术海报",
-    "coursework.designTitle": "对称保护拓扑相的 Altland–Zirnbauer 十重分类",
-    "coursework.designCredit":
-      "与 ZC. Zhang、HR. Huang、AY. Chen 共同完成 · 指导：JY. Wan",
     "education.eyebrow": "学术基础",
     "education.title": "学习如何提出<em>更好的问题。</em>",
     "education.intro": "我的训练将系统的课程学习、早期科研体验与国际学术交流结合起来。",

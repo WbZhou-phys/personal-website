@@ -108,7 +108,7 @@ const translations = {
     "notes.courseTitle": "Thermodynamics and Statistical Physics",
     "notes.courseBody":
       "Chapter-by-chapter study notes based on Wang Zhicheng's Thermodynamics and Statistical Physics, sixth edition.",
-    "notes.languageNote": "Each chapter is attached as a Markdown note in Chinese.",
+    "notes.languageNote": "Each chapter is attached as a PDF in Chinese.",
     "notes.chapter1": "Basic Laws of Thermodynamics",
     "notes.chapter2": "Thermodynamic Properties of Homogeneous Matter",
     "notes.chapter3": "Phase Transitions in Single-Component Systems",
@@ -307,7 +307,7 @@ const translations = {
     "notes.title": "记录我的<em>阅读、思考与学习。</em>",
     "notes.courseTitle": "热力学与统计物理",
     "notes.courseBody": "基于汪志诚《热力学·统计物理》第六版的章节学习笔记。",
-    "notes.languageNote": "每章以中文 Markdown 笔记附件的形式提供。",
+    "notes.languageNote": "每章以中文 PDF 附件的形式提供。",
     "notes.chapter1": "热力学的基本规律",
     "notes.chapter2": "均匀物质的热力学性质",
     "notes.chapter3": "单元系的相变",

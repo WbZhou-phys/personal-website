@@ -161,7 +161,7 @@ const translations = {
     "contact.eyebrow": "Get in touch",
     "contact.title": "A good question is the beginning of a <em>conversation.</em>",
     "contact.body":
-      "If you are working on gravity, topology, or simply want to exchange ideas, I would be glad to hear from you.",
+      "If you are working on gravity, cosmology, or simply want to exchange ideas, I would be glad to hear from you.",
     "footer.note": "Physics, geometry, and everything between.",
     "footer.back": "Back to top ↑",
   },
@@ -319,7 +319,7 @@ const translations = {
     "beyond.philosophy": "存在主义",
     "contact.eyebrow": "保持联系",
     "contact.title": "一个好问题，往往是一段<em>对话</em>的开始。",
-    "contact.body": "如果你也在研究引力、拓扑，或者只是想交换想法，欢迎来信。",
+    "contact.body": "如果你也在研究引力、宇宙学，或者只是想交换想法，欢迎来信。",
     "footer.note": "物理、几何，以及二者之间的一切。",
     "footer.back": "回到顶部 ↑",
   },

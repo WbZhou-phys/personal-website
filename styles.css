@@ -1048,6 +1048,11 @@ button {
   font-size: 0.86rem;
 }
 
+.coursework-list {
+  display: grid;
+  gap: 1rem;
+}
+
 .coursework-card {
   position: relative;
   display: grid;
@@ -1110,6 +1115,14 @@ button {
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.05;
+}
+
+.coursework-credit {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.04em;
 }
 
 .coursework-link {

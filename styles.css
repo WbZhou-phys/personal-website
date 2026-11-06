@@ -1614,15 +1614,6 @@ button {
   top: 7rem;
 }
 
-.notes-course-label {
-  margin: 0 0 1.2rem;
-  color: var(--blue);
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
 .notes-course-intro h3 {
   margin: 0;
   font-family: var(--serif);
@@ -1632,7 +1623,7 @@ button {
   line-height: 1.02;
 }
 
-.notes-course-intro > p:not(.notes-course-label, .notes-language-note) {
+.notes-course-intro > p:not(.notes-language-note) {
   max-width: 440px;
   margin: 1.4rem 0 0;
   color: var(--muted);

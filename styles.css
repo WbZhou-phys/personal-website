@@ -1639,27 +1639,8 @@ button {
   font-size: 0.9rem;
 }
 
-.notes-index-link {
-  display: inline-flex;
-  margin-top: 2rem;
-  padding-bottom: 0.3rem;
-  align-items: center;
-  gap: 1rem;
-  border-bottom: 1px solid var(--ink);
-  font-size: 0.76rem;
-  font-weight: 600;
-  transition:
-    color 180ms ease,
-    border-color 180ms ease;
-}
-
-.notes-index-link:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
 .notes-language-note {
-  margin: 3rem 0 0;
+  margin: 1.5rem 0 0;
   color: var(--muted);
   font-family: var(--mono);
   font-size: 0.54rem;

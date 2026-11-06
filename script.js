@@ -105,12 +105,11 @@ const translations = {
     "coursework.earthTitle": "From Assembly to Breakup: A Geological Study of Pangaea's Evolution",
     "notes.eyebrow": "Course notes",
     "notes.title": "Thermodynamics, <em>chapter by chapter.</em>",
-    "notes.courseLabel": "Course notes · 11 chapters",
+    "notes.courseLabel": "Course notes · 11 attachments",
     "notes.courseTitle": "Thermodynamics and Statistical Physics",
     "notes.courseBody":
       "Chapter-by-chapter study notes based on Wang Zhicheng's Thermodynamics and Statistical Physics, sixth edition.",
-    "notes.openIndex": "Open the full course index",
-    "notes.languageNote": "Chapter pages are written in Chinese.",
+    "notes.languageNote": "Each chapter is attached as a Markdown note in Chinese.",
     "notes.chapter1": "Basic Laws of Thermodynamics",
     "notes.chapter2": "Thermodynamic Properties of Homogeneous Matter",
     "notes.chapter3": "Phase Transitions in Single-Component Systems",
@@ -299,11 +298,10 @@ const translations = {
     "coursework.earthTitle": "从聚合到裂解：联合古陆变化过程的地质学考察",
     "notes.eyebrow": "课程笔记",
     "notes.title": "热力学与统计物理，<em>逐章整理。</em>",
-    "notes.courseLabel": "课程笔记 · 11 章",
+    "notes.courseLabel": "课程笔记 · 11 份附件",
     "notes.courseTitle": "热力学与统计物理",
     "notes.courseBody": "基于汪志诚《热力学·统计物理》第六版的章节学习笔记。",
-    "notes.openIndex": "打开完整课程目录",
-    "notes.languageNote": "章节正文为中文笔记。",
+    "notes.languageNote": "每章以中文 Markdown 笔记附件的形式提供。",
     "notes.chapter1": "热力学的基本规律",
     "notes.chapter2": "均匀物质的热力学性质",
     "notes.chapter3": "单元系的相变",
@@ -407,11 +405,13 @@ const siteVersion = document.querySelector('meta[name="site-version"]')?.content
 const moduleIds = new Set(["about", "research", "education", "notes", "skills", "contact"]);
 
 if (siteVersion && !siteVersion.includes("__")) {
-  document.querySelectorAll('a[href^="assets/coursework/"], a[data-versioned-asset]').forEach((link) => {
+  document
+    .querySelectorAll('a[href^="assets/coursework/"], a[href^="assets/notes/"], a[data-versioned-asset]')
+    .forEach((link) => {
     const assetUrl = new URL(link.getAttribute("href"), window.location.href);
     assetUrl.searchParams.set("v", siteVersion);
     link.href = assetUrl.href;
-  });
+    });
 }
 
 function getLanguageFromUrl() {

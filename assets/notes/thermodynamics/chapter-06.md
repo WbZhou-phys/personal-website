@@ -1,0 +1,1569 @@
+---
+tags:
+  - 热统
+  - 统计物理
+  - 第六章
+created: 2026-10-22
+---
+
+# 第六章　近独立粒子的最概然分布
+
+> **教材**：汪志诚《热力学·统计物理》（第六版）
+> **范围**：§6.1–§6.8（教材 pp. 136–154；本章无带星号的正文节）
+
+## 本章地图
+
+| 节 | 标题 | 一句话 |
+| --- | --- | --- |
+| §6.1 | 粒子运动状态的经典描述 | 用 $r$ 个广义坐标和 $r$ 个共轭动量描述粒子的经典运动状态，并在 $\mu$ 空间中表示粒子状态 |
+| §6.2 | 粒子运动状态的量子描述 | 用一组量子数描述量子态；自由粒子动量准连续时，$\mu$ 空间中每个相格对应一个量子态 |
+| §6.3 | 系统微观运动状态的描述 | 近独立系统的能量近似为单粒子能量之和；全同粒子不可分辨，并分为玻色子与费米子 |
+| §6.4 | 等概率原理 | 平衡态孤立系统的各个可能微观状态出现概率相等，这是平衡态统计物理的基本假设 |
+| §6.5 | 分布和微观状态 | 区分“分布”与“微观状态”；分别计算玻耳兹曼、玻色和费米系统的微观状态数 |
+| §6.6 | 玻耳兹曼分布 | 在粒子数守恒和能量守恒约束下，用拉格朗日乘子法求 $\ln\Omega$ 的极大值 |
+| §6.7 | 玻色分布和费米分布 | 对玻色和费米系统的 $\ln\Omega$ 作变分，分别得到玻色-爱因斯坦分布和费米-狄拉克分布 |
+| §6.8 | 三种分布的关系 | 当平均每个量子态上的粒子数远小于 $1$ 时，玻色分布与费米分布都退化为玻耳兹曼分布 |
+
+**主线**：单粒子经典态 $(\boldsymbol q,\boldsymbol p)\rightarrow\mu$ 空间 → 量子态及相格计数 → 全同粒子的不可分辨性 → 三类微观状态数 $\Omega$ → 等概率原理 → 令 $\ln\Omega$ 取极大值 → 三种分布及其经典极限。
+
+---
+
+## §6.1　粒子运动状态的经典描述
+
+### 6.1.1 粒子的经典运动状态与 $\mu$ 空间
+
+统计物理从“宏观物质由大量微观粒子组成”这一前提出发，把宏观量看作相应微观量的统计平均值。本章先把粒子运动和系统微观状态描述清楚，再讨论近独立粒子系统在平衡态下的最概然分布。
+
+若粒子遵从经典力学，其运动状态由 $r$ 个广义坐标
+
+$$
+q_1,q_2,\cdots,q_r
+$$
+
+和与之共轭的 $r$ 个广义动量
+
+$$
+p_1,p_2,\cdots,p_r
+$$
+
+在该时刻的数值确定。粒子的能量是这些量的函数：
+
+$$
+\varepsilon=\varepsilon(q_1,\cdots,q_r;p_1,\cdots,p_r) \tag{6.1.1}
+$$
+
+若存在外场，$\varepsilon$ 还是描述外场参量的函数。
+
+以 $q_1,\cdots,q_r;p_1,\cdots,p_r$ 共 $2r$ 个变量为直角坐标，构成一个 $2r$ 维空间，称为 **$\mu$ 空间**。粒子在某一时刻的运动状态对应 $\mu$ 空间中的一个**代表点**；粒子状态随时间改变时，代表点在 $\mu$ 空间中描出一条轨道。
+
+### 6.1.2 自由粒子
+
+自由粒子不受力的作用而作自由运动。没有外场时，理想气体的分子或金属中的自由电子都可近似看作自由粒子。
+
+三维自由粒子的自由度为 $3$。以直角坐标 $x,y,z$ 描述位置，则共轭动量为
+
+$$
+p_x=m\dot x,\qquad p_y=m\dot y,\qquad p_z=m\dot z \tag{6.1.2}
+$$
+
+其中 $m$ 为粒子质量。自由粒子的能量就是动能：
+
+$$
+\varepsilon=\frac{1}{2m}\left(p_x^2+p_y^2+p_z^2\right) \tag{6.1.3}
+$$
+
+一维自由粒子的 $x$ 和 $p_x$ 构成二维 $\mu$ 空间。若容器长度为 $L$，则
+
+$$
+0\leqslant x\leqslant L,\qquad -\infty<p_x<+\infty.
+$$
+
+粒子以确定动量 $p_x$ 运动时，代表点沿平行于 $x$ 轴的直线运动；直线到 $x$ 轴的距离为 $|p_x|$。三维自由粒子的 $\mu$ 空间是六维的，可分解为三个二维子空间，每个子空间中的运动与一维自由粒子相同。
+
+### 6.1.3 线性谐振子
+
+质量为 $m$ 的粒子在弹性力
+
+$$
+F=-Ax
+$$
+
+作用下在原点附近振动，称为线性谐振子。振动圆频率为
+
+$$
+\omega=\sqrt{\frac{A}{m}}.
+$$
+
+分子内原子的振动、晶体中原子或离子在平衡位置附近的振动都可近似看作简谐振动。
+
+一维线性谐振子的能量是动能与势能之和：
+
+$$
+\varepsilon=\frac{p^2}{2m}+\frac{A}{2}x^2
+=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2 \tag{6.1.4}
+$$
+
+其二维 $\mu$ 空间中的轨道由能量方程
+
+$$
+\frac{p^2}{2m\varepsilon}+\frac{x^2}{2\varepsilon/(m\omega^2)}=1
+$$
+
+确定，是椭圆。两个半轴分别为
+
+$$
+p_{\max}=\sqrt{2m\varepsilon},\qquad
+x_{\max}=\sqrt{\frac{2\varepsilon}{m\omega^2}},
+$$
+
+故椭圆面积为
+
+$$
+S(E)=\pi p_{\max}x_{\max}
+=\pi\sqrt{2m\varepsilon}\sqrt{\frac{2\varepsilon}{m\omega^2}}
+=\frac{2\pi\varepsilon}{\omega}.
+$$
+
+经典振子的能量原则上可取任意正值；不同能量对应大小不同的椭圆。
+
+### 6.1.4 转子
+
+质量为 $m$ 的质点用长度为 $r$ 的无质量轻杆系于原点 $O$，在空间中转动，称为转子。采用球极坐标 $(r,\theta,\varphi)$：
+
+$$
+x=r\sin\theta\cos\varphi,\qquad
+y=r\sin\theta\sin\varphi,\qquad
+z=r\cos\theta.
+$$
+
+质点的速度为
+
+$$
+\dot{\boldsymbol r}
+=\dot r\,\hat{\boldsymbol e}_r
++r\dot\theta\,\hat{\boldsymbol e}_\theta
++r\sin\theta\,\dot\varphi\,\hat{\boldsymbol e}_\varphi,
+$$
+
+故能量为
+
+$$
+\varepsilon=\frac{1}{2}m\left[
+\dot r^2+r^2\dot\theta^2
++r^2\sin^2\theta\,\dot\varphi^2
+\right] \tag{6.1.5}
+$$
+
+杆长固定时，$\dot r=0$，式 (6.1.5) 化为
+
+$$
+\varepsilon=\frac{1}{2}m\left[
+r^2\dot\theta^2+r^2\sin^2\theta\,\dot\varphi^2
+\right] \tag{6.1.6}
+$$
+
+与 $\theta,\varphi$ 共轭的广义动量为
+
+$$
+p_\theta=mr^2\dot\theta,\qquad
+p_\varphi=mr^2\sin^2\theta\,\dot\varphi \tag{6.1.7}
+$$
+
+因此
+
+$$
+\varepsilon
+=\frac{1}{2I}\left(
+p_\theta^2+\frac{p_\varphi^2}{\sin^2\theta}
+\right),\qquad I=mr^2 \tag{6.1.8}
+$$
+
+式中 $I$ 是质点相对原点的转动惯量。$\theta$ 可取 $0\sim\pi$，$\varphi$ 可取 $0\sim2\pi$，因此转子的自由度为 $2$，$\mu$ 空间为四维。
+
+双原子分子绕质心的转动也可归结为转子。二体问题化为单体问题时，只需把 $m$ 换成约化质量
+
+$$
+\mu_{\mathrm{red}}=\frac{m_1m_2}{m_1+m_2}.
+$$
+
+对于无外力作用的自由转子，总角动量
+
+$$
+\boldsymbol L=\boldsymbol r\times\boldsymbol p
+$$
+
+守恒。取 $z$ 轴平行于 $\boldsymbol L$，则运动在 $xy$ 平面内，
+
+$$
+\theta=\frac{\pi}{2},\qquad p_\theta=0.
+$$
+
+式 (6.1.8) 于是化为
+
+$$
+\varepsilon=\frac{p_\varphi^2}{2I}
+=\frac{L^2}{2I},\qquad L^2=\boldsymbol L\cdot\boldsymbol L \tag{6.1.9}
+$$
+
+式 (6.1.8) 和式 (6.1.9) 是后面常用的两个转子能量表达式。
+
+---
+
+## §6.2　粒子运动状态的量子描述
+
+### 6.2.1 德布罗意关系与不确定关系
+
+微观粒子具有波粒二象性。能量为 $\varepsilon$、动量为 $\boldsymbol p$ 的自由粒子联系着圆频率为 $\omega$、波矢为 $\boldsymbol k$ 的平面波，满足德布罗意关系
+
+$$
+\begin{cases}
+\varepsilon=\hbar\omega,\\[2pt]
+\boldsymbol p=\hbar\boldsymbol k,
+\end{cases} \tag{6.2.1}
+$$
+
+其中
+
+$$
+\hbar=\frac{h}{2\pi}
+$$
+
+是约化普朗克常量。教材所给数值为
+
+$$
+\begin{aligned}
+h&=6.626\,070\times10^{-34}\ \mathrm{J\cdot s},\\
+\hbar&=1.054\,572\times10^{-34}\ \mathrm{J\cdot s}.
+\end{aligned}
+$$
+
+波矢大小与波长满足
+
+> **教材脚注**（p.139）：波矢 $\boldsymbol k$ 的方向是平面波的传播方向，
+> $$
+k=|\boldsymbol k|=\frac{2\pi}{\lambda} $$
+> 
+
+若 $\Delta q$ 表示粒子坐标的不确定值，$\Delta p$ 表示相应动量的不确定值，则量子力学容许的最精确描述满足
+
+$$
+\Delta q\,\Delta p\approx h \tag{6.2.2}
+$$
+
+经典力学允许同时确定坐标和动量；但对于微观粒子，$\Delta q\to0$ 会使 $\Delta p\to\infty$，反之亦然。粒子的运动一般不能用轨道描述。
+
+量子态由一组量子数表征，量子数的个数等于粒子的自由度。
+
+### 6.2.2 线性谐振子
+
+圆频率为 $\omega$ 的一维线性谐振子的能量只能取
+
+$$
+\varepsilon_n=\hbar\omega\left(n+\frac{1}{2}\right),
+\qquad n=0,1,2,\cdots \tag{6.2.3}
+$$
+
+能级等间距，相邻能级之差为 $\hbar\omega$。一维线性谐振子的自由度为 $1$，其量子态可由一个量子数 $n$ 表征。
+
+### 6.2.3 转子
+
+转子能量在经典理论中为
+
+$$
+\varepsilon=\frac{L^2}{2I}.
+$$
+
+量子理论中，角动量平方只能取分立值：
+
+$$
+L^2=l(l+1)\hbar^2,\qquad l=0,1,2,\cdots \tag{6.2.4}
+$$
+
+角动量在某一本征方向（取为 $z$ 轴）的投影为
+
+$$
+L_z=m_l\hbar,\qquad m_l=-l,-l+1,\cdots,l \tag{6.2.5}
+$$
+
+共 $2l+1$ 个可能值。因此转子的量子态由 $l,m_l$ 两个量子数表征，这与其自由度 $2$ 一致。
+
+把式 (6.2.4) 代入 $\varepsilon=L^2/(2I)$，得
+
+$$
+\varepsilon_l=\frac{l(l+1)\hbar^2}{2I},
+\qquad l=0,1,2,\cdots \tag{6.2.6}
+$$
+
+由于能量只取决于 $l$，能级 $\varepsilon_l$ 的简并度为
+
+$$
+\omega_l=2l+1.
+$$
+
+> **概念区分**：一个能级的“简并度”是该能级包含的量子态数；$\omega_l$ 在此语境中不是角频率，而是第 $l$ 个能级的简并度。
+
+### 6.2.4 自旋角动量
+
+某些基本粒子具有内禀角动量，称为**自旋角动量** $\boldsymbol S$。其平方本征值为
+
+$$
+S^2=s(s+1)\hbar^2 \tag{6.2.7}
+$$
+
+其中自旋量子数 $s$ 可为整数或半整数。电子、质子、中子等粒子的
+
+$$
+s=\frac{1}{2}.
+$$
+
+取 $z$ 轴为本征方向，$S_z$ 的可能值为
+
+$$
+S_z=m_s\hbar,\qquad m_s=s,s-1,\cdots,-s \tag{6.2.8}
+$$
+
+共 $2s+1$ 个。电子 $s=1/2$，故
+
+$$
+m_s=\pm\frac{1}{2}.
+$$
+
+以 $m$ 表示电子质量、$-e$ 表示电子电荷，电子自旋磁矩 $\boldsymbol\mu$ 与自旋角动量 $\boldsymbol S$ 满足
+
+$$
+\frac{\boldsymbol\mu}{\boldsymbol S}=-\frac{e}{m} \tag{6.2.9}
+$$
+
+取外磁场方向为 $z$ 轴，电子自旋角动量的投影为
+
+$$
+S_z=\pm\frac{\hbar}{2},
+$$
+
+相应磁矩的投影为
+
+$$
+\mu_z=\mp\frac{e\hbar}{2m}.
+$$
+
+电子在外磁场 $\boldsymbol B$ 中的能量为
+
+$$
+-\boldsymbol\mu\cdot\boldsymbol B
+=\pm\frac{e\hbar}{2m}B \tag{6.2.10}
+$$
+
+两个自旋态一般具有不同的能量，这就是自旋磁矩与外场耦合。
+
+### 6.2.5 一维与三维自由粒子的动量量子化
+
+先讨论长度为 $L$ 的一维容器中的自由粒子。采用周期性边界条件。设粒子德布罗意波长为 $\lambda$，则
+
+$$
+L=|n_x|\lambda,\qquad |n_x|=0,1,2,\cdots
+$$
+
+波矢满足
+
+$$
+k_x=\frac{2\pi}{L}n_x,\qquad n_x=0,\pm1,\pm2,\cdots
+$$
+
+由德布罗意关系得
+
+$$
+p_x=\frac{2\pi\hbar}{L}n_x,\qquad n_x=0,\pm1,\pm2,\cdots
+$$
+
+因此一维自由粒子的能量为
+
+$$
+\varepsilon_{n_x}
+=\frac{p_x^2}{2m}
+=\frac{2\pi^2\hbar^2}{m}\frac{n_x^2}{L^2},
+\qquad n_x=0,\pm1,\pm2,\cdots
+$$
+
+三维自由粒子置于边长为 $L$ 的立方容器中，三个动量分量满足
+
+$$
+\begin{cases}
+p_x=\dfrac{2\pi\hbar}{L}n_x,\\[6pt]
+p_y=\dfrac{2\pi\hbar}{L}n_y,\\[6pt]
+p_z=\dfrac{2\pi\hbar}{L}n_z,
+\end{cases}
+\qquad n_x,n_y,n_z=0,\pm1,\pm2,\cdots \tag{6.2.11}
+$$
+
+能量为
+
+$$
+\varepsilon
+=\frac{1}{2m}\left(p_x^2+p_y^2+p_z^2\right)
+=\frac{2\pi^2\hbar^2}{m}
+\frac{n_x^2+n_y^2+n_z^2}{L^2} \tag{6.2.12}
+$$
+
+> **简并示例**：能级
+> $$
+ \varepsilon=\frac{4\pi^2\hbar^2}{mL^2}
+ $$
+> 对应 $n_x^2+n_y^2+n_z^2=2$。满足条件的整数组合共有
+> $$
+ (0,0,\pm1),\quad(0,\pm1,0),\quad(\pm1,0,0),
+ $$
+> 共 $6$ 个量子态，所以该能级简并度为 $6$。
+
+### 6.2.6 自由粒子的态密度
+
+若粒子处于宏观容器中，动量量子数非常密集，可把量子态看成准连续的。
+
+由
+
+$$
+p_x=\frac{2\pi\hbar}{L}n_x
+$$
+
+知相邻 $n_x$ 对应的动量间隔为
+
+$$
+\Delta p_x=\frac{2\pi\hbar}{L}.
+$$
+
+因此，在 $p_x\sim p_x+\mathrm dp_x$ 范围内，可能的状态数为
+
+$$
+\mathrm dn_x=\frac{L}{2\pi\hbar}\mathrm dp_x.
+$$
+
+三个方向相乘，得体积 $V=L^3$ 内、位于
+
+$$
+p_x\sim p_x+\mathrm dp_x,\quad
+p_y\sim p_y+\mathrm dp_y,\quad
+p_z\sim p_z+\mathrm dp_z
+$$
+
+的量子态数
+
+$$
+\mathrm dn_x\,\mathrm dn_y\,\mathrm dn_z
+=\left(\frac{L}{2\pi\hbar}\right)^3
+\mathrm dp_x\,\mathrm dp_y\,\mathrm dp_z
+=\frac{V}{h^3}
+\mathrm dp_x\,\mathrm dp_y\,\mathrm dp_z \tag{6.2.13}
+$$
+
+由不确定关系式 (6.2.2)，每个自由度贡献的相空间体积约为 $h$。对于自由度 $r$ 的粒子，一个量子态对应的相格体积为
+
+$$
+\Delta q_1\cdots\Delta q_r
+\Delta p_1\cdots\Delta p_r\approx h^r \tag{6.2.14}
+$$
+
+因此，$\mu$ 空间相体积除以相格体积就是相应的量子态数。
+
+采用动量空间球坐标
+
+$$
+\begin{aligned}
+p_x&=p\sin\theta\cos\varphi,\\
+p_y&=p\sin\theta\sin\varphi,\\
+p_z&=p\cos\theta,
+\end{aligned}
+$$
+
+动量空间体积元为
+
+$$
+\mathrm dp_x\,\mathrm dp_y\,\mathrm dp_z
+=p^2\sin\theta\,\mathrm dp\,\mathrm d\theta\,\mathrm d\varphi.
+$$
+
+所以，在体积 $V$ 内、动量大小为 $p\sim p+\mathrm dp$、方向位于
+
+$$
+\theta\sim\theta+\mathrm d\theta,\qquad
+\varphi\sim\varphi+\mathrm d\varphi
+$$
+
+的状态数为
+
+$$
+\frac{Vp^2\sin\theta\,\mathrm dp\,\mathrm d\theta\,\mathrm d\varphi}{h^3} \tag{6.2.15}
+$$
+
+对方向积分：
+
+$$
+\int_0^{2\pi}\mathrm d\varphi\int_0^\pi\sin\theta\,\mathrm d\theta
+=4\pi.
+$$
+
+故动量大小在 $p\sim p+\mathrm dp$ 内、方向任意的状态数为
+
+$$
+\frac{4\pi V}{h^3}p^2\,\mathrm dp \tag{6.2.16}
+$$
+
+由
+
+$$
+\varepsilon=\frac{p^2}{2m},
+\qquad p=\sqrt{2m\varepsilon},
+\qquad
+\mathrm dp=\sqrt{\frac{m}{2\varepsilon}}\,\mathrm d\varepsilon,
+$$
+
+代入式 (6.2.16)：
+
+$$
+\begin{aligned}
+D(\varepsilon)\,\mathrm d\varepsilon
+&=\frac{4\pi V}{h^3}
+(2m\varepsilon)\sqrt{\frac{m}{2\varepsilon}}\,\mathrm d\varepsilon\\
+&=\frac{2\pi V}{h^3}(2m)^{3/2}
+\varepsilon^{1/2}\,\mathrm d\varepsilon,
+\end{aligned}
+$$
+
+即
+
+$$
+D(\varepsilon)\,\mathrm d\varepsilon
+=\frac{2\pi V}{h^3}(2m)^{3/2}
+\varepsilon^{1/2}\,\mathrm d\varepsilon \tag{6.2.17}
+$$
+
+$D(\varepsilon)$ 是单位能量间隔内的状态数，称为**态密度**。
+
+若粒子有自旋，还要计入自旋简并。例如电子 $s=1/2$，$S_z$ 有两个可能值，故式 (6.2.13)、式 (6.2.15) 至式 (6.2.17) 都应乘以 $2$。
+
+> **教材脚注**（p.141）：关于周期性边界条件与边界条件无关性的讨论，可参阅
+> Reif F. *Fundamentals of Statistical and Thermal Physics*[M].
+> New York: McGraw-Hill Book Company, 1965: §9.9.
+
+---
+
+## §6.3　系统微观运动状态的描述
+
+### 6.3.1 近独立粒子系统
+
+由全同粒子组成的系统，指粒子具有完全相同的内禀属性，例如相同的质量、电荷和自旋。由近独立粒子组成的系统中，粒子间相互作用很弱，相互作用平均能量远小于单个粒子的平均能量，因此可忽略相互作用，把系统总能量近似写成单粒子能量之和：
+
+$$
+E=\sum_{i=1}^N\varepsilon_i \tag{6.3.1}
+$$
+
+其中 $\varepsilon_i$ 是第 $i$ 个粒子的能量，只取决于该粒子的坐标、动量以及外场参量，与其他粒子的坐标和动量无关。
+
+理想气体分子在除碰撞瞬间外的绝大部分时间可看作无相互作用；但相互作用仍必须微弱存在，否则系统无法通过碰撞达到热平衡。
+
+### 6.3.2 经典描述与全同粒子的可分辨性
+
+若每个粒子的自由度为 $r$，则第 $i$ 个粒子的运动状态由
+
+$$
+q_{i1},\cdots,q_{ir};p_{i1},\cdots,p_{ir}
+$$
+
+确定。整个 $N$ 粒子系统的微观状态需要 $2Nr$ 个数。在经典力学中，即使粒子全同，原则上仍可追踪轨道、给粒子编号，因此**经典全同粒子可分辨**。
+
+在 $\mu$ 空间中，$N$ 个粒子的微观状态由 $N$ 个代表点表示。交换两个代表点，在经典描述中会得到不同的系统微观状态。
+
+### 6.3.3 量子全同性原理
+
+量子力学中的全同粒子不可分辨：交换任意两个全同粒子，不改变整个系统的微观运动状态。这是因为量子粒子具有波粒二象性，没有可追踪的轨道；两个粒子的波包会迅速扩展并重叠，不能原则上辨认“哪一个粒子是哪一个”。
+
+在经典描述中，系统微观状态归结为确定每个粒子的个体量子态；在量子描述中，对于不可分辨的全同粒子，系统微观状态归结为确定**每一个个体量子态上有多少个粒子**。
+
+### 6.3.4 玻色子与费米子
+
+| 粒子类别 | 自旋量子数 | 多粒子态对称性 | 单量子态占据数 |
+| --- | --- | --- | --- |
+| 玻色子 | 整数 | 交换两粒子后波函数不变 | 不受限制 |
+| 费米子 | 半整数 | 交换两粒子后波函数变号 | 最多 $1$ 个 |
+
+由费米子组成的系统称为**费米系统**，遵从泡利不相容原理：一个个体量子态最多容纳一个费米子。该原理最初由泡利在 1925 年分析原子光谱时提出。
+
+由玻色子组成的系统称为**玻色系统**，不受泡利原理约束，一个个体量子态的玻色子数不受限制。
+
+原子、分子等复合粒子的统计性质由其所含费米子数决定：
+
+- 由玻色子构成的复合粒子是玻色子；
+- 由偶数个费米子构成的复合粒子是玻色子；
+- 由奇数个费米子构成的复合粒子是费米子。
+
+### 6.3.5 三套计数方式的直观比较
+
+设系统有两个粒子、三个单粒子量子态。
+
+**玻耳兹曼系统**：粒子可分辨，每个量子态的粒子数不受限制。以 A、B 表示两个可分辨粒子，则每个粒子各有 $3$ 种选择，共
+
+$$
+3^2=9
+$$
+
+个微观状态。
+
+**玻色系统**：粒子不可分辨，每个量子态的粒子数不受限制。可能的占据方式为
+
+$$
+(2,0,0),\,(0,2,0),\,(0,0,2),\,
+(1,1,0),\,(1,0,1),\,(0,1,1),
+$$
+
+共 $6$ 个微观状态。
+
+**费米系统**：粒子不可分辨，每个量子态最多容纳一个粒子。两个粒子必须占据两个不同量子态，故有
+
+$$
+\binom{3}{2}=3
+$$
+
+个微观状态。
+
+三者的差别完全来自“粒子是否可分辨”和“一个量子态允许容纳多少粒子”。
+
+---
+
+## §6.4　等概率原理
+
+宏观状态由少数宏观参量描述。例如，孤立系统可以用粒子数 $N$、体积 $V$ 和能量 $E$ 表征。严格孤立系统的能量并非绝对精确，更实际的说法是能量处在
+
+$$
+E\sim E+\Delta E,\qquad |\Delta E|\ll E
+$$
+
+的狭窄范围内。宏观参量给定后，平衡态系统的所有宏观物理量具有确定值；但满足这些宏观条件的微观状态通常极其巨大，而且不断变化。
+
+统计物理的基本假设是：
+
+> **等概率原理**：对于处在平衡状态的孤立系统，系统各个可能的微观状态出现的概率相等。
+
+其合理性在于：这些微观状态都满足相同的宏观约束，没有理由认为其中某一个状态比另一个更优先。等概率原理是平衡态统计物理的基础，其正确性最终由理论推论与实验一致来检验。
+
+---
+
+## §6.5　分布和微观状态
+
+### 6.5.1 分布的定义与约束
+
+设系统由大量全同近独立粒子组成，具有确定的粒子数 $N$、能量 $E$ 和体积 $V$。单粒子能级记为
+
+$$
+\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_l,\cdots,
+$$
+
+相应简并度记为
+
+$$
+\omega_1,\omega_2,\cdots,\omega_l,\cdots.
+$$
+
+若能级 $\varepsilon_l$ 上有 $a_l$ 个粒子，则数列
+
+$$
+\{a_l\}=\{a_1,a_2,\cdots,a_l,\cdots\}
+$$
+
+称为粒子的一个**分布**。一个分布必须同时满足粒子数守恒和能量守恒：
+
+$$
+\sum_l a_l=N,\qquad
+\sum_l a_l\varepsilon_l=E \tag{6.5.1}
+$$
+
+> **关键区分**：一个分布只指定每个能级上有多少粒子；给定分布后，通常还对应许多不同的微观状态。
+
+### 6.5.2 玻耳兹曼系统的微观状态数
+
+玻耳兹曼系统中粒子可分辨，且每个量子态可容纳任意多粒子。
+
+- 能级 $\varepsilon_l$ 上有 $a_l$ 个可分辨粒子，每个粒子可从该能级的 $\omega_l$ 个量子态中选择一个，故有 $\omega_l^{a_l}$ 种方式。
+- 把 $N$ 个可分辨粒子分成各能级上的 $a_1,a_2,\cdots$ 个粒子，有
+  $\dfrac{N!}{a_1!a_2!\cdots}=\dfrac{N!}{\prod_l a_l!}$ 种分法。
+
+因此，与分布 $\{a_l\}$ 相应的微观状态数为
+
+$$
+\Omega_{\mathrm{M.B.}}
+=\frac{N!}{\prod_l a_l!}
+\prod_l\omega_l^{a_l} \tag{6.5.2}
+$$
+
+### 6.5.3 玻色系统的微观状态数
+
+玻色系统中粒子不可分辨，每个量子态容纳的粒子数不受限制。
+
+考察能级 $\varepsilon_l$：它有 $\omega_l$ 个量子态，要放入 $a_l$ 个不可分辨粒子。把
+
+$$
+a_l
+$$
+
+个粒子和
+
+$$
+\omega_l-1
+$$
+
+个分隔量子态的“隔板”排成一列，总数 $a_l+\omega_l-1$ 个位置。排除隔板排列的重复及粒子排列的重复，方式数为
+
+$$
+\frac{(a_l+\omega_l-1)!}
+{a_l!(\omega_l-1)!}.
+$$
+
+各能级相互独立，故整个系统的微观状态数为
+
+$$
+\Omega_{\mathrm{B.E.}}
+=\prod_l
+\frac{(a_l+\omega_l-1)!}
+{a_l!(\omega_l-1)!} \tag{6.5.3}
+$$
+
+### 6.5.4 费米系统的微观状态数
+
+费米系统中粒子不可分辨，每个量子态最多容纳一个粒子，且必须满足
+
+$$
+\omega_l\geqslant a_l.
+$$
+
+能级 $\varepsilon_l$ 上有 $a_l$ 个粒子，相当于从 $\omega_l$ 个量子态中挑出 $a_l$ 个被占据的态，故方式数为
+
+$$
+\binom{\omega_l}{a_l}
+=\frac{\omega_l!}{a_l!(\omega_l-a_l)!}.
+$$
+
+因此
+
+$$
+\Omega_{\mathrm{F.D.}}
+=\prod_l
+\frac{\omega_l!}{a_l!(\omega_l-a_l)!} \tag{6.5.4}
+$$
+
+### 6.5.5 经典极限条件
+
+若对所有能级都有
+
+$$
+\frac{a_l}{\omega_l}\ll1 \tag{6.5.5}
+$$
+
+则平均每个量子态上的粒子数远小于 $1$。此条件称为**经典极限条件**，也称**非简并性条件**。
+
+对玻色系统：
+
+$$
+\begin{aligned}
+\Omega_{\mathrm{B.E.}}
+&=\prod_l
+\frac{(a_l+\omega_l-1)!}
+{a_l!(\omega_l-1)!}\\
+&=\prod_l
+\frac{(a_l+\omega_l-1)(a_l+\omega_l-2)\cdots\omega_l}
+{a_l!}\\
+&\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}
+=\frac{\Omega_{\mathrm{M.B.}}}{N!}
+\end{aligned}
+\tag{6.5.6}
+$$
+
+对费米系统：
+
+$$
+\begin{aligned}
+\Omega_{\mathrm{F.D.}}
+&=\prod_l
+\frac{\omega_l!}{a_l!(\omega_l-a_l)!}\\
+&=\prod_l
+\frac{\omega_l(\omega_l-1)\cdots(\omega_l-a_l+1)}
+{a_l!}\\
+&\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}
+=\frac{\Omega_{\mathrm{M.B.}}}{N!}
+\end{aligned}
+\tag{6.5.7}
+$$
+
+在经典极限下，量子统计对全同粒子不可分辨性的修正主要表现为因子 $1/N!$。
+
+### 6.5.6 经典统计中的分布和微观状态数
+
+经典力学中，单粒子状态可用 $\mu$ 空间中的一点表示。系统由 $N$ 个代表点描述。由于坐标和动量连续，微观状态不可数；为计数，需要把相空间划分成小相格。
+
+对自由度为 $r$ 的粒子，一个相格体积取
+
+$$
+h_0^r=\delta q_1\cdots\delta q_r
+\delta p_1\cdots\delta p_r.
+$$
+
+量子力学限制 $h_0$ 的最小值为普朗克常量 $h$。把 $\mu$ 空间分成体积元
+
+$$
+\Delta\omega_1,\Delta\omega_2,\cdots,
+$$
+
+则体积元 $\Delta\omega_l$ 内的状态数为
+
+$$
+\frac{\Delta\omega_l}{h_0^r},
+$$
+
+它相当于量子统计中的能级简并度。设
+
+$$
+\Delta\omega_l\leftrightarrow
+\omega_l=\frac{\Delta\omega_l}{h_0^r}.
+$$
+
+经典粒子可分辨，且一个相格内可容纳任意多粒子，因此与分布 $\{a_l\}$ 相应的微观状态数为
+
+$$
+\Omega_{\mathrm{cl}}
+=\frac{N!}{\prod_l a_l!}
+\prod_l\left(\frac{\Delta\omega_l}{h_0^r}\right)^{a_l} \tag{6.5.8}
+$$
+
+---
+
+## §6.6　玻耳兹曼分布
+
+### 6.6.1 最大微观状态数与斯特林近似
+
+根据等概率原理，使 $\Omega$ 最大的分布，其出现概率最大，称为**最概然分布**。玻耳兹曼系统的这一分布称为麦克斯韦-玻耳兹曼分布，简称**玻耳兹曼分布**。
+
+推导前采用斯特林近似：
+
+$$
+\ln m!\approx m(\ln m-1)\qquad(m\gg1) \tag{6.6.1}
+$$
+
+> **教材脚注**（p.150）：由斯特林公式
+>
+> $$m!\approx m^m e^{-m}\sqrt{2\pi m}$$
+>
+> 取对数
+>
+> $$\ln m!\approx m(\ln m-1)+\frac{1}{2}\ln(2\pi m).$$
+>
+> 当 $m$ 足够大时，最后一项相对第一项可忽略，便得到式 (6.6.1)。
+
+### 6.6.2 对 $\ln\Omega$ 作变分
+
+将式 (6.5.2) 简写为
+
+$$
+\Omega=\frac{N!}{\prod_l a_l!}
+\prod_l\omega_l^{a_l} \tag{6.6.2}
+$$
+
+取对数：
+
+$$
+\ln\Omega
+=\ln N!-\sum_l\ln a_l!
++\sum_l a_l\ln\omega_l \tag{6.6.3}
+$$
+
+应用式 (6.6.1)：
+
+$$
+\begin{aligned}
+\ln\Omega
+&\approx N(\ln N-1)
+-\sum_l a_l(\ln a_l-1)
++\sum_l a_l\ln\omega_l\\
+&=N\ln N
+-\sum_l a_l\ln a_l
++\sum_l a_l\ln\omega_l
+\end{aligned}
+\tag{6.6.4}
+$$
+
+令
+
+$$
+a_l\longrightarrow a_l+\delta a_l.
+$$
+
+由式 (6.6.4)，
+
+$$
+\begin{aligned}
+\delta\ln\Omega
+&=-\sum_l
+\left[
+\delta a_l\ln a_l+a_l\frac{\delta a_l}{a_l}
+-\delta a_l\ln\omega_l
+\right]\\
+&=-\sum_l\ln\left(\frac{a_l}{\omega_l}\right)
+\delta a_l=0
+\end{aligned}
+\tag{6.6.5}
+$$
+
+但 $\delta a_l$ 不独立，它们还必须满足
+
+$$
+\delta N=\sum_l\delta a_l=0,
+\qquad
+\delta E=\sum_l\varepsilon_l\delta a_l=0. \tag{6.6.6}
+$$
+
+引入拉格朗日乘子 $\alpha,\beta$，把两个约束乘相应乘子后从变分式中减去：
+
+$$
+\delta\ln\Omega
+-\alpha\delta N-\beta\delta E
+=-\sum_l\left[
+\ln\left(\frac{a_l}{\omega_l}\right)
++\alpha+\beta\varepsilon_l
+\right]\delta a_l=0 \tag{6.6.7}
+$$
+
+选取 $\alpha,\beta$ 使前两个变分系数为零：
+
+$$
+\ln\frac{a_1}{\omega_1}+\alpha+\beta\varepsilon_1=0,
+\qquad
+\ln\frac{a_2}{\omega_2}+\alpha+\beta\varepsilon_2=0. \tag{6.6.8a}
+$$
+
+这样式 (6.6.7) 中只剩 $l\geqslant3$ 的独立变分，故所有系数都必须为零：
+
+$$
+\ln\frac{a_l}{\omega_l}
++\alpha+\beta\varepsilon_l=0,
+\qquad l=3,4,\cdots \tag{6.6.8b}
+$$
+
+合并式 (6.6.8a) 与式 (6.6.8b)：
+
+$$
+\ln\frac{a_l}{\omega_l}
++\alpha+\beta\varepsilon_l=0
+\qquad(l=1,2,\cdots),
+$$
+
+于是
+
+$$
+a_l=\omega_l e^{-\alpha-\beta\varepsilon_l} \tag{6.6.8}
+$$
+
+参数 $\alpha,\beta$ 由约束确定：
+
+$$
+N=\sum_l\omega_l e^{-\alpha-\beta\varepsilon_l},
+\qquad
+E=\sum_l\omega_l\varepsilon_l
+e^{-\alpha-\beta\varepsilon_l} \tag{6.6.9}
+$$
+
+实际问题中常由实验条件给定 $\beta$，再由式 (6.6.9) 第二式确定内能。
+
+若处在能量为 $\varepsilon_s$ 的量子态 $s$ 上，则平均粒子数为
+
+$$
+f_s=e^{-\alpha-\beta\varepsilon_s} \tag{6.6.10}
+$$
+
+式 (6.6.9) 也可写成对量子态求和：
+
+$$
+N=\sum_s e^{-\alpha-\beta\varepsilon_s},
+\qquad
+E=\sum_s\varepsilon_s e^{-\alpha-\beta\varepsilon_s} \tag{6.6.11}
+$$
+
+### 6.6.3 极大值、尖锐性与推导局限
+
+**极值性。** 对式 (6.6.5) 再作一次变分：
+
+$$
+\begin{aligned}
+\delta^2\ln\Omega
+&=-\delta\sum_l
+\ln\left(\frac{a_l}{\omega_l}\right)\delta a_l\\
+&=-\sum_l\frac{(\delta a_l)^2}{a_l}<0.
+\end{aligned}
+\tag{6.6.12}
+$$
+
+由于所有 $a_l>0$，二阶变分恒为负，故玻耳兹曼分布确实使 $\ln\Omega$ 取极大值。
+
+**尖锐性。** 令分布偏离最概然分布 $\Delta a_l$，把 $\ln(\Omega+\Delta\Omega)$ 展开：
+
+$$
+\ln(\Omega+\Delta\Omega)
+=\ln\Omega+\delta\ln\Omega
++\frac{1}{2}\delta^2\ln\Omega+\cdots.
+$$
+
+在极值点 $\delta\ln\Omega=0$，利用式 (6.6.12)：
+
+$$
+\ln(\Omega+\Delta\Omega)
+=\ln\Omega
+-\frac{1}{2}\sum_l
+\frac{(\Delta a_l)^2}{a_l}.
+$$
+
+两边取指数：
+
+$$
+\frac{\Omega+\Delta\Omega}{\Omega}
+=\exp\left[
+-\frac{1}{2}\sum_l
+\left(\frac{\Delta a_l}{a_l}\right)^2a_l
+\right].
+$$
+
+若每个能级上的相对偏离都约为 $10^{-5}$，则
+
+$$
+\ln\frac{\Omega+\Delta\Omega}{\Omega}
+\approx-\frac{1}{2}(10^{-5})^2N
+=-\frac{1}{2}10^{-10}N.
+$$
+
+对于 $N\approx10^{23}$，
+
+$$
+\frac{\Omega+\Delta\Omega}{\Omega}
+\approx\exp\left(-\frac{1}{2}10^{13}\right)
+$$
+
+趋于零。即使只偏离最概然分布极小量，微观状态数也会陡降若干数量级。因此，忽略其他分布而认为平衡态实际处在最概然分布，误差可以忽略。
+
+**局限。** 上述推导对每个 $a_l$ 都使用了 $a_l\gg1$ 的斯特林近似；这在实际系统中并不总成立。第九章将用巨正则系综给出更严格的推导。
+
+### 6.6.4 经典统计中的玻耳兹曼分布
+
+比较式 (6.5.2) 与式 (6.5.8)，可直接写出经典统计中的玻耳兹曼分布：
+
+$$
+a_l=e^{-\alpha-\beta\varepsilon_l}
+\frac{\Delta\omega_l}{h_0^r} \tag{6.6.13}
+$$
+
+其中 $\alpha,\beta$ 满足
+
+$$
+N=\sum_l e^{-\alpha-\beta\varepsilon_l}
+\frac{\Delta\omega_l}{h_0^r},
+\qquad
+E=\sum_l\varepsilon_l
+e^{-\alpha-\beta\varepsilon_l}
+\frac{\Delta\omega_l}{h_0^r} \tag{6.6.14}
+$$
+
+本章只求出分布的形式；$\alpha,\beta$ 与温度、化学势的关系将在第七章由热力学量确定。
+
+---
+
+## §6.7　玻色分布和费米分布
+
+考虑由大量近独立全同粒子组成的平衡态孤立系统，粒子数 $N$、体积 $V$ 和能量 $E$ 确定。以能级 $\varepsilon_l$、简并度 $\omega_l$ 和分布 $\{a_l\}$ 描述系统，则分布必须满足
+
+$$
+\sum_l a_l=N,\qquad
+\sum_l\varepsilon_l a_l=E. \tag{6.7.1}
+$$
+
+玻色系统和费米系统的微观状态数分别为
+
+$$
+\Omega_{\mathrm{B.E.}}
+=\prod_l
+\frac{(\omega_l+a_l-1)!}
+{a_l!(\omega_l-1)!} \tag{6.7.2}
+$$
+
+和
+
+$$
+\Omega_{\mathrm{F.D.}}
+=\prod_l
+\frac{\omega_l!}{a_l!(\omega_l-a_l)!}. \tag{6.7.3}
+$$
+
+根据等概率原理，使 $\Omega$ 取极大值的分布就是最概然分布。
+
+### 6.7.1 玻色系统的变分
+
+对玻色系统，由式 (6.5.3) 取对数：
+
+$$
+\ln\Omega
+=\sum_l\left[
+\ln(\omega_l+a_l-1)!
+-\ln a_l!
+-\ln(\omega_l-1)!
+\right].
+$$
+
+设
+
+$$
+a_l\gg1,\qquad \omega_l\gg1,
+$$
+
+则
+
+$$
+\omega_l+a_l-1\approx\omega_l+a_l,
+\qquad
+\omega_l-1\approx\omega_l.
+$$
+
+应用斯特林近似：
+
+$$
+\begin{aligned}
+\ln\Omega
+&=\sum_l\left[
+(\omega_l+a_l)\ln(\omega_l+a_l)
+-a_l\ln a_l
+-\omega_l\ln\omega_l
+\right]
+\end{aligned}
+\tag{6.7.4}
+$$
+
+对 $a_l$ 作独立变分：
+
+$$
+\begin{aligned}
+\delta\ln\Omega
+&=\sum_l\left[
+\delta a_l\ln(\omega_l+a_l)
++\delta a_l
+-\delta a_l\ln a_l
+-\delta a_l
+\right]\\
+&=\sum_l\left[
+\ln(\omega_l+a_l)-\ln a_l
+\right]\delta a_l
+=0.
+\end{aligned}
+$$
+
+约束仍为
+
+$$
+\delta N=\sum_l\delta a_l=0,
+\qquad
+\delta E=\sum_l\varepsilon_l\delta a_l=0.
+$$
+
+引入 $\alpha,\beta$ 后，要求
+
+$$
+\sum_l\left[
+\ln(\omega_l+a_l)-\ln a_l
+-\alpha-\beta\varepsilon_l
+\right]\delta a_l=0.
+$$
+
+各 $\delta a_l$ 独立，故
+
+$$
+\ln(\omega_l+a_l)-\ln a_l
+-\alpha-\beta\varepsilon_l=0.
+$$
+
+因此
+
+$$
+\frac{\omega_l+a_l}{a_l}
+=e^{\alpha+\beta\varepsilon_l},
+$$
+
+即
+
+$$
+a_l=\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}-1} \tag{6.7.5}
+$$
+
+这是玻色-爱因斯坦分布，简称**玻色分布**。参数满足
+
+$$
+\sum_l\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}-1}=N,
+\qquad
+\sum_l\frac{\varepsilon_l\omega_l}
+{e^{\alpha+\beta\varepsilon_l}-1}=E \tag{6.7.6}
+$$
+
+### 6.7.2 费米系统的变分
+
+对费米系统取对数：
+
+$$
+\ln\Omega
+=\sum_l\left[
+\ln\omega_l!-\ln a_l!
+-\ln(\omega_l-a_l)!
+\right].
+$$
+
+设
+
+$$
+\omega_l\gg1,\qquad a_l\gg1,
+\qquad \omega_l-a_l\gg1,
+$$
+
+应用斯特林近似得
+
+$$
+\ln\Omega
+=\sum_l\left[
+\omega_l\ln\omega_l
+-a_l\ln a_l
+-(\omega_l-a_l)\ln(\omega_l-a_l)
+\right] \tag{6.7.7}
+$$
+
+作变分：
+
+$$
+\begin{aligned}
+\delta\ln\Omega
+&=\sum_l\left[
+-\delta a_l\ln a_l-\delta a_l
++\delta a_l\ln(\omega_l-a_l)+\delta a_l
+\right]\\
+&=\sum_l
+\ln\frac{\omega_l-a_l}{a_l}\delta a_l.
+\end{aligned}
+$$
+
+连同两个约束引入拉格朗日乘子，要求
+
+$$
+\ln\frac{\omega_l-a_l}{a_l}
+-\alpha-\beta\varepsilon_l=0.
+$$
+
+因此
+
+$$
+\frac{\omega_l-a_l}{a_l}
+=e^{\alpha+\beta\varepsilon_l},
+$$
+
+即
+
+$$
+a_l=\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}+1} \tag{6.7.8}
+$$
+
+这是费米-狄拉克分布，简称**费米分布**。参数满足
+
+$$
+\sum_l\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}+1}=N,
+\qquad
+\sum_l\frac{\varepsilon_l\omega_l}
+{e^{\alpha+\beta\varepsilon_l}+1}=E \tag{6.7.9}
+$$
+
+### 6.7.3 单个量子态上的平均粒子数
+
+同一能级的 $\omega_l$ 个量子态能量相同，最概然分布要求它们在统计地位上等价，故单个量子态上的平均粒子数为
+
+$$
+f_s=\frac{1}{e^{\alpha+\beta\varepsilon_s}\pm1} \tag{6.7.10}
+$$
+
+其中
+
+$$
+\begin{cases}
++1,&\text{费米分布},\\
+-1,&\text{玻色分布}.
+\end{cases}
+$$
+
+对量子态求和可得
+
+$$
+N=\sum_s\frac{1}
+{e^{\alpha+\beta\varepsilon_s}\pm1},
+\qquad
+E=\sum_s\frac{\varepsilon_s}
+{e^{\alpha+\beta\varepsilon_s}\pm1} \tag{6.7.11}
+$$
+
+> **推导局限**：式 (6.7.4) 与式 (6.7.7) 使用了 $a_l,\omega_l\gg1$ 近似，与玻耳兹曼分布推导中的斯特林近似具有同类问题。第九章将用巨正则系综给出严格结果。
+
+---
+
+## §6.8　三种分布的关系
+
+### 6.8.1 三种分布的统一写法
+
+前面的最概然分布可写为
+
+$$
+\begin{align}
+a_l&=\omega_l e^{-\alpha-\beta\varepsilon_l}
+&&\text{玻耳兹曼分布}, \tag{6.8.1}\\
+a_l&=\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}-1}
+&&\text{玻色分布}, \tag{6.8.2}\\
+a_l&=\frac{\omega_l}
+{e^{\alpha+\beta\varepsilon_l}+1}
+&&\text{费米分布}. \tag{6.8.3}
+\end{align}
+$$
+
+参数由
+
+$$
+\sum_l a_l=N,\qquad
+\sum_l\varepsilon_l a_l=E \tag{6.8.4}
+$$
+
+确定。
+
+### 6.8.2 经典极限
+
+若
+
+$$
+e^\alpha\gg1 \tag{6.8.5}
+$$
+
+则玻色分布和费米分布分母中的 $\pm1$ 均可忽略：
+
+$$
+\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}\pm1}
+\approx\omega_l e^{-\alpha-\beta\varepsilon_l}.
+$$
+
+三种分布趋于相同。
+
+由式 (6.8.5) 可得
+
+$$
+\frac{a_l}{\omega_l}
+=\frac{1}{e^{\alpha+\beta\varepsilon_l}\pm1}
+\ll1
+\qquad(\text{对所有 }l), \tag{6.8.6}
+$$
+
+这正是式 (6.5.5) 的经典极限条件。反之，若所有能级均满足式 (6.8.6)，则必有 $e^\alpha\gg1$。因此，式 (6.8.5) 与式 (6.8.6) 等价，均为**非简并性条件**。
+
+在经典极限下，微观状态数也趋于一致：
+
+$$
+\Omega_{\mathrm{B.E.}}
+\approx
+\frac{\Omega_{\mathrm{M.B.}}}{N!}
+\approx
+\Omega_{\mathrm{F.D.}} \tag{6.8.7}
+$$
+
+求 $\Omega$ 的极大值时，因子 $1/N!$ 对 $\delta\ln\Omega=0$ 没有影响，因此玻色和费米系统的近独立粒子在经典极限下都遵从玻耳兹曼分布。普通气体通常满足该条件。
+
+### 6.8.3 定域系统与经典极限气体的区别
+
+§6.6 在粒子可分辨的假设下推导了玻耳兹曼分布。有些系统可看作由定域粒子组成，例如晶体中的原子或离子在其平衡位置附近振动。它们在量子本性上仍不可分辨，但可由平衡位置加以区分，因此可把定域粒子看作可分辨粒子，遵从玻耳兹曼分布。
+
+必须区分：
+
+| 系统 | 分布 | 微观状态数 |
+| --- | --- | --- |
+| 定域系统 | 玻耳兹曼分布 | $\Omega_{\mathrm{M.B.}}$ |
+| 满足经典极限的玻色/费米气体 | 同一玻耳兹曼分布 | $\Omega_{\mathrm{M.B.}}/N!$ |
+
+因此，由分布函数直接得到的热力学量，例如内能和物态方程，具有相同的统计表达式；但与微观状态数有关的热力学量，例如熵和自由能，统计表达式存在差异。这个问题将在 §7.1 和 §7.6 中讨论。
+
+---
+
+## 本章小结
+
+### 一、公式速查
+
+**经典与量子单粒子状态**
+
+| 内容 | 公式 |
+| --- | --- |
+| 经典能量函数 | $\varepsilon=\varepsilon(q_1,\cdots,q_r;p_1,\cdots,p_r)$ (6.1.1) |
+| 自由粒子 | $p_x=m\dot x,\ p_y=m\dot y,\ p_z=m\dot z$ (6.1.2)；$\varepsilon=(p_x^2+p_y^2+p_z^2)/(2m)$ (6.1.3) |
+| 线性谐振子 | $\varepsilon=p^2/(2m)+m\omega^2x^2/2$ (6.1.4)；$\varepsilon_n=\hbar\omega(n+1/2)$ (6.2.3) |
+| 转子 | $\varepsilon=(p_\theta^2+p_\varphi^2/\sin^2\theta)/(2I)$ (6.1.8)；$\varepsilon=L^2/(2I)$ (6.1.9) |
+| 转子量子化 | $L^2=l(l+1)\hbar^2$ (6.2.4)；$L_z=m_l\hbar$ (6.2.5)；$\varepsilon_l=l(l+1)\hbar^2/(2I)$ (6.2.6) |
+| 自旋 | $S^2=s(s+1)\hbar^2$ (6.2.7)；$S_z=m_s\hbar$ (6.2.8)；电子磁矩 (6.2.9) |
+| 德布罗意关系 | $\varepsilon=\hbar\omega,\ \boldsymbol p=\hbar\boldsymbol k$ (6.2.1) |
+| 不确定关系 | $\Delta q\Delta p\approx h$ (6.2.2) |
+
+**自由粒子的量子态**
+
+| 内容 | 公式 |
+| --- | --- |
+| 三维动量量子化 | $p_i=2\pi\hbar n_i/L$，$i=x,y,z$ (6.2.11) |
+| 能量量子化 | $\varepsilon=2\pi^2\hbar^2(n_x^2+n_y^2+n_z^2)/(mL^2)$ (6.2.12) |
+| 相空间态数 | $\mathrm dn_x\mathrm dn_y\mathrm dn_z=(V/h^3)\mathrm dp_x\mathrm dp_y\mathrm dp_z$ (6.2.13) |
+| 相格体积 | $\Delta q_1\cdots\Delta q_r\Delta p_1\cdots\Delta p_r\approx h^r$ (6.2.14) |
+| 方向确定的动量壳层 | $Vp^2\sin\theta\,\mathrm dp\,\mathrm d\theta\,\mathrm d\varphi/h^3$ (6.2.15) |
+| 方向积分后 | $4\pi Vp^2\mathrm dp/h^3$ (6.2.16) |
+| 三维自由粒子态密度 | $D(\varepsilon)\mathrm d\varepsilon=2\pi V(2m)^{3/2}\varepsilon^{1/2}\mathrm d\varepsilon/h^3$ (6.2.17) |
+
+**近独立系统与微观状态数**
+
+| 内容 | 公式或结果 |
+| --- | --- |
+| 近独立系统能量 | $E=\sum_{i=1}^N\varepsilon_i$ (6.3.1) |
+| 一个分布 | $\sum_l a_l=N,\ \sum_l a_l\varepsilon_l=E$ (6.5.1) |
+| 玻耳兹曼系统 | $\Omega_{\mathrm{M.B.}}=N!\prod_l\omega_l^{a_l}/a_l!$ (6.5.2) |
+| 玻色系统 | $\Omega_{\mathrm{B.E.}}=\prod_l(\omega_l+a_l-1)!/[a_l!(\omega_l-1)!]$ (6.5.3) |
+| 费米系统 | $\Omega_{\mathrm{F.D.}}=\prod_l\omega_l!/[a_l!(\omega_l-a_l)!]$ (6.5.4) |
+| 经典极限 | $a_l/\omega_l\ll1$ (6.5.5)；$\Omega_{\mathrm{B.E.}}\approx\Omega_{\mathrm{F.D.}}\approx\Omega_{\mathrm{M.B.}}/N!$ (6.5.6)(6.5.7) |
+| 经典统计微观状态数 | $\Omega_{\mathrm{cl}}=N!\prod_l(\Delta\omega_l/h_0^r)^{a_l}/a_l!$ (6.5.8) |
+
+**玻耳兹曼分布推导**
+
+| 内容 | 公式 |
+| --- | --- |
+| 斯特林近似 | $\ln m!\approx m(\ln m-1)$ (6.6.1) |
+| 对数微观状态数 | $\ln\Omega\approx N\ln N-\sum_l a_l\ln a_l+\sum_l a_l\ln\omega_l$ (6.6.4) |
+| 变分条件 | $\delta\ln\Omega=-\sum_l\ln(a_l/\omega_l)\delta a_l=0$ (6.6.5) |
+| 约束 | $\sum_l\delta a_l=0,\ \sum_l\varepsilon_l\delta a_l=0$ (6.6.6) |
+| 拉格朗日条件 | $\ln(a_l/\omega_l)+\alpha+\beta\varepsilon_l=0$ (6.6.8) |
+| 玻耳兹曼分布 | $a_l=\omega_l e^{-\alpha-\beta\varepsilon_l}$ (6.6.8) |
+| 参数约束 | 式 (6.6.9) 或量子态求和式 (6.6.11) |
+| 二阶变分 | $\delta^2\ln\Omega=-\sum_l(\delta a_l)^2/a_l<0$ (6.6.12) |
+| 经典形式 | $a_l=e^{-\alpha-\beta\varepsilon_l}\Delta\omega_l/h_0^r$ (6.6.13) |
+
+**玻色分布与费米分布**
+
+| 内容 | 公式 |
+| --- | --- |
+| 玻色分布 | $a_l=\omega_l/(e^{\alpha+\beta\varepsilon_l}-1)$ (6.7.5) |
+| 费米分布 | $a_l=\omega_l/(e^{\alpha+\beta\varepsilon_l}+1)$ (6.7.8) |
+| 单量子态平均占有数 | $f_s=1/(e^{\alpha+\beta\varepsilon_s}\pm1)$ (6.7.10)；“$+$”费米，“$-$”玻色 |
+| 参数约束 | 式 (6.7.6)、式 (6.7.9) 或式 (6.7.11) |
+
+**三种分布的关系**
+
+| 内容 | 公式或判据 |
+| --- | --- |
+| 三种分布 | 式 (6.8.1)、式 (6.8.2)、式 (6.8.3) |
+| 经典极限 | $e^\alpha\gg1$ (6.8.5) $\Longleftrightarrow$ $a_l/\omega_l\ll1$ (6.8.6) |
+| 微观状态数关系 | $\Omega_{\mathrm{B.E.}}\approx\Omega_{\mathrm{M.B.}}/N!\approx\Omega_{\mathrm{F.D.}}$ (6.8.7) |
+
+### 二、概念脉络
+
+```text
+§6.1 经典单粒子状态
+    (q_1,...,q_r;p_1,...,p_r) ∈ μ 空间
+        ├── 自由粒子 ε = p²/(2m)
+        ├── 线性谐振子 → 椭圆轨道
+        └── 转子 ε = L²/(2I)
+        │
+        ▼
+§6.2 量子单粒子状态
+    一组量子数表征状态
+        ├── 谐振子 ε_n = ħω(n+1/2)
+        ├── 转子 L²=l(l+1)ħ²，简并度 2l+1
+        ├── 自旋 S²=s(s+1)ħ²，简并度 2s+1
+        └── 自由粒子：周期性边界条件 → 动量量子化
+             宏观容器：p 准连续
+             μ 空间相格 h^r ↔ 一个量子态
+             D(ε) ∝ ε^(1/2)（三维无自旋）
+        │
+        ▼
+§6.3 多粒子系统
+    近独立：E = Σ ε_i
+        ├── 经典粒子可分辨
+        └── 量子全同粒子不可分辨
+             ├── 玻色子：整数自旋，单态粒子数不限
+             └── 费米子：半整数自旋，单态最多 1 个
+        │
+        ▼
+§6.4 等概率原理
+    平衡态孤立系统的每个可达微观状态等概率
+        │
+        ▼
+§6.5 给定分布 {a_l}，数微观状态
+        ├── Ω_MB = N! Π ω_l^a_l / a_l!
+        ├── Ω_BE = Π (ω_l+a_l−1)!/[a_l!(ω_l−1)!]
+        └── Ω_FD = Π ω_l!/[a_l!(ω_l−a_l)!]
+        │
+        ▼
+§6.6–§6.7 在 Σa_l=N、Σa_lε_l=E 下令 lnΩ 取极大
+        ├── a_l = ω_l e^(−α−βε)            玻耳兹曼
+        ├── a_l = ω_l/[e^(α+βε)−1]        玻色
+        └── a_l = ω_l/[e^(α+βε)+1]        费米
+        │
+        ▼
+§6.8 经典极限 a_l/ω_l ≪ 1 ⇔ e^α ≫ 1
+        ├── 三种分布都趋于玻耳兹曼分布
+        ├── Ω_BE ≈ Ω_FD ≈ Ω_MB/N!
+        ├── 定域系统：MB，Ω = Ω_MB
+        └── 经典极限气体：MB，Ω = Ω_MB/N!
+             内能、物态方程相同；熵、自由能须区分
+```
+
+### 三、易错点
+
+1. **$\mu$ 空间是单粒子相空间**：$2r$ 个坐标是 $r$ 个广义坐标与 $r$ 个共轭动量。不要把 $N$ 粒子系统的 $6N$ 维相空间与单粒子 $\mu$ 空间混为一谈。
+2. **简并度与角频率都常用 $\omega$ 表示**：本章 §6.5 以后 $\omega_l$ 是能级简并度；§6.1–§6.2 的 $\omega$ 是圆频率。阅读公式时必须看上下文。
+3. **能级与量子态不同**：一个能级可含 $\omega_l$ 个量子态。$a_l$ 是能级上的总粒子数，$f_s$ 才是单个量子态上的平均粒子数。
+4. **$\Delta p=2\pi\hbar/L=h/L$**：三维每个动量轴上的量子态间隔都来自同一关系；因此 $dp_xdp_ydp_z$ 对应的态数含 $V/h^3$，不是 $(2\pi\hbar)^3/V$。
+5. **态密度只在体积和能量空间无其他约束时取式 (6.2.17)**：三维无自旋自由粒子 $D(\varepsilon)\propto\varepsilon^{1/2}$。二维、一维以及有自旋时，幂次和简并因子都要改变。
+6. **相格 $h^r$ 不是“一个粒子的体积”**：它是 $r$ 个自由度对应的动量–坐标联合空间体积。对三维粒子，一个量子态对应相体积 $h^3$。
+7. **经典极限不能说成“量子效应完全消失”**：它只说明多粒子态的占据数很小，玻色/费米统计差异可忽略；量子力学仍是单粒子状态和相格计数的基础。
+8. **经典粒子与量子全同粒子不可混淆**：经典全同粒子原则上可追踪、可分辨；量子全同粒子交换后是同一个微观状态。经典极限中残留的 $1/N!$ 正是不可分辨性留下的修正。
+9. **三种微观状态数不是简单差一个因子**：只有在 $a_l/\omega_l\ll1$ 时才有 $\Omega_{\mathrm{B.E.}}\approx\Omega_{\mathrm{F.D.}}\approx\Omega_{\mathrm{M.B.}}/N!$。
+10. **分布不是微观状态**：$\{a_l\}$ 只给出各能级粒子数；同一分布还可对应大量不同的微观状态。最概然分布是“分布空间”中的最大值，不是单一微观状态。
+11. **最概然分布不是唯一可达状态**：等概率原理并不否认其他分布存在；宏观系统中最概然分布的 $\Omega$ 极其尖锐，其他分布的总概率可忽略。
+12. **“极大”必须验证二阶变分**：一阶变分等于零只给出驻点；式 (6.6.12) 才证明玻耳兹曼分布为极大值。玻色、费米分布也有相应的二阶条件。
+13. **拉格朗日乘子不能当作独立的热力学变量**：$\alpha,\beta$ 由 $N,E$ 的约束确定，其物理意义将在后续章节与温度、化学势联系。
+14. **玻耳兹曼分布不是“所有系统都适用”的普适分布**：它适用于可分辨的定域系统，或在经典极限下适用于玻色/费米气体；强简并量子气体必须使用玻色或费米分布。
+15. **定域系统与经典极限气体的微观状态数不同**：两者都可写玻耳兹曼分布，但前者 $\Omega=\Omega_{\mathrm{M.B.}}$，后者 $\Omega=\Omega_{\mathrm{M.B.}}/N!$。凡依赖 $\ln\Omega$ 的量，例如熵，不能直接等同。
+16. **自由粒子的自旋简并要乘因子 $2s+1$**：电子 $s=1/2$ 时乘 $2$；光子等粒子的自旋/偏振计数要按具体物理态处理。
+17. **边界条件改变离散动量，但不改变宏观态密度**：周期性边界条件和驻波边界条件给出不同的量子数范围，宏观极限下相格计数相同。
+18. **$a_l\gg1$ 的斯特林近似是本章推导的局限**：宏观总粒子数很大，不代表每个能级上的 $a_l$ 都很大；后续系综理论正是为消除这一缺陷而引入。
+
+### 四、名词中英对照
+
+| 中文 | 英文 | 中文 | 英文 |
+| --- | --- | --- | --- |
+| 近独立粒子系统 | nearly independent particle system | 微观状态 | microstate |
+| 宏观状态 | macrostate | 广义坐标 | generalized coordinate |
+| 广义动量 | generalized momentum | 相空间 | phase space |
+| $\mu$ 空间 | $\mu$-space | 代表点 | representative point |
+| 自由粒子 | free particle | 线性谐振子 | linear harmonic oscillator |
+| 转子 | rotor | 转动惯量 | moment of inertia |
+| 约化质量 | reduced mass | 角动量 | angular momentum |
+| 自旋角动量 | spin angular momentum | 自旋量子数 | spin quantum number |
+| 德布罗意关系 | de Broglie relation | 不确定关系 | uncertainty relation |
+| 量子态 | quantum state | 量子数 | quantum number |
+| 能级 | energy level | 简并度 | degeneracy |
+| 空间量子化 | spatial quantization | 周期性边界条件 | periodic boundary condition |
+| 态密度 | density of states | 全同粒子 | identical particles |
+| 全同性原理 | indistinguishability principle | 玻色子 | boson |
+| 费米子 | fermion | 玻色系统 | Bose system |
+| 费米系统 | Fermi system | 泡利不相容原理 | Pauli exclusion principle |
+| 等概率原理 | principle of equal a priori probabilities | 分布 | distribution |
+| 玻耳兹曼系统 | Maxwell-Boltzmann system | 玻色-爱因斯坦系统 | Bose-Einstein system |
+| 费米-狄拉克系统 | Fermi-Dirac system | 微观状态数 | number of microstates |
+| 经典极限条件 | classical limit condition | 非简并性条件 | nondegeneracy condition |
+| 最概然分布 | most probable distribution | 麦克斯韦-玻尔兹曼分布 | Maxwell-Boltzmann distribution |
+| 玻色-爱因斯坦分布 | Bose-Einstein distribution | 费米-狄拉克分布 | Fermi-Dirac distribution |
+| 斯特林近似 | Stirling approximation | 拉格朗日乘子 | Lagrange multiplier |
+| 拉格朗日乘子法 | method of Lagrange multipliers | 定域系统 | localized system |
+| 平均粒子数 | mean occupation number | 自旋简并 | spin degeneracy |

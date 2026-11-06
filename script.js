@@ -103,6 +103,7 @@ const translations = {
     "coursework.earthCourse": "Earth Evolution History",
     "coursework.earthMeta": "May 2026",
     "coursework.earthTitle": "From Assembly to Breakup: A Geological Study of Pangaea's Evolution",
+    "notes.eyebrow": "Written and organised by me",
     "notes.title": "Course notes",
     "notes.courseTitle": "Thermodynamics and Statistical Physics",
     "notes.courseBody":
@@ -294,6 +295,7 @@ const translations = {
     "coursework.earthCourse": "《地球演化历史》",
     "coursework.earthMeta": "2026年5月",
     "coursework.earthTitle": "从聚合到裂解：联合古陆变化过程的地质学考察",
+    "notes.eyebrow": "由我撰写与整理",
     "notes.title": "课程笔记",
     "notes.courseTitle": "热力学与统计物理",
     "notes.courseBody": "基于汪志诚《热力学·统计物理》第六版的章节学习笔记。",

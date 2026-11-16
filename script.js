@@ -70,7 +70,6 @@ const translations = {
     "coursework.course": "Selected Topics in Frontier Physics",
     "coursework.paperTitle": "Is Neutrino Dirac or Majorana Particle?",
     "coursework.pageUnit": "pages",
-    "coursework.presentationType": "Group presentation",
     "coursework.electrodynamicsKind": "Presentation & final essay",
     "coursework.electrodynamicsMeta": "October 2026",
     "coursework.electrodynamicsCourse": "Seminar on Electrodynamics",
@@ -79,10 +78,7 @@ const translations = {
     "coursework.electrodynamicsCredit": "Presented with 洪子坤 and 张悦水",
     "coursework.electrodynamicsEssayMeta": "November 2026",
     "coursework.electrodynamicsEssayCredit": "Individual final essay",
-    "coursework.viewEssay": "Read essay ↗",
-    "coursework.viewSlides": "View slides ↗",
     "coursework.slideUnit": "slides",
-    "coursework.open": "Open ↗",
     "coursework.aplCourse": "Advanced Physics Laboratory I",
     "coursework.bdpeCourse": "Basic Designed Physics Experiment",
     "coursework.bpeCourse": "Basic Physics Experiment",
@@ -282,7 +278,6 @@ const translations = {
     "coursework.course": "《物理前沿专题选讲》",
     "coursework.paperTitle": "中微子是狄拉克粒子还是马约拉纳粒子？",
     "coursework.pageUnit": "页",
-    "coursework.presentationType": "小组报告",
     "coursework.electrodynamicsKind": "小组报告与期末论文",
     "coursework.electrodynamicsMeta": "2026年10月",
     "coursework.electrodynamicsCourse": "《电动力学讨论班》",
@@ -290,10 +285,7 @@ const translations = {
     "coursework.electrodynamicsCredit": "与洪子坤、张悦水共同完成",
     "coursework.electrodynamicsEssayMeta": "2026年11月",
     "coursework.electrodynamicsEssayCredit": "个人期末论文",
-    "coursework.viewEssay": "阅读论文 ↗",
-    "coursework.viewSlides": "查看演示文稿 ↗",
     "coursework.slideUnit": "页",
-    "coursework.open": "打开 ↗",
     "coursework.aplCourse": "《近代物理实验》",
     "coursework.bdpeCourse": "《基础物理设计实验》",
     "coursework.bpeCourse": "《基础物理实验》",
@@ -561,9 +553,9 @@ function applyLanguage(language, updateUrl = true) {
   setNavigationState(false);
 }
 
-function collapseNotesModule(moduleItem) {
-  moduleItem.open = false;
-  moduleItem.querySelectorAll("[data-notes-submodule]").forEach((submoduleItem) => {
+function collapseAccordion(accordionItem) {
+  accordionItem.open = false;
+  accordionItem.querySelectorAll("[data-notes-submodule]").forEach((submoduleItem) => {
     submoduleItem.open = false;
   });
 }
@@ -572,7 +564,7 @@ function syncNotesAccordions(route) {
   notesModuleItems.forEach((moduleItem, index) => {
     const isTarget = route ? moduleItem.dataset.notesModule === route.module : index === 0;
     if (!isTarget) {
-      collapseNotesModule(moduleItem);
+      collapseAccordion(moduleItem);
       return;
     }
     moduleItem.open = true;
@@ -580,6 +572,14 @@ function syncNotesAccordions(route) {
       submoduleItem.open =
         Boolean(route?.submodule) && submoduleItem.dataset.notesSubmodule === route.submodule;
     });
+  });
+}
+
+function syncCourseworkAccordions() {
+  const list = document.querySelector('[data-accordion-list="coursework"]');
+  if (!list) return;
+  list.querySelectorAll(":scope > .accordion").forEach((item, index) => {
+    item.open = index === 0;
   });
 }
 
@@ -594,27 +594,33 @@ function updateNotesHash(route) {
   window.history.replaceState({ moduleId: "notes" }, "", hash);
 }
 
-function bindNotesAccordions() {
-  notesModuleItems.forEach((moduleItem) => {
-    const summary = moduleItem.querySelector(".notes-accordion-summary");
-    summary?.addEventListener("click", () => {
-      const willOpen = !moduleItem.open;
-      if (!willOpen) {
-        if (getNotesRouteFromLocation()?.module === moduleItem.dataset.notesModule) {
+function bindAccordions() {
+  document.querySelectorAll("[data-accordion-list]").forEach((list) => {
+    const items = [...list.querySelectorAll(":scope > .accordion")];
+    items.forEach((item) => {
+      const summary = item.querySelector(":scope > .accordion-summary");
+      summary?.addEventListener("click", () => {
+        const willOpen = !item.open;
+        if (willOpen) {
+          items.forEach((otherItem) => {
+            if (otherItem !== item) collapseAccordion(otherItem);
+          });
+        }
+
+        if (list.dataset.accordionList !== "notes") return;
+        const moduleId = item.dataset.notesModule;
+        if (!moduleId) return;
+        if (willOpen) {
+          updateNotesHash({ module: moduleId, submodule: null });
+        } else if (getNotesRouteFromLocation()?.module === moduleId) {
           updateNotesHash(null);
         }
-        return;
-      }
-
-      notesModuleItems.forEach((otherItem) => {
-        if (otherItem !== moduleItem) collapseNotesModule(otherItem);
       });
-      updateNotesHash({ module: moduleItem.dataset.notesModule, submodule: null });
     });
   });
 
   notesSubmoduleItems.forEach((submoduleItem) => {
-    const summary = submoduleItem.querySelector(".notes-submodule-summary");
+    const summary = submoduleItem.querySelector(".accordion-submodule-summary");
     summary?.addEventListener("click", () => {
       const moduleItem = submoduleItem.closest("[data-notes-module]");
       if (!moduleItem) return;
@@ -651,6 +657,7 @@ function showModule(moduleId) {
 
   header.classList.toggle("on-dark", activeModule === "research");
   syncNotesAccordions(activeModule === "notes" ? getNotesRouteFromLocation() : null);
+  syncCourseworkAccordions();
   setNavigationState(false);
   window.scrollTo(0, 0);
 }
@@ -696,6 +703,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
-bindNotesAccordions();
+bindAccordions();
 applyLanguage(getLanguageFromUrl(), false);
 showModule(getModuleFromLocation());

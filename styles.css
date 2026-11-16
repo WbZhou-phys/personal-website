@@ -1656,50 +1656,39 @@ button {
 .notes-submodule-link {
   position: relative;
   display: flex;
-  min-height: clamp(14rem, 23vw, 18rem);
+  min-height: clamp(12rem, 20vw, 15rem);
   padding: clamp(1.35rem, 3vw, 2.2rem);
-  overflow: hidden;
-  background: var(--blue-dark);
-  color: var(--paper-light);
-  transition: background-color 200ms ease;
-}
-
-.notes-submodule-link::after {
-  position: absolute;
-  right: -5rem;
-  bottom: -7rem;
-  width: 15rem;
-  height: 15rem;
-  border: 1px solid rgba(126, 161, 255, 0.2);
-  border-radius: 50%;
-  content: "";
-  pointer-events: none;
+  border: 1px solid var(--line);
+  background: rgba(49, 95, 189, 0.035);
+  color: var(--ink);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
 }
 
 .notes-submodule-link:hover {
-  background: #1a3158;
+  border-color: rgba(49, 95, 189, 0.38);
+  background: rgba(49, 95, 189, 0.065);
 }
 
 .notes-submodule-link-number {
   position: absolute;
   top: clamp(1.35rem, 3vw, 2.2rem);
   right: clamp(1.35rem, 3vw, 2.2rem);
-  color: var(--blue-bright);
+  color: var(--blue);
   font-family: var(--mono);
   font-size: 0.58rem;
   letter-spacing: 0.08em;
 }
 
 .notes-submodule-link-copy {
-  position: relative;
-  z-index: 1;
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
 .notes-submodule-kicker {
-  color: var(--blue-bright);
+  color: var(--muted);
   font-family: var(--mono);
   font-size: 0.56rem;
   letter-spacing: 0.12em;
@@ -1707,14 +1696,14 @@ button {
 }
 
 .notes-submodule-link-copy strong {
-  max-width: 8ch;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
-  color: var(--paper-light);
+  max-width: 11ch;
+  margin-top: clamp(2rem, 4.5vw, 3.2rem);
+  color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
   font-weight: 400;
-  letter-spacing: -0.05em;
-  line-height: 0.95;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
 
 .notes-submodule-link-action {
@@ -1724,18 +1713,18 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-top: 1px solid rgba(250, 248, 242, 0.22);
+  border-top: 1px solid var(--line);
 }
 
 .notes-submodule-link-action small {
-  color: rgba(250, 248, 242, 0.72);
+  color: var(--muted);
   font-family: var(--mono);
   font-size: 0.56rem;
   letter-spacing: 0.04em;
 }
 
 .notes-submodule-link-arrow {
-  color: var(--paper-light);
+  color: var(--blue);
   font-size: 1.25rem;
   transition: transform 180ms var(--ease);
 }
@@ -1786,40 +1775,36 @@ button {
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+  border-top: 1px solid var(--line);
   list-style: none;
 }
 
-.notes-module-list li {
-  border: 1px solid var(--line);
-  background: rgba(250, 248, 242, 0.55);
-  transition: border-color 180ms ease;
+.notes-gr-content .notes-module-list {
+  grid-template-columns: 1fr;
 }
 
-.notes-module-list li:hover {
-  border-color: rgba(49, 95, 189, 0.42);
+.notes-module-list li {
+  border-bottom: 1px solid var(--line);
 }
 
 .notes-module-list a {
   display: grid;
-  min-height: 7.75rem;
-  height: 100%;
-  padding: 0.85rem 0.8rem;
-  grid-template-columns: 1.35rem minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: 0.8rem 0.15rem;
+  grid-template-columns: 1.35rem minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
   column-gap: 0.55rem;
-  transition: background-color 180ms ease;
+  transition: color 180ms ease;
 }
 
 .notes-module-list a:hover {
-  padding-left: 0.8rem;
-  background: rgba(49, 95, 189, 0.045);
+  color: var(--blue);
 }
 
 .notes-module-list a > span {
   padding-top: 0.15rem;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
   color: var(--blue);
   font-family: var(--mono);
   font-size: 0.52rem;
@@ -1840,11 +1825,9 @@ button {
 }
 
 .notes-module-list a::after {
-  margin-top: 0.7rem;
-  grid-row: 3;
-  grid-column: 2;
-  align-self: end;
-  justify-self: start;
+  grid-row: 1 / span 2;
+  grid-column: 3;
+  align-self: center;
   color: var(--blue);
   content: attr(data-file-type) " ↗";
   font-family: var(--mono);

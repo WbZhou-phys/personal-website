@@ -1656,8 +1656,8 @@ button {
 .notes-submodule-link {
   position: relative;
   display: flex;
-  min-height: clamp(12rem, 20vw, 15rem);
-  padding: clamp(1.35rem, 3vw, 2.2rem);
+  min-height: clamp(7.5rem, 8vw, 8.5rem);
+  padding: clamp(0.95rem, 2vw, 1.25rem);
   border: 1px solid var(--line);
   background: rgba(49, 95, 189, 0.035);
   color: var(--ink);
@@ -1673,8 +1673,8 @@ button {
 
 .notes-submodule-link-number {
   position: absolute;
-  top: clamp(1.35rem, 3vw, 2.2rem);
-  right: clamp(1.35rem, 3vw, 2.2rem);
+  top: clamp(0.95rem, 2vw, 1.25rem);
+  right: clamp(0.95rem, 2vw, 1.25rem);
   color: var(--blue);
   font-family: var(--mono);
   font-size: 0.58rem;
@@ -1687,29 +1687,21 @@ button {
   flex-direction: column;
 }
 
-.notes-submodule-kicker {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .notes-submodule-link-copy strong {
-  max-width: 11ch;
-  margin-top: clamp(2rem, 4.5vw, 3.2rem);
+  max-width: 16ch;
+  margin-top: 0.9rem;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
 .notes-submodule-link-action {
   display: flex;
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -1825,6 +1817,7 @@ button {
 }
 
 .notes-module-list a::after {
+  margin-right: 0.35rem;
   grid-row: 1 / span 2;
   grid-column: 3;
   align-self: center;
@@ -1833,6 +1826,7 @@ button {
   font-family: var(--mono);
   font-size: 0.48rem;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 html[lang="zh-CN"] .notes-module-list small {
@@ -2428,11 +2422,11 @@ html[lang="zh-CN"] .visit-card h3 {
   }
 
   .notes-submodule-link {
-    min-height: 13rem;
+    min-height: 9rem;
   }
 
   .notes-submodule-link-copy strong {
-    font-size: clamp(2.4rem, 12vw, 3.4rem);
+    font-size: clamp(2rem, 10vw, 2.6rem);
   }
 
   .notes-module-list {

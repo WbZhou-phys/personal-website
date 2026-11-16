@@ -10,14 +10,14 @@
     />
     <meta name="author" content="Wenbin Zhou" />
     <meta name="theme-color" content="#f3f0e8" />
-    <meta name="site-version" content="20261116-gr-formalism-1" />
+    <meta name="site-version" content="20261116-notes-submodules-1" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://wbzhouphysics.com/" />
     <link rel="alternate" hreflang="en" href="https://wbzhouphysics.com/" />
     <link rel="alternate" hreflang="zh-CN" href="https://wbzhouphysics.com/?lang=zh" />
     <link rel="alternate" hreflang="x-default" href="https://wbzhouphysics.com/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=20261116-gr-formalism-1" />
+    <link rel="stylesheet" href="styles.css?v=20261116-notes-submodules-1" />
 
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Wenbin Zhou | Theoretical Physics" />
@@ -892,7 +892,7 @@
         hidden
       >
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-notes-overview>
             <div>
               <p class="eyebrow" data-i18n="notes.eyebrow">Reading notes &amp; reflections</p>
               <h2 id="notes-title" data-i18n-html="notes.title">
@@ -901,7 +901,7 @@
             </div>
           </div>
 
-          <div class="notes-module-grid">
+          <div class="notes-module-grid" data-notes-overview>
             <div class="notes-course-intro">
               <div class="notes-course-heading">
                 <span class="notes-course-number" aria-label="General Relativity">01</span>
@@ -915,36 +915,38 @@
               </p>
             </div>
 
-            <div class="notes-submodules">
-              <section class="notes-submodule" aria-labelledby="gr-formalism-title">
-                <div class="notes-submodule-heading">
-                  <span aria-hidden="true">01</span>
-                  <h4 id="gr-formalism-title">3+1 Formalism</h4>
-                </div>
+            <div class="notes-gr-content">
+              <ol class="notes-module-list">
+                <li>
+                  <a
+                    href="assets/notes/gr/Tensor-Multilinear-Maps-and-Geometric-Entities.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    data-file-type="PDF"
+                  >
+                    <span>01</span>
+                    <strong data-i18n="notes.grTensorTitle">
+                      Tensors: Multilinear Maps and Geometric Entities
+                    </strong>
+                    <small data-i18n="notes.grTensorMeta">
+                      12 pages · 张量：多重线性映射与几何实体
+                    </small>
+                  </a>
+                </li>
+              </ol>
 
-                <ol class="notes-module-list">
-                  <li>
-                    <a
-                      href="assets/notes/gr/Tensor-Multilinear-Maps-and-Geometric-Entities.pdf"
-                      target="_blank"
-                      rel="noopener"
-                      data-file-type="PDF"
-                    >
-                      <span>01</span>
-                      <strong data-i18n="notes.grTensorTitle">
-                        Tensors: Multilinear Maps and Geometric Entities
-                      </strong>
-                      <small data-i18n="notes.grTensorMeta">
-                        12 pages · 张量：多重线性映射与几何实体
-                      </small>
-                    </a>
-                  </li>
-                </ol>
-              </section>
+              <a class="notes-submodule-link" href="#notes/3+1 Formalism">
+                <span class="notes-submodule-link-number" aria-hidden="true">01</span>
+                <span class="notes-submodule-link-copy">
+                  <strong>3+1 Formalism</strong>
+                  <small data-i18n="notes.submoduleOpen">Open submodule</small>
+                </span>
+                <span class="notes-submodule-link-arrow" aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
 
-          <div class="notes-module-grid notes-module-secondary">
+          <div class="notes-module-grid notes-module-secondary" data-notes-overview>
             <div class="notes-course-intro">
               <div class="notes-course-heading">
                 <span class="notes-course-number" aria-label="SPS materials">02</span>
@@ -1009,7 +1011,7 @@
             </ol>
           </div>
 
-          <div class="notes-module-grid notes-module-secondary">
+          <div class="notes-module-grid notes-module-secondary" data-notes-overview>
             <div class="notes-course-intro">
               <div class="notes-course-heading">
                 <span class="notes-course-number" aria-label="Course 3">03</span>
@@ -1104,6 +1106,26 @@
               </li>
             </ol>
           </div>
+
+          <section
+            class="notes-submodule-view"
+            data-notes-submodule-view="gr-formalism"
+            aria-labelledby="gr-formalism-view-title"
+            hidden
+          >
+            <a class="notes-back-link" href="#notes" data-i18n="notes.backToOverview">
+              ← Back to all notes
+            </a>
+            <div class="notes-submodule-view-heading">
+              <p class="eyebrow" data-i18n="notes.grFormalismEyebrow">
+                General Relativity · Submodule 01
+              </p>
+              <h3 id="gr-formalism-view-title">3+1 Formalism</h3>
+            </div>
+            <div class="notes-submodule-empty">
+              <p data-i18n="notes.grFormalismEmpty">No notes have been added to this submodule yet.</p>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -1232,6 +1254,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20261116-gr-formalism-1"></script>
+    <script src="script.js?v=20261116-notes-submodules-1"></script>
   </body>
 </html>

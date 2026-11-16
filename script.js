@@ -150,6 +150,10 @@ const translations = {
     "notes.grLanguageNote": "Notes are attached as PDFs.",
     "notes.grTensorTitle": "Tensors: Multilinear Maps and Geometric Entities",
     "notes.grTensorMeta": "12 pages · 张量：多重线性映射与几何实体",
+    "notes.submoduleOpen": "Open submodule",
+    "notes.backToOverview": "← Back to all notes",
+    "notes.grFormalismEyebrow": "General Relativity · Submodule 01",
+    "notes.grFormalismEmpty": "No notes have been added to this submodule yet.",
     "education.eyebrow": "Foundations",
     "education.title": "Learning how to ask <em>better questions.</em>",
     "education.intro":
@@ -359,6 +363,10 @@ const translations = {
     "notes.grLanguageNote": "笔记以 PDF 附件形式提供。",
     "notes.grTensorTitle": "张量：多重线性映射与几何实体",
     "notes.grTensorMeta": "12 页 · Tensors: Multilinear Maps and Geometric Entities",
+    "notes.submoduleOpen": "打开子模块",
+    "notes.backToOverview": "← 返回全部笔记",
+    "notes.grFormalismEyebrow": "广义相对论 · 子模块 01",
+    "notes.grFormalismEmpty": "该子模块尚未添加笔记。",
     "education.eyebrow": "学术基础",
     "education.title": "学习如何提出<em>更好的问题。</em>",
     "education.intro": "我的训练将系统的课程学习、早期科研体验与国际学术交流结合起来。",
@@ -433,6 +441,9 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".primary-nav a");
 const moduleViews = document.querySelectorAll("[data-module-view]");
 const moduleLinks = document.querySelectorAll("[data-module-link]");
+const notesOverviewItems = document.querySelectorAll("[data-notes-overview]");
+const notesSubmoduleViews = document.querySelectorAll("[data-notes-submodule-view]");
+const notesSubmoduleRoutes = new Map([["3+1 formalism", "gr-formalism"]]);
 const backToTop = document.querySelector("#back-to-top");
 const languageButtons = document.querySelectorAll(".language-button");
 const metaDescription = document.querySelector('meta[name="description"]');
@@ -454,11 +465,28 @@ function getLanguageFromUrl() {
   return language === "zh" ? "zh" : "en";
 }
 
-function getModuleFromLocation() {
+function getHashRoute() {
   const hash = window.location.hash.replace(/^#/, "");
+  try {
+    return decodeURIComponent(hash);
+  } catch {
+    return hash;
+  }
+}
+
+function getModuleFromLocation() {
+  const hash = getHashRoute();
   if (hash === "top") return "about";
   if (hash === "honors" || hash.startsWith("coursework")) return "education";
+  if (hash.startsWith("notes/")) return "notes";
   return moduleIds.has(hash) ? hash : "about";
+}
+
+function getNotesSubmoduleFromLocation() {
+  const prefix = "notes/";
+  const hash = getHashRoute();
+  if (!hash.toLowerCase().startsWith(prefix)) return null;
+  return notesSubmoduleRoutes.get(hash.slice(prefix.length).toLowerCase()) ?? null;
 }
 
 function setNavigationState(isOpen) {
@@ -520,6 +548,22 @@ function applyLanguage(language, updateUrl = true) {
   setNavigationState(false);
 }
 
+function showNotesSubmodule(submoduleId) {
+  const activeSubmodule = [...notesSubmoduleViews].some(
+    (view) => view.dataset.notesSubmoduleView === submoduleId,
+  )
+    ? submoduleId
+    : null;
+
+  notesOverviewItems.forEach((item) => {
+    item.hidden = Boolean(activeSubmodule);
+  });
+
+  notesSubmoduleViews.forEach((view) => {
+    view.hidden = view.dataset.notesSubmoduleView !== activeSubmodule;
+  });
+}
+
 function showModule(moduleId) {
   const activeModule = moduleIds.has(moduleId) ? moduleId : "about";
 
@@ -543,6 +587,7 @@ function showModule(moduleId) {
   });
 
   header.classList.toggle("on-dark", activeModule === "research");
+  showNotesSubmodule(activeModule === "notes" ? getNotesSubmoduleFromLocation() : null);
   setNavigationState(false);
   window.scrollTo(0, 0);
 }

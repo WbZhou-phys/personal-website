@@ -146,7 +146,7 @@ const translations = {
     "notes.spsChapter2": "Gravity from Action: From the Einstein Equation to Scalar–Tensor Theory",
     "notes.spsChapter2Meta": "8 pages · 引力（挑战！）：从引力作用量到标量–张量理论",
     "notes.grCourseTitle": "General Relativity",
-    "notes.grCourseBody": "Conceptual notes on GR.",
+    "notes.grCourseBody": "Notes about GR.",
     "notes.grLanguageNote": "Notes are attached as PDFs.",
     "notes.grTensorTitle": "Tensors: Multilinear Maps and Geometric Entities",
     "notes.grTensorMeta": "12 pages · 张量：多重线性映射与几何实体",

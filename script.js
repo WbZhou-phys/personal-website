@@ -154,6 +154,7 @@ const translations = {
     "notes.backToOverview": "← Back to all notes",
     "notes.grFormalismEyebrow": "General Relativity · Submodule 01",
     "notes.grFormalismEmpty": "No notes have been added to this submodule yet.",
+    "notes.spsInterviewEyebrow": "SPS Materials · Interview",
     "education.eyebrow": "Foundations",
     "education.title": "Learning how to ask <em>better questions.</em>",
     "education.intro":
@@ -367,6 +368,7 @@ const translations = {
     "notes.backToOverview": "← 返回全部笔记",
     "notes.grFormalismEyebrow": "广义相对论 · 子模块 01",
     "notes.grFormalismEmpty": "该子模块尚未添加笔记。",
+    "notes.spsInterviewEyebrow": "SPS 材料 · Interview",
     "education.eyebrow": "学术基础",
     "education.title": "学习如何提出<em>更好的问题。</em>",
     "education.intro": "我的训练将系统的课程学习、早期科研体验与国际学术交流结合起来。",
@@ -443,7 +445,10 @@ const moduleViews = document.querySelectorAll("[data-module-view]");
 const moduleLinks = document.querySelectorAll("[data-module-link]");
 const notesOverviewItems = document.querySelectorAll("[data-notes-overview]");
 const notesSubmoduleViews = document.querySelectorAll("[data-notes-submodule-view]");
-const notesSubmoduleRoutes = new Map([["3+1 formalism", "gr-formalism"]]);
+const notesSubmoduleRoutes = new Map([
+  ["3+1 formalism", "gr-formalism"],
+  ["interview", "sps-interview"],
+]);
 const backToTop = document.querySelector("#back-to-top");
 const languageButtons = document.querySelectorAll(".language-button");
 const metaDescription = document.querySelector('meta[name="description"]');

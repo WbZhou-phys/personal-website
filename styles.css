@@ -1647,7 +1647,8 @@ button {
   letter-spacing: 0.03em;
 }
 
-.notes-gr-content {
+.notes-gr-content,
+.notes-sps-content {
   display: grid;
   min-width: 0;
   gap: 1rem;
@@ -1773,7 +1774,8 @@ button {
   list-style: none;
 }
 
-.notes-gr-content .notes-module-list {
+.notes-gr-content .notes-module-list,
+.notes-sps-content .notes-module-list {
   grid-template-columns: 1fr;
 }
 

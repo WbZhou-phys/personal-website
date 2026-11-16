@@ -139,6 +139,7 @@ const translations = {
     "notes.spsCourseBody":
       "Talks, reading materials, and outreach presentations created for the Sun Yat-sen University Society of Physics Students.",
     "notes.spsLanguageNote": "The materials are in Chinese and attached as PDFs.",
+    "notes.spsInterviewTitle": "Interview",
     "notes.spsTalk1": "Modified Gravity: An Introduction",
     "notes.spsTalk1Meta": "19 slides · SPS outreach talk · 修改引力简介",
     "notes.spsChapter1": "Black Holes: From Schwarzschild to Kerr–Newman",
@@ -146,15 +147,13 @@ const translations = {
     "notes.spsChapter2": "Gravity from Action: From the Einstein Equation to Scalar–Tensor Theory",
     "notes.spsChapter2Meta": "8 pages · 引力（挑战！）：从引力作用量到标量–张量理论",
     "notes.grCourseTitle": "General Relativity",
-    "notes.grCourseBody": "Notes about GR.",
-    "notes.grLanguageNote": "Notes are attached as PDFs.",
+    "notes.grCourseBody":
+      "Concept notes on general relativity, organised around the 3+1 formalism and the tensor language underneath it.",
+    "notes.grLanguageNote": "The notes are in Chinese and attached as PDFs.",
+    "notes.grFormalismTitle": "3+1 Formalism",
     "notes.grTensorTitle": "Tensors: Multilinear Maps and Geometric Entities",
     "notes.grTensorMeta": "12 pages · 张量：多重线性映射与几何实体",
-    "notes.submoduleOpen": "Open submodule",
-    "notes.backToOverview": "← Back to all notes",
-    "notes.grFormalismEyebrow": "General Relativity · Submodule 01",
     "notes.grFormalismEmpty": "No notes have been added to this submodule yet.",
-    "notes.spsInterviewEyebrow": "SPS Materials · Interview",
     "education.eyebrow": "Foundations",
     "education.title": "Learning how to ask <em>better questions.</em>",
     "education.intro":
@@ -353,6 +352,7 @@ const translations = {
     "notes.spsCourseTitle": "SPS 材料",
     "notes.spsCourseBody": "为中山大学 SPS 物理学社准备的科普展示、阅读材料与交流资料。",
     "notes.spsLanguageNote": "资料为中文 PDF 附件。",
+    "notes.spsInterviewTitle": "面试",
     "notes.spsTalk1": "修改引力简介",
     "notes.spsTalk1Meta": "19 页 · SPS 科普展示 · Modified Gravity: An Introduction",
     "notes.spsChapter1": "黑洞：从 Schwarzschild 黑洞到 Kerr–Newman 黑洞",
@@ -360,15 +360,12 @@ const translations = {
     "notes.spsChapter2": "引力（挑战！）：从引力作用量到标量–张量理论",
     "notes.spsChapter2Meta": "8 页 · Gravity from Action: From the Einstein Equation to Scalar–Tensor Theory",
     "notes.grCourseTitle": "广义相对论",
-    "notes.grCourseBody": "关于广义相对论的概念笔记。",
-    "notes.grLanguageNote": "笔记以 PDF 附件形式提供。",
+    "notes.grCourseBody": "围绕 3+1 分解与张量语言整理的概念笔记。",
+    "notes.grLanguageNote": "笔记以中文 PDF 附件形式提供。",
+    "notes.grFormalismTitle": "3+1 分解",
     "notes.grTensorTitle": "张量：多重线性映射与几何实体",
     "notes.grTensorMeta": "12 页 · Tensors: Multilinear Maps and Geometric Entities",
-    "notes.submoduleOpen": "打开子模块",
-    "notes.backToOverview": "← 返回全部笔记",
-    "notes.grFormalismEyebrow": "广义相对论 · 子模块 01",
     "notes.grFormalismEmpty": "该子模块尚未添加笔记。",
-    "notes.spsInterviewEyebrow": "SPS 材料 · Interview",
     "education.eyebrow": "学术基础",
     "education.title": "学习如何提出<em>更好的问题。</em>",
     "education.intro": "我的训练将系统的课程学习、早期科研体验与国际学术交流结合起来。",
@@ -443,11 +440,11 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".primary-nav a");
 const moduleViews = document.querySelectorAll("[data-module-view]");
 const moduleLinks = document.querySelectorAll("[data-module-link]");
-const notesOverviewItems = document.querySelectorAll("[data-notes-overview]");
-const notesSubmoduleViews = document.querySelectorAll("[data-notes-submodule-view]");
-const notesSubmoduleRoutes = new Map([
-  ["3+1 formalism", "gr-formalism"],
-  ["interview", "sps-interview"],
+const notesModuleItems = [...document.querySelectorAll("[data-notes-module]")];
+const notesSubmoduleItems = [...document.querySelectorAll("[data-notes-submodule]")];
+const notesLegacyRoutes = new Map([
+  ["3+1 formalism", { module: "general-relativity", submodule: "gr-formalism" }],
+  ["interview", { module: "sps-materials", submodule: "sps-interview" }],
 ]);
 const backToTop = document.querySelector("#back-to-top");
 const languageButtons = document.querySelectorAll(".language-button");
@@ -487,11 +484,29 @@ function getModuleFromLocation() {
   return moduleIds.has(hash) ? hash : "about";
 }
 
-function getNotesSubmoduleFromLocation() {
+function getNotesRouteFromLocation() {
   const prefix = "notes/";
-  const hash = getHashRoute();
+  const hash = getHashRoute().trim();
   if (!hash.toLowerCase().startsWith(prefix)) return null;
-  return notesSubmoduleRoutes.get(hash.slice(prefix.length).toLowerCase()) ?? null;
+
+  const path = hash.slice(prefix.length).toLowerCase();
+  const legacyRoute = notesLegacyRoutes.get(path);
+  if (legacyRoute) return legacyRoute;
+
+  const [moduleId, submoduleId] = path.split("/").filter(Boolean);
+  const moduleItem = notesModuleItems.find((item) => item.dataset.notesModule === moduleId);
+  if (!moduleItem) return null;
+
+  const submoduleItem = submoduleId
+    ? notesSubmoduleItems.find(
+        (item) => item.dataset.notesSubmodule === submoduleId && moduleItem.contains(item),
+      )
+    : null;
+
+  return {
+    module: moduleItem.dataset.notesModule,
+    submodule: submoduleItem?.dataset.notesSubmodule ?? null,
+  };
 }
 
 function setNavigationState(isOpen) {
@@ -553,19 +568,69 @@ function applyLanguage(language, updateUrl = true) {
   setNavigationState(false);
 }
 
-function showNotesSubmodule(submoduleId) {
-  const activeSubmodule = [...notesSubmoduleViews].some(
-    (view) => view.dataset.notesSubmoduleView === submoduleId,
-  )
-    ? submoduleId
-    : null;
+function collapseNotesModule(moduleItem) {
+  moduleItem.open = false;
+  moduleItem.querySelectorAll("[data-notes-submodule]").forEach((submoduleItem) => {
+    submoduleItem.open = false;
+  });
+}
 
-  notesOverviewItems.forEach((item) => {
-    item.hidden = Boolean(activeSubmodule);
+function syncNotesAccordions(route) {
+  notesModuleItems.forEach((moduleItem, index) => {
+    const isTarget = route ? moduleItem.dataset.notesModule === route.module : index === 0;
+    if (!isTarget) {
+      collapseNotesModule(moduleItem);
+      return;
+    }
+    moduleItem.open = true;
+    moduleItem.querySelectorAll("[data-notes-submodule]").forEach((submoduleItem) => {
+      submoduleItem.open =
+        Boolean(route?.submodule) && submoduleItem.dataset.notesSubmodule === route.submodule;
+    });
+  });
+}
+
+function updateNotesHash(route) {
+  if (getModuleFromLocation() !== "notes") return;
+
+  const hash = route?.module
+    ? `#notes/${route.module}${route.submodule ? `/${route.submodule}` : ""}`
+    : "#notes";
+
+  if (window.location.hash === hash) return;
+  window.history.replaceState({ moduleId: "notes" }, "", hash);
+}
+
+function bindNotesAccordions() {
+  notesModuleItems.forEach((moduleItem) => {
+    const summary = moduleItem.querySelector(".notes-accordion-summary");
+    summary?.addEventListener("click", () => {
+      const willOpen = !moduleItem.open;
+      if (!willOpen) {
+        if (getNotesRouteFromLocation()?.module === moduleItem.dataset.notesModule) {
+          updateNotesHash(null);
+        }
+        return;
+      }
+
+      notesModuleItems.forEach((otherItem) => {
+        if (otherItem !== moduleItem) collapseNotesModule(otherItem);
+      });
+      updateNotesHash({ module: moduleItem.dataset.notesModule, submodule: null });
+    });
   });
 
-  notesSubmoduleViews.forEach((view) => {
-    view.hidden = view.dataset.notesSubmoduleView !== activeSubmodule;
+  notesSubmoduleItems.forEach((submoduleItem) => {
+    const summary = submoduleItem.querySelector(".notes-submodule-summary");
+    summary?.addEventListener("click", () => {
+      const moduleItem = submoduleItem.closest("[data-notes-module]");
+      if (!moduleItem) return;
+
+      updateNotesHash({
+        module: moduleItem.dataset.notesModule,
+        submodule: submoduleItem.open ? null : submoduleItem.dataset.notesSubmodule,
+      });
+    });
   });
 }
 
@@ -592,7 +657,7 @@ function showModule(moduleId) {
   });
 
   header.classList.toggle("on-dark", activeModule === "research");
-  showNotesSubmodule(activeModule === "notes" ? getNotesSubmoduleFromLocation() : null);
+  syncNotesAccordions(activeModule === "notes" ? getNotesRouteFromLocation() : null);
   setNavigationState(false);
   window.scrollTo(0, 0);
 }
@@ -638,5 +703,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+bindNotesAccordions();
 applyLanguage(getLanguageFromUrl(), false);
 showModule(getModuleFromLocation());

@@ -1586,55 +1586,90 @@ button {
     var(--paper-light);
 }
 
-.notes-module-grid {
+.notes-accordion-list {
   display: grid;
-  grid-template-columns: minmax(17rem, 0.72fr) minmax(28rem, 1.28fr);
-  gap: clamp(3rem, 8vw, 8rem);
-  align-items: start;
-}
-
-.notes-module-secondary {
-  margin-top: clamp(4rem, 7vw, 6rem);
-  padding-top: clamp(3rem, 5vw, 4.5rem);
   border-top: 1px solid var(--line);
 }
 
-.notes-course-intro {
-  position: sticky;
-  top: 7rem;
+.notes-accordion {
+  border-bottom: 1px solid var(--line);
 }
 
-.notes-course-heading {
+.notes-accordion-summary {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
+  padding: clamp(1.1rem, 2.2vw, 1.55rem) 0.15rem;
+  grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+  gap: clamp(0.7rem, 2vw, 1.3rem);
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
 }
 
-.notes-course-number {
-  display: grid;
-  min-width: 2.35rem;
-  min-height: 2.35rem;
-  padding: 0.45rem;
-  place-items: center;
-  border: 1px solid rgba(49, 95, 189, 0.5);
+.notes-accordion-summary::-webkit-details-marker,
+.notes-submodule-summary::-webkit-details-marker {
+  display: none;
+}
+
+.notes-accordion-summary:focus-visible,
+.notes-submodule-summary:focus-visible {
+  outline-offset: -2px;
+}
+
+.notes-accordion-index {
   color: var(--blue);
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
 }
 
-.notes-course-intro h3 {
-  margin: 0;
+.notes-accordion-title {
   font-family: var(--serif);
-  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  transition: color 200ms ease;
 }
 
-.notes-course-intro > p:not(.notes-language-note) {
-  max-width: 440px;
-  margin: 1.4rem 0 0;
+.notes-accordion-summary:hover .notes-accordion-title {
+  color: var(--blue);
+}
+
+.notes-accordion-chevron {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  color: var(--muted);
+  transition:
+    color 200ms ease,
+    transform 280ms var(--ease);
+}
+
+.notes-accordion[open] > .notes-accordion-summary .notes-accordion-chevron,
+.notes-submodule-accordion[open] > .notes-submodule-summary .notes-accordion-chevron {
+  color: var(--blue);
+  transform: rotate(90deg);
+}
+
+.notes-accordion-body {
+  display: grid;
+  padding: 0.25rem 0.15rem clamp(1.7rem, 3vw, 2.4rem) calc(2.4rem + clamp(0.7rem, 2vw, 1.3rem));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.notes-submodule-accordion + .notes-module-list {
+  border-top: 0;
+}
+
+.notes-accordion-intro {
+  display: grid;
+  max-width: 48rem;
+  gap: 0.5rem;
+}
+
+.notes-accordion-intro p {
+  margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -1647,109 +1682,73 @@ button {
   letter-spacing: 0.03em;
 }
 
-.notes-gr-content,
-.notes-sps-content {
-  display: grid;
-  min-width: 0;
-  gap: 1rem;
-}
-
-.notes-submodule-link {
-  position: relative;
-  display: flex;
-  min-height: clamp(7.5rem, 8vw, 8.5rem);
-  padding: clamp(0.95rem, 2vw, 1.25rem);
+.notes-submodule-accordion {
   border: 1px solid var(--line);
-  background: rgba(49, 95, 189, 0.035);
-  color: var(--ink);
-  transition:
-    border-color 200ms ease,
-    background-color 200ms ease;
+  background: rgba(49, 95, 189, 0.03);
 }
 
-.notes-submodule-link:hover {
-  border-color: rgba(49, 95, 189, 0.38);
-  background: rgba(49, 95, 189, 0.065);
+.notes-submodule-summary {
+  display: grid;
+  padding: 0.7rem 0.95rem;
+  grid-template-columns: 1.3rem minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 200ms ease;
 }
 
-.notes-submodule-link-number {
-  position: absolute;
-  top: clamp(0.95rem, 2vw, 1.25rem);
-  right: clamp(0.95rem, 2vw, 1.25rem);
+.notes-submodule-summary:hover {
+  background: rgba(49, 95, 189, 0.06);
+}
+
+.notes-submodule-index {
   color: var(--blue);
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.5rem;
   letter-spacing: 0.08em;
 }
 
-.notes-submodule-link-copy {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-
-.notes-submodule-link-copy strong {
-  max-width: 16ch;
-  margin-top: 0.9rem;
-  color: var(--ink);
+.notes-submodule-title {
   font-family: var(--serif);
-  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  font-size: 1.05rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
-.notes-submodule-link-action {
-  display: flex;
-  margin-top: auto;
-  padding-top: 0.75rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-top: 1px solid var(--line);
+.notes-submodule-summary .notes-accordion-chevron {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
-.notes-submodule-link-action small {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.04em;
+.notes-submodule-body {
+  padding: 0 0.95rem 0.45rem;
 }
 
-.notes-submodule-link-arrow {
-  color: var(--blue);
-  font-size: 1.25rem;
-  transition: transform 180ms var(--ease);
+.notes-submodule-body .notes-module-list {
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.notes-submodule-link:hover .notes-submodule-link-arrow {
-  transform: translateX(0.25rem);
+@keyframes notes-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.notes-submodule-view {
-  max-width: 62rem;
-  margin: 0 auto;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .notes-accordion[open] > .notes-accordion-body {
+    animation: notes-panel-in 320ms var(--ease) both;
+  }
 
-.notes-back-link {
-  display: inline-flex;
-  color: var(--blue);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.03em;
-}
-
-.notes-submodule-view-heading {
-  margin: clamp(2.5rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
-}
-
-.notes-submodule-view-heading h3 {
-  margin: 0.75rem 0 0;
-  font-family: var(--serif);
-  font-size: clamp(2.8rem, 7vw, 5.8rem);
-  font-weight: 400;
-  letter-spacing: -0.05em;
-  line-height: 1;
+  .notes-submodule-accordion[open] > .notes-submodule-body {
+    animation: notes-panel-in 240ms var(--ease) both;
+  }
 }
 
 .notes-submodule-empty {
@@ -1757,6 +1756,11 @@ button {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--muted);
+}
+
+.notes-submodule-body .notes-submodule-empty {
+  padding: 0.6rem 0.15rem 0.4rem;
+  border: 0;
 }
 
 .notes-submodule-empty p {
@@ -1768,15 +1772,16 @@ button {
   display: grid;
   margin: 0;
   padding: 0;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 2rem;
+  grid-template-columns: minmax(0, 1fr);
   border-top: 1px solid var(--line);
   list-style: none;
 }
 
-.notes-gr-content .notes-module-list,
-.notes-sps-content .notes-module-list {
-  grid-template-columns: 1fr;
+@media (min-width: 861px) {
+  .notes-module-list.is-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
 }
 
 .notes-module-list li {
@@ -1806,7 +1811,7 @@ button {
 
 .notes-module-list strong {
   font-family: var(--serif);
-  font-size: 0.96rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.3;
 }
@@ -1814,8 +1819,8 @@ button {
 .notes-module-list small {
   margin-top: 0.3rem;
   color: var(--muted);
-  font-size: 0.62rem;
-  line-height: 1.4;
+  font-size: 0.68rem;
+  line-height: 1.45;
 }
 
 .notes-module-list a::after {
@@ -1826,7 +1831,7 @@ button {
   color: var(--blue);
   content: attr(data-file-type) " ↗";
   font-family: var(--mono);
-  font-size: 0.48rem;
+  font-size: 0.56rem;
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -2276,13 +2281,8 @@ html[lang="zh-CN"] .visit-card h3 {
   .toolkit-header,
   .honors-heading,
   .beyond-grid,
-  .coursework-heading,
-  .notes-module-grid {
+  .coursework-heading {
     grid-template-columns: 1fr;
-  }
-
-  .notes-course-intro {
-    position: static;
   }
 
   .coursework-heading {
@@ -2423,12 +2423,32 @@ html[lang="zh-CN"] .visit-card h3 {
     margin-bottom: 2.8rem;
   }
 
-  .notes-submodule-link {
-    min-height: 9rem;
+  .notes-accordion-summary {
+    padding: 1rem 0.15rem;
+    grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+    gap: 0.7rem;
   }
 
-  .notes-submodule-link-copy strong {
-    font-size: clamp(2rem, 10vw, 2.6rem);
+  .notes-accordion-title {
+    font-size: clamp(1.35rem, 6.4vw, 1.8rem);
+  }
+
+  .notes-accordion-body {
+    padding-left: 0.15rem;
+  }
+
+  .notes-accordion-intro p {
+    font-size: 0.85rem;
+  }
+
+  .notes-submodule-summary {
+    padding: 0.65rem 0.75rem;
+    grid-template-columns: 1.1rem minmax(0, 1fr) auto;
+    gap: 0.55rem;
+  }
+
+  .notes-submodule-body {
+    padding: 0 0.75rem 0.35rem;
   }
 
   .notes-module-list {

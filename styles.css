@@ -1631,10 +1631,10 @@ button {
   grid-row: 1;
   grid-column: 2;
   font-family: var(--serif);
-  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 1.04;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
   transition: color 200ms ease;
 }
 
@@ -1648,8 +1648,11 @@ button {
 
 .notes-accordion-desc {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.09em;
+  line-height: 1.6;
+  text-transform: uppercase;
   text-wrap: pretty;
   transition: color 200ms ease;
 }
@@ -1660,6 +1663,11 @@ button {
 
 .notes-accordion-summary:hover .notes-accordion-desc {
   color: var(--ink-soft);
+}
+
+html[lang="zh-CN"] .notes-accordion-desc {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
 }
 
 .notes-accordion-chevron {
@@ -1695,15 +1703,6 @@ button {
 
 .notes-submodule-accordion + .notes-module-list {
   border-top: 0;
-}
-
-.notes-language-note {
-  display: block;
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.03em;
 }
 
 .notes-submodule-accordion {
@@ -2459,10 +2458,6 @@ html[lang="zh-CN"] .visit-card h3 {
     row-gap: 0.4rem;
   }
 
-  .notes-accordion-title {
-    font-size: clamp(1.78rem, 7.6vw, 2.2rem);
-  }
-
   .notes-accordion-chevron {
     width: 1.7rem;
     height: 1.7rem;
@@ -2470,14 +2465,6 @@ html[lang="zh-CN"] .visit-card h3 {
 
   .notes-accordion-body {
     padding-left: 0.15rem;
-  }
-
-  .notes-accordion-desc {
-    font-size: 0.82rem;
-  }
-
-  .notes-language-note {
-    font-size: 0.58rem;
   }
 
   .notes-submodule-title {

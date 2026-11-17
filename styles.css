@@ -1522,23 +1522,6 @@ html[lang="zh-CN"] .accordion-desc {
   }
 }
 
-.accordion-empty {
-  padding: 1.5rem 0.4rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-}
-
-.accordion-submodule-body .accordion-empty {
-  padding: 0.6rem 0.15rem 0.4rem;
-  border: 0;
-}
-
-.accordion-empty p {
-  margin: 0;
-  font-size: 0.85rem;
-}
-
 .file-list {
   display: grid;
   margin: 0;
